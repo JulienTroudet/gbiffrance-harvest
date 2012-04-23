@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Application.index
+GET     /harvest/{type}/{id}/                    Application.harvest
+GET     /harvest/{type}/{id}/{begin}      		Application.harvest
+GET     /harvest/{type}/{id}/{begin}/{end}      Application.harvest
+GET     /taxonomize/{id}                        Application.taxonomize
+GET     /delete/{id}/occurrences                Application.deleteDatasetOccurrences
+GET     /delete/{id}                            Application.deleteDataset
+GET     /add/datapublisher                      DataPublishers.add
+GET     /add/dataset                            Datasets.add
+GET     /edit/targetdirectory                   Application.editTargetDirectory
+GET     /edit/{id}                   			Datasets.edit
+GET     /geospatial/{id}                   		Application.geospatial
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}

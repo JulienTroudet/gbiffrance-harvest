@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="0" time="1.271" errors="0" skipped="0" tests="1" name="TaxonomyTest">
+  <testcase classname="TaxonomyTest" name="getOccurrencesTest" time="1.271">
+      </testcase>
+</testsuite>

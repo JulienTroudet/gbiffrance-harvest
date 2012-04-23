@@ -1,0 +1,27 @@
+#{extends 'main.html' /}
+#{set title:'Add a new Data Publisher' /}
+
+<div id="modal">
+  <div class="modal-header">
+    <h3>Add a new Data Publisher</h3>
+  </div>
+  <div class="modal-body" id="new_data_publisher">
+    #{form @DataPublishers.save()}
+      <label>Name: </label>
+	  <input type="text" id="name" name="name"/>
+	  #{ifError 'name'}<span class="alert alert-error">#{error 'name' /}</span>#{/ifError}
+      <label>Description: </label>
+      <input type="text" id="description" name="description"/>
+      #{ifError 'description'}<span class="alert alert-error">#{error 'description' /}</span>#{/ifError}
+      <label>Administrative Contact: </label>
+	  <input type="text" id="administrativeContact" name="administrativeContact"/>
+	  #{ifError 'administrativeContact'}<span class="alert alert-error">#{error 'administrativeContact' /}</span>#{/ifError}
+      <label>Technical Contact: </label>
+	  <input type="text" id="technicalContact" name="technicalContact"/>
+	  #{ifError 'technicalContact'}<span class="alert alert-error">#{error 'technicalContact' /}</span>#{/ifError}
+  </div>
+  <div class="modal-footer">
+      <button class="btn" type="submit">Submit</button>
+  	#{/form}
+  </div>  
+</div>  

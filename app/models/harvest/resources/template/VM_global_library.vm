@@ -1,0 +1,2 @@
+## We have no global macros, but don't want Velocity warning messages
+## So this is created and left with a single blank line

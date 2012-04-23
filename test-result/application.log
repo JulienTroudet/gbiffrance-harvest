@@ -1,0 +1,22 @@
+31 Jan 2012 13:40:50,762 INFO  ~ Starting /home/michael/Dropbox/workspace/gbiffrance-harvest
+31 Jan 2012 13:40:51,382 WARN  ~ You're running Play! in DEV mode
+31 Jan 2012 13:40:51,484 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+31 Jan 2012 13:41:04,251 INFO  ~ Connected to jdbc:mysql://localhost:3306/gbiffrance_harvest?autoreconnect=true?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+31 Jan 2012 13:41:16,435 INFO  ~ Application 'gbiffrance-harvest' is now started !
+31 Jan 2012 13:52:38,378 INFO  ~ IPT Harvester is started. Dataset = herbstrasb
+31 Jan 2012 13:52:38,398 INFO  ~ Connection to the URL http://www.gbif.fr:8080/ipt/archive.do?r=herbierdestrasbourg
+31 Jan 2012 13:52:38,485 INFO  ~ Type File : application/zip;charset=ISO-8859-1
+31 Jan 2012 13:52:38,590 INFO  ~ Destination: /tmp/resource-7//archive.do?r=herbierdestrasbourg.zip
+31 Jan 2012 13:52:38,591 INFO  ~ Archive successfully downloaded
+31 Jan 2012 13:52:38,592 INFO  ~ Extracting directory: meta.xml
+31 Jan 2012 13:52:38,592 INFO  ~ Extracting directory: eml.xml
+31 Jan 2012 13:52:38,592 INFO  ~ Extracting directory: occurrence.txt
+31 Jan 2012 13:52:38,655 INFO  ~ Archive successfully extracted
+31 Jan 2012 13:52:38,660 DEBUG ~ Reading archive metadata file
+31 Jan 2012 13:52:38,806 DEBUG ~ Metafile contains a core file description
+31 Jan 2012 13:52:38,814 DEBUG ~ Metafile contains 0 described extension files
+31 Jan 2012 13:53:00,837 INFO  ~ 10000 occurrences saved in database
+31 Jan 2012 13:53:22,251 INFO  ~ 20000 occurrences saved in database
+31 Jan 2012 13:53:42,605 INFO  ~ 30000 occurrences saved in database
+31 Jan 2012 13:54:01,296 INFO  ~ 40000 occurrences saved in database
+31 Jan 2012 13:54:08,022 INFO  ~ Occurrences successfully created

@@ -1,0 +1,72 @@
+## This is a Digir Search Request template
+##
+## Required Input  
+## - concept
+## See included templates for further requirements
+##
+## Define the type of request for the header
+#set($type="search")
+#set($version="1.0.0")
+#set($count="false")
+##
+<request xmlns='http://digir.net/schema/protocol/2003/1.0'
+	xmlns:xsd='http://www.w3.org/2001/XMLSchema'
+	xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+	xmlns:digir='http://digir.net/schema/protocol/2003/1.0'
+	xmlns:darwin='http://digir.net/schema/conceptual/darwin/2003/1.0'
+	xmlns:dwc='http://digir.net/schema/conceptual/darwin/2003/1.0'
+	xsi:schemaLocation='http://digir.net/schema/protocol/2003/1.0 http://digir.sourceforge.net/schema/protocol/2003/1.0/digir.xsd http://digir.net/schema/conceptual/darwin/2003/1.0 http://digir.sourceforge.net/schema/conceptual/darwin/2003/1.0/darwin2.xsd'>
+	<header>
+		<version>$version</version>
+		<sendTime>$DateFormatter.currentDateTimeAsXMLString()</sendTime>
+		<source>127.0.0.1</source>
+		<destination#if($resource) resource="$resource"#end>$destination</destination>
+		<type>$type</type>
+	</header>
+	<search>
+  <filter>
+  #if(($lower && $upper) || ($upper && $country) || ($lower && $country))
+    <and>
+  #end
+  #if($lower)
+	<greaterThanOrEquals>
+	  <dwc:ScientificName>$lower</dwc:ScientificName>
+	</greaterThanOrEquals>
+  #end
+  #if($upper)
+    <lessThanOrEquals>
+	  <dwc:ScientificName>$upper</dwc:ScientificName>
+	</lessThanOrEquals>
+  #end
+  #if($country)
+    <or>
+  	  <like>
+  		<dwc:Country>France</dwc:Country>
+  	  </like>
+  	  <and>
+  		<greaterThanOrEquals>
+		  <dwc:Latitude>41.333740</dwc:Latitude>
+		</greaterThanOrEquals>
+		<lessThanOrEquals>
+		  <dwc:Latitude>51.089062</dwc:Latitude>
+		</lessThanOrEquals>
+		<greaterThanOrEquals>
+		  <dwc:Longitude>-5.140600</dwc:Longitude>
+		</greaterThanOrEquals>
+		<lessThanOrEquals>
+		  <dwc:Longitude>9.559320</dwc:Longitude>
+		</lessThanOrEquals>
+  	  </and>
+  	</or> 	
+  #end
+ #if(($lower && $upper) || ($upper && $country) || ($lower && $country))
+  				</and>
+  #end
+  
+  </filter>
+    <records limit="$maxResults" #if($startAt) start="$startAt"#else start="0"#end>
+    <structure schemaLocation="http://digir.sourceforge.net/schema/conceptual/darwin/full/2003/1.0/darwin2full.xsd"/>
+    </records>
+  <count>true</count>
+</search>
+</request>

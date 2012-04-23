@@ -1,0 +1,58 @@
+## This is a Tapir Search Request template
+##
+<?xml version="1.0" encoding="UTF-8"?>
+<request xmlns="http://rs.tdwg.org/tapir/1.0"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://rs.tdwg.org/tapir/1.0 http://rs.tdwg.org/tapir/1.0/schema/tapir.xsd">
+    <header>
+		##<source>127.0.0.1</source>
+		<destination#if($resource) resource="$resource"#end>$destination</destination>
+		<type>$type</type>
+	</header>
+	<search count="true" #if($startAt) start="$startAt"#else start="0"#end limit="$maxResults">
+	  <externalOutputModel location="http://rs.tdwg.org/tapir/cs/dwc/1.4/model/dw_core_geo_cur.xml" />
+  <filter>
+  #if(($lower && $upper) || ($upper && $country) || ($lower && $country))
+    <and>
+  #end
+  #if($lower)
+    <greaterThanOrEquals>
+	  <concept id="http://rs.tdwg.org/dwc/dwcore/ScientificName"/><literal value="$lower"/>
+	</greaterThanOrEquals>
+  #end
+  #if($upper)
+	<lessThanOrEquals>
+	  <concept id="http://rs.tdwg.org/dwc/dwcore/ScientificName"/><literal value="$upper"/>
+	</lessThanOrEquals>
+  #end
+  #if($country)
+  	<or>
+      <like>
+  	    <concept id="http://rs.tdwg.org/dwc/dwcore/Country"/><literal value="France"/>
+  	  </like>
+      <and>
+        <greaterThanOrEquals>
+	      <concept id="http://rs.tdwg.org/dwc/geospatial/DecimalLatitude"/><literal value="41.333740"/>
+	    </greaterThanOrEquals>
+	    <lessThanOrEquals>
+	      <concept id="http://rs.tdwg.org/dwc/geospatial/DecimalLatitude"/><literal value="51.089062"/>
+	    </lessThanOrEquals>  
+	    <greaterThanOrEquals>
+	      <concept id="http://rs.tdwg.org/dwc/geospatial/DecimalLongitude"/><literal value="-5.140600"/>
+	    </greaterThanOrEquals>
+	    <lessThanOrEquals>
+	      <concept id="http://rs.tdwg.org/dwc/geospatial/DecimalLongitude"/><literal value="9.559320"/>
+	    </lessThanOrEquals>
+  	  </and> 
+    </or>       
+  #end
+  #if(($lower && $upper) || ($upper && $country) || ($lower && $country))
+  </and>
+  #end
+  </filter>
+    <records limit="$maxResults" #if($startAt) start="$startAt"#else start="0"#end>
+    <structure schemaLocation="http://digir.sourceforge.net/schema/conceptual/darwin/full/2003/1.0/darwin2full.xsd"/>
+    </records>
+  <count>true</count>
+</search>
+</request>

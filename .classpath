@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="models/occurrence/harvest/model/|models/occurrence/harvest/resources/template/digir/|models/occurrence/harvest/resources/template/tapir/|org/gbif/simpleharvest/digir/|org/gbif/simpleharvest/ipt/|org/gbif/simpleharvest/model/|org/gbif/simpleharvest/tapir/|views/**|models/occurrence/harvest/tapir/Harvester.java|models/occurrence/harvest/digir/Harvester.java|models/occurrence/harvest/biocase/Harvester.java" including="controllers/|models/|models/occurrence/taxonomy/|org/gbif/portal/harvest/taxonomy/|org/gbif/simpleharvest/|org/gbif/simpleharvest/biocase/|org/gbif/simpleharvest/dataaccess/|org/gbif/simpleharvest/util/|resources/" kind="src" path="app"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="src" path="lib"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/java-6-sun-1.6.0.26"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/GBIF France Harvester Library"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Play Framework Library"/>
+	<classpathentry kind="output" path="eclipse/classes"/>
+</classpath>
