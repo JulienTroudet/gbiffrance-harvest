@@ -1,5 +1,6 @@
 package controllers;
 
+
 import java.util.List;
 
 import models.DataPublisher;
@@ -7,7 +8,8 @@ import models.Dataset;
 import play.data.validation.Required;
 import play.db.jpa.GenericModel;
 import play.mvc.Controller;
-
+import play.mvc.With;
+@With(Secure.class)
 public class DataPublishers extends Controller {
 	
   public static void add(){

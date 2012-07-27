@@ -1,44 +1,57 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-    <head>
-        <title>#{get 'title' /}</title>
-        <meta charset="${_response_encoding}">
-        <!-- <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/blueprint/blueprint/screen.css'}"> -->
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/bootstrap/css/bootstrap.css'}">
-        <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/main.css'}">
-        #{get 'moreStyles' /}
-        <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
-        <script src="@{'/public/javascripts/jquery-1.7.1.js'}" type="text/javascript" charset="${_response_encoding}"></script> 
-        <script src="@{'/public/javascripts/jquery.blockUI.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-        <script src="@{'/public/stylesheets/bootstrap/js/bootstrap.js'}" type="text/javascript" charset="${_response_encoding}"></script>
-        #{get 'moreScripts' /}
-        <script type="text/javascript">          
-          function blockloading() { 
-             $.blockUI({ message: $('#blockloading'), css: {border: '1px solid #5595a7',
-            	 											background: 'white', 
-            	 											width: '400px'}});
-          };   
-        </script>
-    </head>
-    <body>
-      <div class="container" id="content">
-      <!-- block displayed while waiting for the harvesting of a dataset -->
-      <div id="blockloading" style="display:none;">
-        <h3>Please wait...</h3><img src="@{'/public/images/loading.gif'}"/>
-        <br/>
-        <a href="">Refresh</a>
-      </div>
-      <div class="navbar navbar-fixed-top" id="header">
-        <div class="navbar-inner">
-          <div class="container">
-            <a class="brand" id="logo" href="@{Application.index()}">GBIF France Harvester</a>
-            <ul class="nav">
-              <li><a href="@{DataPublishers.add()}">Add a new Data Publisher</a></li>
-    	      <li><a href="@{Datasets.add()}">Add a new Dataset</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>      
-      #{doLayout /}
-    </body>
+<head>
+<title>#{get 'title' /}</title>
+<meta charset="${_response_encoding}">
+<!-- <link rel="stylesheet" media="screen" href="@{'/public/stylesheets/blueprint/blueprint/screen.css'}"> -->
+<link rel="stylesheet" media="screen"
+	href="@{'/public/stylesheets/bootstrap/css/bootstrap.css'}">
+<link rel="stylesheet" media="screen"
+	href="@{'/public/stylesheets/main.css'}">
+#{get 'moreStyles' /}
+<link rel="shortcut icon" type="image/png"
+	href="@{'/public/images/favicon.png'}">
+<script src="@{'/public/javascripts/jquery-1.7.1.js'}"
+	type="text/javascript" charset="${_response_encoding}"></script>
+<script src="@{'/public/javascripts/jquery.blockUI.js'}"
+	type="text/javascript" charset="${_response_encoding}"></script>
+<script src="@{'/public/stylesheets/bootstrap/js/bootstrap.js'}"
+	type="text/javascript" charset="${_response_encoding}"></script>
+#{get 'moreScripts' /}
+<script type="text/javascript">
+	function blockloading() {
+		$.blockUI({
+			message : $('#blockloading'),
+			css : {
+				border : '1px solid #5595a7',
+				background : 'white',
+				width : '400px'
+			}
+		});
+	};
+</script>
+</head>
+<body>
+	<div class="container" id="content">
+		<!-- block displayed while waiting for the harvesting of a dataset -->
+		<div id="blockloading" style="display: none;">
+			<h3>Please wait...</h3>
+			<img src="@{'/public/images/loading.gif'}" /> <br /> <a href="">Refresh</a>
+		</div>
+		<div class="navbar navbar-fixed-top" id="header">
+			<div class="navbar-inner">
+				<div class="container">
+					<a class="brand" id="logo" href="@{Application.index()}">GBIF
+						France Harvester</a>
+					<ul class="nav">
+						<li><a href="@{DataPublishers.add()}">Add a new Data Publisher</a></li>
+						<li><a href="@{Datasets.add()}">Add a new Dataset</a></li>
+						<li><a href="/admin">Admin</a></li>
+						<li><a href="@{Secure.logout()}">Log out</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		#{doLayout /}
+</body>
 </html>

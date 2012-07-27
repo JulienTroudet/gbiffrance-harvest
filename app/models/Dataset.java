@@ -8,6 +8,9 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+
+import models.harvest.ipt.eml.EmlData;
 
 
 import play.db.jpa.Model;
@@ -32,7 +35,11 @@ public class Dataset extends Model
   @ManyToOne
   public DataPublisher dataPublisher;
   
-  public Dataset() {}
+  @OneToOne(mappedBy="dataset", cascade=CascadeType.ALL)
+  public EmlData emlData;
+  
+  public Dataset() {
+  }
   
   public Dataset(String name, String url, String type, DataPublisher dataPublisher)
   {
@@ -43,8 +50,8 @@ public class Dataset extends Model
 	this.occurrences = new ArrayList<Occurrence>();
 	this.dataPublisher = dataPublisher;
   }
-  
-  public void markDataset(String status)
+
+public void markDataset(String status)
   {
 	this.status = status;
   }

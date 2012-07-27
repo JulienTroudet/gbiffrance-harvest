@@ -18,7 +18,7 @@ public class DataPublisher extends Model
 	public String technicalContact;
 
 	@OneToMany(mappedBy="dataPublisher", cascade=CascadeType.ALL)
-	public List<Dataset> dataset;	
+	public List<Dataset> datasets;	
 	
 	public DataPublisher(String name, String description, String administrativeContact, String technicalContact)
 	{

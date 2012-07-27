@@ -21,7 +21,9 @@ import java.sql.SQLException;
 import java.util.*;
 
 import models.harvest.*;
+import models.harvest.ipt.eml.EmlData;
 import models.*;
+
 
 public class Application extends Controller {
 
@@ -80,6 +82,7 @@ public class Application extends Controller {
 	 * Renders the available datasets
 	 */
 	public static void index() {
+
 	  String targetDirectory = Application.targetDirectory;
 	  List<DataPublishers> dataPublishers = DataPublisher.all().fetch();
 	  boolean workInProgress = Application.workInProgress;
@@ -109,11 +112,15 @@ public class Application extends Controller {
 	 */
 	public static void deleteDatasetOccurrences(Long id) {
 	  Occurrence.delete("dataset_id=?", id);
+	  //EmlData.delete("dataset_id=?", id);
 	  Dataset dataset = Dataset.findById(id);
-	  Harvester.deleteTemporaryDirectory(dataset.tempDirectory, null);
+	  dataset.emlData.delete();
+	  Harvester.deleteTemporaryDirectory(dataset.tempDirectory, null);	  
 	  dataset.status = "EMPTY";
+	  dataset.occurrences = new ArrayList<Occurrence>();
 	  dataset.currentLower = null;
 	  dataset.tempDirectory = null;
+	  dataset.emlData = null;
 	  dataset.save();
 	  index();
 	}

@@ -6,7 +6,9 @@ import models.DataPublisher;
 import models.Dataset;
 import play.data.validation.Required;
 import play.mvc.Controller;
+import play.mvc.With;
 
+@With(Secure.class)
 public class Datasets extends Controller
 {
   public static void add(){
