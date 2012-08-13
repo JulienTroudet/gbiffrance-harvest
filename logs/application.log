@@ -5515,3 +5515,1079 @@ Caused by: java.lang.OutOfMemoryError: PermGen space
 11:13:32,127 DEBUG ~ Metafile contains 0 described extension files
 11:13:32,211 INFO  ~ Occurrences successfully created
 11:13:32,245 INFO  ~ Metadatas successfully created
+10:49:23,936 INFO  ~ Starting C:\java\WorkspaceJEE\gbiffrance-harvest
+10:49:23,942 INFO  ~ Module crud is available (C:\java\play-1.2.5\modules\crud)
+10:49:23,942 INFO  ~ Module mongo is available (C:\java\WorkspaceJEE\gbiffrance-harvest\modules\mongo-1.3)
+10:49:23,944 INFO  ~ Module secure is available (C:\java\play-1.2.5\modules\secure)
+10:49:24,812 WARN  ~ You're running Play! in DEV mode
+10:49:24,920 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+10:49:48,806 INFO  ~ Connected to jdbc:mysql://localhost:3306/test
+10:49:51,071 INFO  ~ Application 'gbiffrance-harvest' is now started !
+13:18:07,741 INFO  ~ IPT Harvester is started. Dataset = Bacteries
+13:18:07,756 INFO  ~ Connection to the URL http://ipt.gbif.org/archive.do?r=dsmz
+13:18:07,929 INFO  ~ Type File : application/zip;charset=ISO-8859-1
+13:18:08,174 INFO  ~ Destination: C:\tmp\resource-2\dsmz
+13:18:08,174 INFO  ~ Archive successfully downloaded
+13:18:08,175 INFO  ~ Extracting directory: eml.xml
+13:18:08,177 INFO  ~ Extracting directory: taxon.txt
+13:18:08,200 INFO  ~ Extracting directory: meta.xml
+13:18:08,201 INFO  ~ Archive successfully extracted
+13:18:08,206 DEBUG ~ Reading archive metadata file
+13:18:08,329 DEBUG ~ Metafile contains a core file description
+13:18:08,339 DEBUG ~ Metafile contains 0 described extension files
+13:18:08,340 ERROR ~ This application requires dwc-a with scientific names
+13:18:33,765 INFO  ~ Starting C:\java\WorkspaceJEE\gbiffrance-harvest
+13:18:33,770 INFO  ~ Module crud is available (C:\java\play-1.2.5\modules\crud)
+13:18:33,775 INFO  ~ Module mongo is available (C:\java\WorkspaceJEE\gbiffrance-harvest\modules\mongo-1.3)
+13:18:33,776 INFO  ~ Module secure is available (C:\java\play-1.2.5\modules\secure)
+13:18:34,837 WARN  ~ You're running Play! in DEV mode
+13:18:34,947 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+13:18:44,068 INFO  ~ Connected to jdbc:mysql://localhost:3306/test
+13:18:46,247 INFO  ~ Application 'gbiffrance-harvest' is now started !
+13:19:21,052 INFO  ~ IPT Harvester is started. Dataset = Bacteries
+13:19:21,055 INFO  ~ Connection to the URL http://ipt.gbif.org/archive.do?r=dsmz
+13:19:21,133 INFO  ~ Type File : application/zip;charset=ISO-8859-1
+13:19:21,406 INFO  ~ Destination: C:\tmp\resource-2\dsmz
+13:19:21,406 INFO  ~ Archive successfully downloaded
+13:19:21,407 INFO  ~ Extracting directory: eml.xml
+13:19:21,410 INFO  ~ Extracting directory: taxon.txt
+13:19:21,432 INFO  ~ Extracting directory: meta.xml
+13:19:21,434 INFO  ~ Archive successfully extracted
+13:19:21,439 DEBUG ~ Reading archive metadata file
+13:19:21,550 DEBUG ~ Metafile contains a core file description
+13:19:21,563 DEBUG ~ Metafile contains 0 described extension files
+13:19:21,563 ERROR ~ This application requires dwc-a with scientific names
+13:20:12,635 INFO  ~ Starting C:\java\WorkspaceJEE\gbiffrance-harvest
+13:20:12,640 INFO  ~ Module crud is available (C:\java\play-1.2.5\modules\crud)
+13:20:12,645 INFO  ~ Module mongo is available (C:\java\WorkspaceJEE\gbiffrance-harvest\modules\mongo-1.3)
+13:20:12,645 INFO  ~ Module secure is available (C:\java\play-1.2.5\modules\secure)
+13:20:13,563 WARN  ~ You're running Play! in DEV mode
+13:20:13,678 INFO  ~ Listening for HTTP on port 9000 (Waiting a first request to start) ...
+13:20:20,530 INFO  ~ Connected to jdbc:mysql://localhost:3306/test
+13:20:22,613 INFO  ~ Application 'gbiffrance-harvest' is now started !
+13:20:40,284 INFO  ~ No temp directory, do nothing
+13:20:45,643 INFO  ~ Temp directory deleted
+13:20:45,643 INFO  ~ Temp directory deleted
+13:20:47,113 INFO  ~ IPT Harvester is started. Dataset = Julien
+13:20:47,117 INFO  ~ Connection to the URL http://ipt.gbif.org/archive.do?r=tim-ceh
+13:20:47,240 INFO  ~ Type File : application/zip;charset=ISO-8859-1
+13:20:47,242 INFO  ~ Destination: C:\tmp\resource-1\tim-ceh
+13:20:47,242 INFO  ~ Archive successfully downloaded
+13:20:47,244 INFO  ~ Extracting directory: meta.xml
+13:20:47,246 INFO  ~ Extracting directory: eml.xml
+13:20:47,248 INFO  ~ Extracting directory: occurrence.txt
+13:20:47,249 INFO  ~ Archive successfully extracted
+13:20:47,256 DEBUG ~ Reading archive metadata file
+13:20:47,385 DEBUG ~ Metafile contains a core file description
+13:20:47,394 DEBUG ~ Metafile contains 0 described extension files
+13:20:47,421 INFO  ~ Occurrences successfully created
+13:20:47,455 INFO  ~ Metadatas successfully created
+13:21:02,074 INFO  ~ IPT Harvester is started. Dataset = Bacteries
+13:21:02,075 INFO  ~ Connection to the URL http://ipt.gbif.org/archive.do?r=tim-ceh
+13:21:02,147 INFO  ~ Type File : application/zip;charset=ISO-8859-1
+13:21:02,149 INFO  ~ Destination: C:\tmp\resource-3\tim-ceh
+13:21:02,149 INFO  ~ Archive successfully downloaded
+13:21:02,149 INFO  ~ Extracting directory: meta.xml
+13:21:02,151 INFO  ~ Extracting directory: eml.xml
+13:21:02,161 INFO  ~ Extracting directory: occurrence.txt
+13:21:02,163 INFO  ~ Archive successfully extracted
+13:21:02,163 DEBUG ~ Reading archive metadata file
+13:21:02,167 DEBUG ~ Metafile contains a core file description
+13:21:02,169 DEBUG ~ Metafile contains 0 described extension files
+13:21:02,185 INFO  ~ Occurrences successfully created
+13:21:02,192 INFO  ~ Metadatas successfully created
+13:23:05,662 ERROR ~ 
+
+@6bbc8cahh
+Internal Server Error (500) for request GET /users/list
+
+Template compilation error (In /app/views/Users/list.html around line 11)
+The template /app/views/Users/list.html does not compile : #{crud.custom'name'} is not closed.
+
+play.exceptions.TemplateCompilationException: #{crud.custom'name'} is not closed.
+	at play.templates.GroovyTemplateCompiler.endTag(GroovyTemplateCompiler.java:316)
+	at play.templates.TemplateCompiler.generate(TemplateCompiler.java:93)
+	at play.templates.TemplateCompiler.compile(TemplateCompiler.java:15)
+	at play.templates.GroovyTemplateCompiler.compile(GroovyTemplateCompiler.java:41)
+	at play.templates.TemplateCompiler.compile(TemplateCompiler.java:28)
+	at play.templates.TemplateLoader.load(TemplateLoader.java:82)
+	at play.templates.TemplateLoader.load(TemplateLoader.java:172)
+	at play.mvc.Controller.renderTemplate(Controller.java:660)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.CRUD.list(CRUD.java:56)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+13:24:57,412 ERROR ~ 
+
+@6bbc8caho
+Internal Server Error (500) for request GET /users/list
+
+No route found (In /app/views/Users/list.html around line 12)
+No route able to invoke action Comments.show was found.
+
+play.exceptions.NoRouteFoundException: No route found
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:82)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:266)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.CRUD.list(CRUD.java:56)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+13:25:33,276 ERROR ~ 
+
+@6bbc8cai1
+Internal Server Error (500) for request GET /users/list
+
+No route found (In /app/views/Users/list.html around line 12)
+No route able to invoke action Comments.show was found.
+
+play.exceptions.NoRouteFoundException: No route found
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:82)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:266)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.CRUD.list(CRUD.java:56)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+13:25:51,176 ERROR ~ 
+
+@6bbc8cai2
+Internal Server Error (500) for request GET /users/list
+
+Template execution error (In /app/views/Users/list.html around line 13)
+Execution error occured in template /app/views/Users/list.html. Exception raised was MissingPropertyException : No such property: content for class: models.User.
+
+play.exceptions.TemplateExecutionException: No such property: content for class: models.User
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:266)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.CRUD.list(CRUD.java:56)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingPropertyException: No such property: content for class: models.User
+	at /app/views/Users/list.html.(line:13)
+	at play.templates.JavaExtensions.toString(JavaExtensions.java:76)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.GroovyTemplate$ExecutableTemplate.invokeTag(GroovyTemplate.java:401)
+	at /app/views/Users/list.html.(line:10)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more
+13:25:52,542 ERROR ~ 
+
+@6bbc8cai3
+Internal Server Error (500) for request GET /users/list
+
+Template execution error (In /app/views/Users/list.html around line 13)
+Execution error occured in template /app/views/Users/list.html. Exception raised was MissingPropertyException : No such property: content for class: models.User.
+
+play.exceptions.TemplateExecutionException: No such property: content for class: models.User
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:266)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.CRUD.list(CRUD.java:56)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingPropertyException: No such property: content for class: models.User
+	at /app/views/Users/list.html.(line:13)
+	at play.templates.JavaExtensions.toString(JavaExtensions.java:76)
+	at {module:crud}/app/views/tags/crud/table.html.(line:46)
+	at {module:crud}/app/views/tags/crud/table.html.(line:39)
+	at {module:crud}/app/views/tags/crud/table.html.(line:36)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.GroovyTemplate$ExecutableTemplate.invokeTag(GroovyTemplate.java:401)
+	at /app/views/Users/list.html.(line:10)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more
+13:26:28,187 ERROR ~ 
+
+@6bbc8cai4
+Internal Server Error (500) for request GET /users/show?id=superadmin
+
+Execution exception (In {module:crud}/app/controllers/CRUD.java around line 294)
+NumberFormatException occured : For input string: "superadmin"
+
+play.exceptions.JavaExecutionException: For input string: "superadmin"
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:237)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.NumberFormatException: For input string: "superadmin"
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at java.lang.Long.parseLong(Unknown Source)
+	at play.data.binding.Binder.internalDirectBind(Binder.java:612)
+	at play.data.binding.Binder.directBind(Binder.java:529)
+	at play.data.binding.Binder.directBind(Binder.java:513)
+	at play.data.binding.Binder.directBind(Binder.java:488)
+	at controllers.CRUD$ObjectType.findById(CRUD.java:294)
+	at controllers.CRUD.show(CRUD.java:65)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	... 1 more
+14:37:30,014 ERROR ~ 
+
+@6bbc8cajp
+Internal Server Error (500) for request GET /users/list
+
+Template compilation error (In /app/views/Users/list.html around line 19)
+The template /app/views/Users/list.html does not compile :  "object.isAdmin()" is a method call expression, but it should be a variable expression at line: 33 column: 42. File: /app/views/Users/list.html 
+
+play.exceptions.TemplateCompilationException: 
+"object.isAdmin()" is a method call expression, but it should be a variable expression at line: 33 column: 42. File: /app/views/Users/list.html 
+	at play.templates.GroovyTemplate.compile(GroovyTemplate.java:189)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:210)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.CRUD.list(CRUD.java:56)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+14:44:09,567 ERROR ~ 
+
+@6bbc8cak0
+Internal Server Error (500) for request GET /users/list
+
+Execution exception (In /app/controllers/Security.java around line 14)
+NullPointerException occured : Try to read isAdmin on null object models.User (controllers.Security.check, line 14)
+
+play.exceptions.JavaExecutionException: Try to read isAdmin on null object models.User (controllers.Security.check, line 14)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:237)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.NullPointerException: Try to read isAdmin on null object models.User (controllers.Security.check, line 14)
+	at play.classloading.enhancers.PropertiesEnhancer$FieldAccessor.invokeReadProperty(PropertiesEnhancer.java:213)
+	at controllers.Security.check(Security.java:14)
+	at play.utils.Java.invokeStaticOrParent(Java.java:162)
+	at play.utils.Java.invokeChildOrStatic(Java.java:184)
+	at controllers.Secure$Security.invoke(Secure.java:203)
+	at controllers.Secure$Security.access$0(Secure.java:200)
+	at controllers.Secure.check(Secure.java:34)
+	at controllers.Secure.checkAccess(Secure.java:28)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:510)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.handleBefores(ActionInvoker.java:328)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:142)
+	... 1 more
+14:44:25,816 ERROR ~ 
+
+@6bbc8cak2
+Internal Server Error (500) for request GET /
+
+Execution exception (In /app/controllers/Security.java around line 17)
+NullPointerException occured : Try to read isPublisher on null object models.User (controllers.Security.check, line 17)
+
+play.exceptions.JavaExecutionException: Try to read isPublisher on null object models.User (controllers.Security.check, line 17)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:90)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.GroovyTemplate$ExecutableTemplate.invokeTag(GroovyTemplate.java:401)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Application.index(Application.java:89)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.NullPointerException: Try to read isPublisher on null object models.User (controllers.Security.check, line 17)
+	at play.classloading.enhancers.PropertiesEnhancer$FieldAccessor.invokeReadProperty(PropertiesEnhancer.java:213)
+	at controllers.Security.check(Security.java:17)
+	at play.utils.Java.invokeStaticOrParent(Java.java:162)
+	at play.utils.Java.invokeChildOrStatic(Java.java:184)
+	at controllers.Secure$Security.invoke(Secure.java:203)
+	at {module:crud}/app/views/tags/crud/search.html.(line:1)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 15 more
+14:44:30,795 ERROR ~ 
+
+@6bbc8cak4
+Internal Server Error (500) for request GET /
+
+Execution exception (In /app/controllers/Security.java around line 17)
+NullPointerException occured : Try to read isPublisher on null object models.User (controllers.Security.check, line 17)
+
+play.exceptions.JavaExecutionException: Try to read isPublisher on null object models.User (controllers.Security.check, line 17)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:90)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.GroovyTemplate$ExecutableTemplate.invokeTag(GroovyTemplate.java:401)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Application.index(Application.java:89)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.NullPointerException: Try to read isPublisher on null object models.User (controllers.Security.check, line 17)
+	at play.classloading.enhancers.PropertiesEnhancer$FieldAccessor.invokeReadProperty(PropertiesEnhancer.java:213)
+	at controllers.Security.check(Security.java:17)
+	at play.utils.Java.invokeStaticOrParent(Java.java:162)
+	at play.utils.Java.invokeChildOrStatic(Java.java:184)
+	at controllers.Secure$Security.invoke(Secure.java:203)
+	at {module:secure}/app/views/tags/secure/check.tag.(line:1)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 15 more
+14:44:31,485 ERROR ~ 
+
+@6bbc8cak6
+Internal Server Error (500) for request GET /
+
+Execution exception (In /app/controllers/Security.java around line 17)
+NullPointerException occured : Try to read isPublisher on null object models.User (controllers.Security.check, line 17)
+
+play.exceptions.JavaExecutionException: Try to read isPublisher on null object models.User (controllers.Security.check, line 17)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:90)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.GroovyTemplate$ExecutableTemplate.invokeTag(GroovyTemplate.java:401)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Application.index(Application.java:89)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.NullPointerException: Try to read isPublisher on null object models.User (controllers.Security.check, line 17)
+	at play.classloading.enhancers.PropertiesEnhancer$FieldAccessor.invokeReadProperty(PropertiesEnhancer.java:213)
+	at controllers.Security.check(Security.java:17)
+	at play.utils.Java.invokeStaticOrParent(Java.java:162)
+	at play.utils.Java.invokeChildOrStatic(Java.java:184)
+	at controllers.Secure$Security.invoke(Secure.java:203)
+	at {module:secure}/app/views/tags/secure/check.tag.(line:1)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 15 more
+14:44:31,990 ERROR ~ 
+
+@6bbc8cak8
+Internal Server Error (500) for request GET /
+
+Execution exception (In /app/controllers/Security.java around line 17)
+NullPointerException occured : Try to read isPublisher on null object models.User (controllers.Security.check, line 17)
+
+play.exceptions.JavaExecutionException: Try to read isPublisher on null object models.User (controllers.Security.check, line 17)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:90)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.GroovyTemplate$ExecutableTemplate.invokeTag(GroovyTemplate.java:401)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Application.index(Application.java:89)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.NullPointerException: Try to read isPublisher on null object models.User (controllers.Security.check, line 17)
+	at play.classloading.enhancers.PropertiesEnhancer$FieldAccessor.invokeReadProperty(PropertiesEnhancer.java:213)
+	at controllers.Security.check(Security.java:17)
+	at play.utils.Java.invokeStaticOrParent(Java.java:162)
+	at play.utils.Java.invokeChildOrStatic(Java.java:184)
+	at controllers.Secure$Security.invoke(Secure.java:203)
+	at {module:secure}/app/views/tags/secure/check.tag.(line:1)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 15 more
+14:55:11,870 ERROR ~ 
+
+@6bbc8cakd
+Internal Server Error (500) for request GET /users/list
+
+Template compilation error (In /app/views/Users/list.html around line 47)
+The template /app/views/Users/list.html does not compile : #{list} is not closed.
+
+play.exceptions.TemplateCompilationException: #{list} is not closed.
+	at play.templates.TemplateCompiler.generate(TemplateCompiler.java:104)
+	at play.templates.TemplateCompiler.compile(TemplateCompiler.java:15)
+	at play.templates.GroovyTemplateCompiler.compile(GroovyTemplateCompiler.java:41)
+	at play.templates.TemplateCompiler.compile(TemplateCompiler.java:28)
+	at play.templates.TemplateLoader.load(TemplateLoader.java:87)
+	at play.templates.TemplateLoader.load(TemplateLoader.java:172)
+	at play.mvc.Controller.renderTemplate(Controller.java:660)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.CRUD.list(CRUD.java:56)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+14:58:39,789 INFO  ~ Temp directory deleted
+14:58:39,795 INFO  ~ Temp directory deleted
+15:00:43,450 ERROR ~ line 1:27: unexpected token: delete
+15:00:43,458 ERROR ~ 
+
+@6bbc8cakk
+Internal Server Error (500) for request GET /users/list?order=ASC&orderBy=delete
+
+Execution exception (In {module:crud}/app/controllers/CRUD.java around line 285)
+IllegalArgumentException occured : org.hibernate.hql.ast.QuerySyntaxException: unexpected token: delete near line 1, column 27 [from models.User order by delete ASC]
+
+play.exceptions.JavaExecutionException: org.hibernate.hql.ast.QuerySyntaxException: unexpected token: delete near line 1, column 27 [from models.User order by delete ASC]
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:237)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.IllegalArgumentException: org.hibernate.hql.ast.QuerySyntaxException: unexpected token: delete near line 1, column 27 [from models.User order by delete ASC]
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1376)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1317)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:280)
+	at play.db.jpa.JPAPlugin$JPAModelLoader.fetch(JPAPlugin.java:490)
+	at controllers.CRUD$ObjectType.findPage(CRUD.java:285)
+	at controllers.CRUD.list(CRUD.java:52)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	... 1 more
+Caused by: org.hibernate.hql.ast.QuerySyntaxException: unexpected token: delete near line 1, column 27 [from models.User order by delete ASC]
+	at org.hibernate.hql.ast.QuerySyntaxException.convert(QuerySyntaxException.java:54)
+	at org.hibernate.hql.ast.QuerySyntaxException.convert(QuerySyntaxException.java:47)
+	at org.hibernate.hql.ast.ErrorCounter.throwQueryException(ErrorCounter.java:82)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.parse(QueryTranslatorImpl.java:286)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.doCompile(QueryTranslatorImpl.java:184)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.compile(QueryTranslatorImpl.java:138)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:101)
+	at org.hibernate.engine.query.HQLQueryPlan.<init>(HQLQueryPlan.java:80)
+	at org.hibernate.engine.query.QueryPlanCache.getHQLQueryPlan(QueryPlanCache.java:124)
+	at org.hibernate.impl.AbstractSessionImpl.getHQLQueryPlan(AbstractSessionImpl.java:156)
+	at org.hibernate.impl.AbstractSessionImpl.createQuery(AbstractSessionImpl.java:135)
+	at org.hibernate.impl.SessionImpl.createQuery(SessionImpl.java:1770)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.createQuery(AbstractEntityManagerImpl.java:277)
+	... 9 more
+15:16:41,902 ERROR ~ 
+
+@6bbc8cakl
+Internal Server Error (500) for request GET /users/list?order=ASC&orderBy=name
+
+Template compilation error (In /app/views/Users/list.html around line 23)
+The template /app/views/Users/list.html does not compile : #{crud.list} is not closed.
+
+play.exceptions.TemplateCompilationException: #{crud.list} is not closed.
+	at play.templates.GroovyTemplateCompiler.endTag(GroovyTemplateCompiler.java:316)
+	at play.templates.TemplateCompiler.generate(TemplateCompiler.java:93)
+	at play.templates.TemplateCompiler.compile(TemplateCompiler.java:15)
+	at play.templates.GroovyTemplateCompiler.compile(GroovyTemplateCompiler.java:41)
+	at play.templates.TemplateCompiler.compile(TemplateCompiler.java:28)
+	at play.templates.TemplateLoader.load(TemplateLoader.java:87)
+	at play.templates.TemplateLoader.load(TemplateLoader.java:172)
+	at play.mvc.Controller.renderTemplate(Controller.java:660)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.CRUD.list(CRUD.java:56)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+15:32:40,646 ERROR ~ 
+
+@6bbc8cal7
+users.table action not found
+
+Action not found
+Action users.table could not be found. Error raised is No method public static void table() was found in class controllers.users
+
+play.exceptions.ActionNotFoundException: Action users.table not found
+	at play.mvc.ActionInvoker.getActionMethod(ActionInvoker.java:610)
+	at play.mvc.ActionInvoker.resolve(ActionInvoker.java:85)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.Exception: No method public static void table() was found in class controllers.users
+	... 3 more
+15:45:50,874 ERROR ~ 
+
+@6bbc8cala
+Internal Server Error (500) for request GET /users/index
+
+Template execution error (In {module:crud}/app/views/tags/crud/pagination.html around line 1)
+Execution error occured in template {module:crud}/app/views/tags/crud/pagination.html. Exception raised was NullPointerException : Cannot invoke method page() on null object.
+
+play.exceptions.TemplateExecutionException: Cannot invoke method page() on null object
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.GroovyTemplate$ExecutableTemplate.invokeTag(GroovyTemplate.java:401)
+	at /app/views/Users/index.html.(line:78)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Users.index(Users.java:16)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.NullPointerException: Cannot invoke method page() on null object
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 16 more
+15:50:59,374 ERROR ~ 
+
+@6bbc8calb
+Internal Server Error (500) for request GET /users/index
+
+Template execution error (In /app/views/Users/index.html around line 32)
+Execution error occured in template /app/views/Users/index.html. Exception raised was MissingMethodException : No signature of method: models.User.isAdmin() is applicable for argument types: () values: [] Possible solutions: getIsAdmin(), setIsAdmin(boolean).
+
+play.exceptions.TemplateExecutionException: No signature of method: models.User.isAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Users.index(Users.java:16)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: models.User.isAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at /app/views/Users/index.html.(line:32)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more
+15:52:12,304 ERROR ~ 
+
+@6bbc8calc
+Internal Server Error (500) for request GET /users/index
+
+Template execution error (In /app/views/Users/index.html around line 32)
+Execution error occured in template /app/views/Users/index.html. Exception raised was MissingMethodException : No signature of method: models.User.getisAdmin() is applicable for argument types: () values: [] Possible solutions: getIsAdmin(), setIsAdmin(boolean).
+
+play.exceptions.TemplateExecutionException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Users.index(Users.java:16)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at /app/views/Users/index.html.(line:32)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more
+15:52:14,625 ERROR ~ 
+
+@6bbc8cald
+Internal Server Error (500) for request GET /users/index
+
+Template execution error (In /app/views/Users/index.html around line 32)
+Execution error occured in template /app/views/Users/index.html. Exception raised was MissingMethodException : No signature of method: models.User.getisAdmin() is applicable for argument types: () values: [] Possible solutions: getIsAdmin(), setIsAdmin(boolean).
+
+play.exceptions.TemplateExecutionException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Users.index(Users.java:16)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at /app/views/Users/index.html.(line:32)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more
+15:52:15,313 ERROR ~ 
+
+@6bbc8cale
+Internal Server Error (500) for request GET /users/index
+
+Template execution error (In /app/views/Users/index.html around line 32)
+Execution error occured in template /app/views/Users/index.html. Exception raised was MissingMethodException : No signature of method: models.User.getisAdmin() is applicable for argument types: () values: [] Possible solutions: getIsAdmin(), setIsAdmin(boolean).
+
+play.exceptions.TemplateExecutionException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Users.index(Users.java:16)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at /app/views/Users/index.html.(line:32)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more
+15:52:15,888 ERROR ~ 
+
+@6bbc8calf
+Internal Server Error (500) for request GET /users/index
+
+Template execution error (In /app/views/Users/index.html around line 32)
+Execution error occured in template /app/views/Users/index.html. Exception raised was MissingMethodException : No signature of method: models.User.getisAdmin() is applicable for argument types: () values: [] Possible solutions: getIsAdmin(), setIsAdmin(boolean).
+
+play.exceptions.TemplateExecutionException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Users.index(Users.java:16)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at /app/views/Users/index.html.(line:32)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more
+15:52:16,405 ERROR ~ 
+
+@6bbc8calg
+Internal Server Error (500) for request GET /users/index
+
+Template execution error (In /app/views/Users/index.html around line 32)
+Execution error occured in template /app/views/Users/index.html. Exception raised was MissingMethodException : No signature of method: models.User.getisAdmin() is applicable for argument types: () values: [] Possible solutions: getIsAdmin(), setIsAdmin(boolean).
+
+play.exceptions.TemplateExecutionException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Users.index(Users.java:16)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at /app/views/Users/index.html.(line:32)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more
+15:52:16,703 ERROR ~ 
+
+@6bbc8calh
+Internal Server Error (500) for request GET /users/index
+
+Template execution error (In /app/views/Users/index.html around line 32)
+Execution error occured in template /app/views/Users/index.html. Exception raised was MissingMethodException : No signature of method: models.User.getisAdmin() is applicable for argument types: () values: [] Possible solutions: getIsAdmin(), setIsAdmin(boolean).
+
+play.exceptions.TemplateExecutionException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Users.index(Users.java:16)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at /app/views/Users/index.html.(line:32)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more
+15:52:16,942 ERROR ~ 
+
+@6bbc8cali
+Internal Server Error (500) for request GET /users/index
+
+Template execution error (In /app/views/Users/index.html around line 32)
+Execution error occured in template /app/views/Users/index.html. Exception raised was MissingMethodException : No signature of method: models.User.getisAdmin() is applicable for argument types: () values: [] Possible solutions: getIsAdmin(), setIsAdmin(boolean).
+
+play.exceptions.TemplateExecutionException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Users.index(Users.java:16)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at /app/views/Users/index.html.(line:32)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more
+15:52:17,504 ERROR ~ 
+
+@6bbc8calj
+Internal Server Error (500) for request GET /users/index
+
+Template execution error (In /app/views/Users/index.html around line 32)
+Execution error occured in template /app/views/Users/index.html. Exception raised was MissingMethodException : No signature of method: models.User.getisAdmin() is applicable for argument types: () values: [] Possible solutions: getIsAdmin(), setIsAdmin(boolean).
+
+play.exceptions.TemplateExecutionException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Users.index(Users.java:16)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at /app/views/Users/index.html.(line:32)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more
+15:52:17,855 ERROR ~ 
+
+@6bbc8calk
+Internal Server Error (500) for request GET /users/index
+
+Template execution error (In /app/views/Users/index.html around line 32)
+Execution error occured in template /app/views/Users/index.html. Exception raised was MissingMethodException : No signature of method: models.User.getisAdmin() is applicable for argument types: () values: [] Possible solutions: getIsAdmin(), setIsAdmin(boolean).
+
+play.exceptions.TemplateExecutionException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Users.index(Users.java:16)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at /app/views/Users/index.html.(line:32)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more
+15:52:18,167 ERROR ~ 
+
+@6bbc8call
+Internal Server Error (500) for request GET /users/index
+
+Template execution error (In /app/views/Users/index.html around line 32)
+Execution error occured in template /app/views/Users/index.html. Exception raised was MissingMethodException : No signature of method: models.User.getisAdmin() is applicable for argument types: () values: [] Possible solutions: getIsAdmin(), setIsAdmin(boolean).
+
+play.exceptions.TemplateExecutionException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Users.index(Users.java:16)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: models.User.getisAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at /app/views/Users/index.html.(line:32)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more
+15:56:58,573 ERROR ~ 
+
+@6bbc8cama
+Internal Server Error (500) for request GET /users/index?order=ASC&orderBy=isAdmin
+
+Template compilation error (In /app/views/Users/index.html around line 22)
+The template /app/views/Users/index.html does not compile : #{list} is not closed.
+
+play.exceptions.TemplateCompilationException: #{list} is not closed.
+	at play.templates.GroovyTemplateCompiler.endTag(GroovyTemplateCompiler.java:316)
+	at play.templates.TemplateCompiler.generate(TemplateCompiler.java:93)
+	at play.templates.TemplateCompiler.compile(TemplateCompiler.java:15)
+	at play.templates.GroovyTemplateCompiler.compile(GroovyTemplateCompiler.java:41)
+	at play.templates.TemplateCompiler.compile(TemplateCompiler.java:28)
+	at play.templates.TemplateLoader.load(TemplateLoader.java:87)
+	at play.templates.TemplateLoader.load(TemplateLoader.java:172)
+	at play.mvc.Controller.renderTemplate(Controller.java:660)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Users.index(Users.java:16)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+15:59:46,740 ERROR ~ 
+
+@6bbc8camg
+Internal Server Error (500) for request GET /users/list
+
+Template execution error (In /app/views/Users/list.html around line 55)
+Execution error occured in template /app/views/Users/list.html. Exception raised was MissingMethodException : No signature of method: models.User.isAdmin() is applicable for argument types: () values: [] Possible solutions: getIsAdmin(), setIsAdmin(boolean).
+
+play.exceptions.TemplateExecutionException: No signature of method: models.User.isAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Users.list(Users.java:16)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: groovy.lang.MissingMethodException: No signature of method: models.User.isAdmin() is applicable for argument types: () values: []
+Possible solutions: getIsAdmin(), setIsAdmin(boolean)
+	at /app/views/Users/list.html.(line:55)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more
+16:00:45,346 ERROR ~ 
+
+@6bbc8camh
+Internal Server Error (500) for request GET /users/list
+
+Template execution error (In {module:crud}/app/views/tags/crud/pagination.html around line 1)
+Execution error occured in template {module:crud}/app/views/tags/crud/pagination.html. Exception raised was NullPointerException : Cannot invoke method page() on null object.
+
+play.exceptions.TemplateExecutionException: Cannot invoke method page() on null object
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.GroovyTemplate$ExecutableTemplate.invokeTag(GroovyTemplate.java:401)
+	at /app/views/Users/list.html.(line:77)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Users.list(Users.java:16)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.NullPointerException: Cannot invoke method page() on null object
+	at {module:crud}/app/views/tags/crud/pagination.html.(line:1)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 16 more
+16:04:26,407 ERROR ~ 
+
+@6bbc8cami
+Internal Server Error (500) for request GET /users/list?order=ASC&orderBy=name
+
+Template execution error (In /app/views/Users/list.html around line 49)
+Execution error occured in template /app/views/Users/list.html. Exception raised was NullPointerException : Cannot get property 'list' on null object.
+
+play.exceptions.TemplateExecutionException: Cannot get property 'list' on null object
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.CRUD.list(CRUD.java:56)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.NullPointerException: Cannot get property 'list' on null object
+	at /app/views/Users/list.html.(line:49)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more
+16:11:10,576 ERROR ~ 
+
+@6bbc8caml
+Internal Server Error (500) for request GET /users/list?search=
+
+Template compilation error (In /app/views/Users/list.html around line 26)
+The template /app/views/Users/list.html does not compile : #{list} is not closed.
+
+play.exceptions.TemplateCompilationException: #{list} is not closed.
+	at play.templates.GroovyTemplateCompiler.endTag(GroovyTemplateCompiler.java:316)
+	at play.templates.TemplateCompiler.generate(TemplateCompiler.java:93)
+	at play.templates.TemplateCompiler.compile(TemplateCompiler.java:15)
+	at play.templates.GroovyTemplateCompiler.compile(GroovyTemplateCompiler.java:41)
+	at play.templates.TemplateCompiler.compile(TemplateCompiler.java:28)
+	at play.templates.TemplateLoader.load(TemplateLoader.java:87)
+	at play.templates.TemplateLoader.load(TemplateLoader.java:172)
+	at play.mvc.Controller.renderTemplate(Controller.java:660)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.CRUD.list(CRUD.java:56)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+16:11:22,947 ERROR ~ 
+
+@6bbc8camm
+Internal Server Error (500) for request GET /users/list?search=
+
+Template execution error (In /app/views/Users/list.html around line 47)
+Execution error occured in template /app/views/Users/list.html. Exception raised was NullPointerException : Cannot get property 'id' on null object.
+
+play.exceptions.TemplateExecutionException: Cannot get property 'id' on null object
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.CRUD.list(CRUD.java:56)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.NullPointerException: Cannot get property 'id' on null object
+	at /app/views/Users/list.html.(line:47)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 13 more

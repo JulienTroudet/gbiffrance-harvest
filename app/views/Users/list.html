@@ -1,0 +1,63 @@
+#{extends 'main.html' /}
+#{set title:messages.get('crud.list.title', type.name) /}
+<div id="crudList" class="${type.name}">
+
+	<h2 id="crudListTitle">&{'crud.list.title', type.name}</h2>
+
+	<div id="crudListSearch">#{crud.search /}</div>
+
+	<div id="crudListTable">
+		
+		<table class="table table-striped table-condensed" id="user_table">
+		<tr class="table">
+			<th>
+				<h3><a class="" href="/users/list?order=ASC&orderBy=name">Name</a></h3>
+			</th>
+			<th>
+				<h3><a class="" href="/users/list?order=ASC&orderBy=isAdmin"> Admin </a></h3>
+			</th>
+			<th>
+				<h3><a class="" href="/users/list?order=ASC&orderBy=isPublisher"> Publisher </a></h3>
+			</th>
+			<th>
+				<h3> Delete</h3>
+			</th>
+		</tr>
+				#{list items:objects, as:'user'}
+				<tr class="table">
+					<td class="table" id="user_name"><a id="edit_user"
+						href="@{Users.show(user.id)}"><b>${user.name}</b></a></td>
+						
+					<td class="table" id="user_isAdmin">
+						#{if user.getIsAdmin()} 
+							<i title="user is admin" class="icon-ok-sign"></i> 
+						#{/if}
+						#{else} <i
+							title="user is not admin" class="icon-minus-sign"></i>
+						#{/else}
+					</td>
+					<td class="table" id="user_isPublisher">
+						#{if user.getIsPublisher()} 
+							<i title="user is publisher" class="icon-ok-sign"></i> 
+						#{/if}
+						#{else} <i
+							title="user is not publisher" class="icon-minus-sign"></i>
+						#{/else}
+					</td>
+					<td><a href="@{Users.delete(user.id)}"><i
+						title="remove the dataset" class="icon-remove"></i></a>
+					</td>
+				</tr>
+				#{/list}
+		</table>
+		
+		
+	</div>
+
+	<div id="crudListPagination">#{crud.pagination /}</div>
+
+	<p id="crudListAdd">
+		<h3><a href="@{blank()}">&{'crud.add', type.modelName}</a></h3>
+	</p>
+
+</div>
