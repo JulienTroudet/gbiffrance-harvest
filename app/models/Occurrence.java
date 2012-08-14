@@ -95,7 +95,7 @@ public class Occurrence extends Model
   public String associatedMedia;
   @Column(length=100)
   public String associatedReferences;
-  @Column(length=100)
+  @Column(length=1000)
   public String associatedOccurrences;
   @Column(length=100)
   public String associatedSequences;

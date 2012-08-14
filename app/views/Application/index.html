@@ -28,14 +28,21 @@
 					title="harvested with errors" class="icon-exclamation-sign"></i>
 					#{/elseif}
 				</td>
+				<td class="table" id="dataset_see">
+						#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
+						<a href="see/${dataset.id}"><i title="see" class="icon-eye-open"></i></a> 
+						#{/if}
+				</td>
 				 #{secure.check 'publisher'}
 				<td class="table" id="dataset_action">
 					<div>
+					 
+							
 						#{if dataset.status.equals("SUCCESSFULLY_HARVESTED") ||
 						dataset.status.equals("HARVESTED_WITH_ERROR")} <a
 							href="delete/${dataset.id}/occurrences" onclick="blockloading()"><i
-							title="clear" class="icon-refresh"></i></a> #{/if} #{if
-						dataset.status.equals("HARVESTED_WITH_ERROR")} <a
+							title="clear" class="icon-refresh"></i></a> #{/if} 
+							#{if dataset.status.equals("HARVESTED_WITH_ERROR")} <a
 							id="dataset_action"
 							href="harvest/${dataset.type}/${dataset.id}/${dataset.currentLower}"
 							onclick="blockloading()"><i title="resume"

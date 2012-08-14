@@ -10,6 +10,7 @@ GET     /harvest/{type}/{id}/{begin}/{end}      Application.harvest
 GET     /taxonomize/{id}                        Application.taxonomize
 GET     /delete/{id}/occurrences                Application.deleteDatasetOccurrences
 GET     /delete/{id}                            Application.deleteDataset
+GET     /see/{id}                            	EmlDatas.see
 GET     /add/datapublisher                      DataPublishers.add
 GET     /add/dataset                            Datasets.add
 GET     /edit/targetdirectory                   Application.editTargetDirectory

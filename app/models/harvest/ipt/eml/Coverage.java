@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -25,6 +26,7 @@ public class Coverage extends Model{
 	public boolean tempCoverage = false;
 	public boolean taxCoverage = false;
 
+	@Column(length=1000)
 	public String geographicDescription;
 	public float westBoundingCoordinate;
 	public float eastBoundingCoordinate;

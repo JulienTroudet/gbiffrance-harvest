@@ -1,0 +1,215 @@
+#{extends 'main.html' /} #{set title:'Metadata' /}
+
+<div id="main">
+	#{if emlData != null}
+		
+		<h1>${emlData.title}</h1>
+		<h2>Metadatas : </h2>
+		#{list items:emlData.alternateIdentifiers, as:'alternateIdentifier'}
+		<p>${alternateIdentifier}</p>
+		#{/list}
+		
+		<p><b>Publication date : </b>${emlData.pubDate}</p>
+		<p><b>Language : </b>${emlData.language}</p>
+		<p><b>Abstract : </b>${emlData.dataAbstract}</p>
+		
+		#{if emlData.keywordSets != null}
+			#{if emlData.keywordSets.size() > 0}
+				<h3>Keywords : </h3> 			
+				#{list items:emlData.keywordSets, as:'keywordSet'}
+					<p>
+					${keywordSet.keywordThesaurus} ; 
+					#{list items:keywordSet.keywords, as:'keyword'}
+					${keywords}, 
+					#{/list}
+					</p>
+				#{/list} 
+			#{/if}
+		#{/if}
+		
+		#{list items:emlData.parties, as:'party'}
+			<h3>${party.profil}</h3>
+			
+			<p>${party.givenName} ${party.surName}</p>
+			
+			<p>${party.organizationName}</p>
+			<p>${party.positionName}</p>
+			<p>${party.phone}</p>
+			<p>${party.electronicMailAddress}</p>
+			<p>${party.onlineUrl}</p>
+			
+			#{if party.address}
+			<h4>Adress</h4>
+				<p>${party.addressDeliveryPoint}</p>
+				<p>${party.addressCity}</p>
+				<p>${party.addressPostalCode}</p>
+				<p>${party.addressCountry}</p>
+			#{/if}
+		
+		#{/list}
+		
+		#{if emlData.additionalInfo != null}
+			<h3>Additional Informations : </h3>
+			<p>${emlData.additionalInfo}</p> 
+		#{/if}
+		#{if emlData.intellectualRights != null}
+			<h3>Intellectual Rights : </h3>
+			<p>${emlData.intellectualRights}</p> 
+		#{/if}
+		#{if emlData.distributionUrl != null}
+			<h3>Distribution URL :</h3> 
+			<p>${emlData.distributionUrl}</p> 
+		#{/if}
+		
+		#{if emlData.coverage != null}
+			<h3>Coverage</h3> 
+			#{if emlData.coverage.geoCoverage}
+				<h4>Geographic coverage :</h4> 
+				<p>${emlData.coverage.geographicDescription}</p>
+				<p>west : ${emlData.coverage.westBoundingCoordinate} ; 
+				east : ${emlData.coverage.eastBoundingCoordinate} ; 
+				north : ${emlData.coverage.northBoundingCoordinate} ; 
+				south : ${emlData.coverage.southBoundingCoordinate}
+				</p>
+			#{/if}
+			#{if emlData.coverage.tempCoverage}
+				#{list items:emlData.coverage.temporalCoverages, as:'temporalCoverage'}
+					<h4>Temporal coverage :</h4> 
+					#{if temporalCoverage.rangeOfDates}
+					<p>Begin : ${temporalCoverage.beginDate} </p>
+					<p>End : ${temporalCoverage.endDate} </p>
+					#{/if}
+					#{elseif !temporalCoverage.rangeOfDates}
+					<p>Date : ${temporalCoverage.singleDateTime} </p>
+					#{/elseif}
+				#{/list}
+			#{/if}
+			#{if emlData.coverage.taxCoverage}
+				#{list items:emlData.coverage.taxonomicCoverages, as:'taxonomicCoverage'}
+					<h4>Taxonomic coverage :</h4> 
+					<p>${taxonomicCoverage.generalTaxonomicCoverage}</p>
+					#{list items:taxonomicCoverage.taxonomicClassifications, as:'taxonomicClassification'}
+						<p>Rank : ${taxonomicClassification.taxonRankName}</p>
+						<p>Rank value : ${taxonomicClassification.taxonRankValue}</p>
+						<p>Name : ${taxonomicClassification.commonName}</p>
+					#{/list}
+				#{/list}
+			#{/if}
+		#{/if}
+		
+		#{if emlData.purpose != null}
+			<h3>Purpose : </h3>
+			<p>${emlData.purpose}</p> 
+		#{/if}
+		
+		#{if emlData.methods != null}
+			<h3>Method : </h3>
+			<ul>#{list items:emlData.methods.methodSteps, as:'methodStep'}
+			<li>${methodStep}</li>
+			#{/list}</ul>
+			<p>Study extent : ${emlData.methods.studyExtent}</p>
+			<p>Sampling description : ${emlData.methods.samplingDescription}</p>
+			<p>Quality control : ${emlData.methods.qualityControl}</p>
+		#{/if}
+		
+		#{if emlData.project != null}
+			<h3>Project : ${emlData.project.title}</h3>
+			<h4>${emlData.project.personnel.profil}</h4>
+			
+			<p>${emlData.project.personnel.givenName} ${party.surName}</p>
+			
+			<p>${emlData.project.personnel.organizationName}</p>
+			<p>${emlData.project.personnel.positionName}</p>
+			<p>${emlData.project.personnel.phone}</p>
+			<p>${emlData.project.personnel.electronicMailAddress}</p>
+			<p>${emlData.project.personnel.onlineUrl}</p>
+			
+			#{if emlData.project.personnel.address}
+			<h4>Adress</h4>
+				<p>${emlData.project.personnel.addressDeliveryPoint}</p>
+				<p>${emlData.project.personnel.addressCity}</p>
+				<p>${emlData.project.personnel.addressPostalCode}</p>
+				<p>${emlData.project.personnel.addressCountry}</p>
+			#{/if}
+			<p><b>Funding : </b>${emlData.project.funding}</p>
+			<p><b>Study area description : </b>${emlData.project.studyAreaDescription}</p>
+			<p><b>Design description : </b>${emlData.project.designDescription}</p>
+		#{/if}
+
+		#{if emlData.gbifRacine != null}
+			<h2>Gbif Metadatas : </h2>
+			#{if emlData.gbifRacine.dateStamp != null}
+				<h3>DateStamp : </h3>
+				<p>${emlData.gbifRacine.dateStamp}</p> 
+			#{/if}
+			
+			#{if emlData.gbifRacine.hierarchyLevel != null}
+				<h3>Hierarchy Level : </h3>
+				<p>${emlData.gbifRacine.hierarchyLevel}</p> 
+			#{/if}
+			
+		
+			#{if emlData.gbifRacine.citation != null}
+				<h3>Citation : </h3>
+				<p>${emlData.gbifRacine.citation.identifier} : ${emlData.gbifRacine.citation.text}</p> 
+			#{/if}
+		
+			#{list items:emlData.gbifRacine.bibliography, as:'citationBibli'}
+				<h4>Bibliography : </h4>
+				<p>${citationBibli.identifier} : ${citationBibli.text}</p>
+			#{/list}
+		
+			#{list items:emlData.gbifRacine.physicals, as:'physical'}
+				<h3>Physical :</h3>
+				<p><b>Object name : </b>${physical.objectName}</p>
+				<p><b>Character encoding : </b>${physical.characterEncoding}</p>
+				<p><b>Format name : </b>${physical.formatName}</p>
+				<p><b>Format version : </b>${physical.formatVersion}</p>
+				<p><b>Distribution URL : </b>${physical.distributionUrl}</p>
+			#{/list}
+			
+			#{if emlData.gbifRacine.resourceLogoUrl != null}
+				<h3>Resource Logo Url : </h3>
+				<p>${emlData.gbifRacine.resourceLogoUrl}</p> 
+			#{/if}
+		
+			#{if emlData.gbifRacine.collection != null}
+				<h3>Collection : </h3>
+				<ul>
+				<li>${emlData.gbifRacine.collection.parentCollectionIdentifier}</li> 
+				<li>${emlData.gbifRacine.collection.collectionIdentifier}</li>
+				<li>${emlData.gbifRacine.collection.collectionName}</li>				
+				</ul>
+			#{/if}
+		
+			#{if emlData.gbifRacine.formationPeriod != null}
+				<h3>Formation period : </h3>
+				<p>${emlData.gbifRacine.formationPeriod}</p> 
+			#{/if}
+			
+			#{if emlData.gbifRacine.specimenPreservationMethod != null}
+				<h3>Specimen preservation method : </h3>
+				<p>${emlData.gbifRacine.specimenPreservationMethod}</p> 
+			#{/if}
+						
+			#{if emlData.gbifRacine.livingTimePeriod != null}
+				<h3>Living time period : </h3>
+				<p>${emlData.gbifRacine.livingTimePeriod}</p> 
+			#{/if}
+		
+			#{list items:emlData.gbifRacine.jgtiCuratorialUnits, as:'jgtiCuratorialUnit'}
+			<h3>jgti Curatorial Units : </h3>
+				#{if jgtiCuratorialUnit.jgtiUnitRange}
+					<p><b>Begin range : </b>${jgtiCuratorialUnit.beginRange}</p>
+					<p><b>End range : </b>${jgtiCuratorialUnit.endRange}</p>
+				#{/if}
+				#{else}
+					<p><b>Uncertainty measure : </b>${jgtiCuratorialUnit.uncertaintyMeasure}</p>
+					<p><b>jgti units : </b>${jgtiCuratorialUnit.jgtiUnits}</p>
+				#{/else}
+			#{/list}
+		#{/if}
+		
+		
+	#{/if}
+</div>
