@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -19,6 +20,7 @@ import play.db.jpa.Model;
 @Entity
 public class TaxonomicCoverage extends Model{
 
+	@Column(length=10000)
 	public String generalTaxonomicCoverage;
 	
 	@OneToMany(mappedBy="taxonomicCoverage", cascade=CascadeType.ALL)

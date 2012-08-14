@@ -26,7 +26,7 @@ public class Coverage extends Model{
 	public boolean tempCoverage = false;
 	public boolean taxCoverage = false;
 
-	@Column(length=1000)
+	@Column(length=10000)
 	public String geographicDescription;
 	public float westBoundingCoordinate;
 	public float eastBoundingCoordinate;
