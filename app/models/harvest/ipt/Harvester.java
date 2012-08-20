@@ -153,11 +153,13 @@ public class Harvester extends models.harvest.Harvester
 			in = conn.getInputStream();
 			reader = new BufferedReader(new InputStreamReader(in));
 
-			fileName = url.getFile();
+			File file = new File(url.getPath());
+			fileName = file.getName();
+			
 			
 			System.out.println(fileName);
 			//fileName = dest + File.separator + fileName.substring(fileName.lastIndexOf('=') + 1) + ".zip";
-			fileName = dest + File.separator + fileName.substring(fileName.lastIndexOf('=') + 1);
+			fileName = dest + File.separator + fileName;
 			dest = new File(fileName);
 
 			fos = new FileOutputStream(dest);

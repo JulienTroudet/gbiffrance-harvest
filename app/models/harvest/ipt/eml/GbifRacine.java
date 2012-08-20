@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -36,8 +37,11 @@ public class GbifRacine extends Model{
 	@OneToOne(mappedBy="gbifRacine",  cascade = {CascadeType.ALL})
 	private GbifCollection collection;
 
+	@Column(length=2000)
 	private String formationPeriod;
+	@Column(length=2000)
 	private String specimenPreservationMethod;
+	@Column(length=2000)
 	private String livingTimePeriod;
 
 	@OneToMany(mappedBy="gbifRacine", cascade=CascadeType.ALL)

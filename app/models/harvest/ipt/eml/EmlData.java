@@ -42,13 +42,17 @@ public class EmlData extends Model{
 	@OneToMany(mappedBy="emlData", cascade=CascadeType.ALL)
 	public List<KeyWordSet> keywordSets = new ArrayList<KeyWordSet>();
 
+	@Column(length=2000)
 	public String additionalInfo;
+	@Column(length=2000)
 	public String intellectualRights;
+	@Column(length=2000)
 	public String distributionUrl;
 
 	@OneToOne(mappedBy="emlData",  cascade = {CascadeType.ALL})
 	public Coverage coverage;
 
+	@Column(length=2000)
 	public String purpose;
 
 	
