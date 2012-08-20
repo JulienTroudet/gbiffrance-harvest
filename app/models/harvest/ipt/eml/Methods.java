@@ -7,6 +7,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
 
@@ -18,8 +19,12 @@ import play.db.jpa.Model;
 public class Methods extends Model{
 
 	public ArrayList<String> methodSteps;
+	
+	@Column(length=2000)
 	public String studyExtent;
+	@Column(length=2000)
 	public String samplingDescription;
+	@Column(length=2000)
 	public String qualityControl;
 	
 	@OneToOne

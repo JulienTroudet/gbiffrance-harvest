@@ -5,7 +5,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 import org.jdom.Element;
@@ -15,13 +18,20 @@ import play.db.jpa.Model;
 @Entity
 public class Project extends Model{
 
+	@Column(length=2000)
 	public String title;
+	
+	@OneToOne(mappedBy="project",  cascade = {CascadeType.ALL})
 	public Party personnel;
+	
+	@Column(length=2000)
 	public String funding;
+	@Column(length=2000)
 	public String studyAreaDescription;
+	@Column(length=2000)
 	public String designDescription;
 	
-	@OneToOne
+	@ManyToOne
 	public EmlData emlData;
 
 	public Project parse(Element child, EmlData data) {

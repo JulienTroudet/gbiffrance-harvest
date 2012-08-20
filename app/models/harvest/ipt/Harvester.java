@@ -154,6 +154,8 @@ public class Harvester extends models.harvest.Harvester
 			reader = new BufferedReader(new InputStreamReader(in));
 
 			fileName = url.getFile();
+			
+			System.out.println(fileName);
 			//fileName = dest + File.separator + fileName.substring(fileName.lastIndexOf('=') + 1) + ".zip";
 			fileName = dest + File.separator + fileName.substring(fileName.lastIndexOf('=') + 1);
 			dest = new File(fileName);

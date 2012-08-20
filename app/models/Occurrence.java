@@ -17,360 +17,360 @@ import com.vividsolutions.jts.geom.Geometry;
 public class Occurrence extends Model
 {
   //Record-level
-  @Column(length=100)
+  @Column(length=2000)
   public String typee;
-  @Column(length=100)
+  @Column(length=2000)
   public String modified;
-  @Column(length=100)
+  @Column(length=2000)
   public String language;
-  @Column(length=100)
+  @Column(length=2000)
   public String rights;
-  @Column(length=100)
+  @Column(length=2000)
   public String rightsHolder;
-  @Column(length=100)
+  @Column(length=2000)
   public String accessRights;
-  @Column(length=100)
+  @Column(length=2000)
   public String bibliographicCitation;
-  @Column(length=100)
+  @Column(length=2000)
   public String referencess;
-  @Column(length=100)
+  @Column(length=2000)
   public String institutionID;
-  @Column(length=100)
+  @Column(length=2000)
   public String collectionID;
-  @Column(length=100)
+  @Column(length=2000)
   public String datasetID;
-  @Column(length=100)
+  @Column(length=2000)
   public String institutionCode;
   @Column(length=200)
   public String collectionCode;
-  @Column(length=100)
+  @Column(length=2000)
   public String datasetName;
-  @Column(length=100)
+  @Column(length=2000)
   public String ownerInstitutionCode;
-  @Column(length=100)
+  @Column(length=2000)
   public String basisOfRecord;
-  @Column(length=100)
+  @Column(length=2000)
   public String informationWithheld;
-  @Column(length=100)
+  @Column(length=2000)
   public String dataGeneralizations;
-  @Column(length=100)
+  @Column(length=2000)
   public String dynamicProperties;
   
   //Occurrence
-  @Column(length=100)
+  @Column(length=2000)
   public String occurrenceID;
-  @Column(length=100)
+  @Column(length=2000)
   public String catalogNumber;
   @Column(length=300)
   public String occurrenceRemarks;
-  @Column(length=100)
+  @Column(length=2000)
   public String recordNumber;
   @Column(length=200)
   public String recordedBy;
-  @Column(length=100)
+  @Column(length=2000)
   public String individualID;
-  @Column(length=100)
+  @Column(length=2000)
   public String individualCount;
-  @Column(length=100)
+  @Column(length=2000)
   public String sex;
-  @Column(length=100)
+  @Column(length=2000)
   public String lifeStage;
-  @Column(length=100)
+  @Column(length=2000)
   public String reproductiveCondition;
-  @Column(length=100)
+  @Column(length=2000)
   public String behavior;
-  @Column(length=100)
+  @Column(length=2000)
   public String establishmentMeans;
-  @Column(length=100)
+  @Column(length=2000)
   public String occurrenceStatus;
-  @Column(length=100)
+  @Column(length=2000)
   public String preparations;
-  @Column(length=100)
+  @Column(length=2000)
   public String disposition;
-  @Column(length=100)
+  @Column(length=2000)
   public String otherCatalogNumbers;
-  @Column(length=100)
+  @Column(length=2000)
   public String previousIdentifications;
-  @Column(length=100)
+  @Column(length=2000)
   public String associatedMedia;
-  @Column(length=100)
+  @Column(length=2000)
   public String associatedReferences;
-  @Column(length=1000)
+  @Column(length=20000)
   public String associatedOccurrences;
-  @Column(length=100)
+  @Column(length=2000)
   public String associatedSequences;
-  @Column(length=100)
+  @Column(length=2000)
   public String associatedTaxa;
   
   //Event
-  @Column(length=100)
+  @Column(length=2000)
   public String eventID;
-  @Column(length=100)
+  @Column(length=2000)
   public String samplingProtocol;
-  @Column(length=100)
+  @Column(length=2000)
   public String samplingEffort;
-  @Column(length=100)
+  @Column(length=2000)
   public String eventDate;
-  @Column(length=100)
+  @Column(length=2000)
   public String eventTime;
-  @Column(length=100)
+  @Column(length=2000)
   public String startDayOfYear;
-  @Column(length=100)
+  @Column(length=2000)
   public String endDayofYear;
-  @Column(length=100)
+  @Column(length=2000)
   public String year;
-  @Column(length=100)
+  @Column(length=2000)
   public String month;
-  @Column(length=100)
+  @Column(length=2000)
   public String day;
-  @Column(length=100)
+  @Column(length=2000)
   public String verbatimEventDate;
-  @Column(length=100)
+  @Column(length=2000)
   public String habitat;
-  @Column(length=100)
+  @Column(length=2000)
   public String fieldNumber;
-  @Column(length=100)
+  @Column(length=2000)
   public String fieldNotes;
-  @Column(length=100)
+  @Column(length=2000)
   public String eventRemarks;
   
   //Location
-  @Column(length=100)
+  @Column(length=2000)
   public String locationID;
-  @Column(length=100)
+  @Column(length=2000)
   public String higherGeographyID;
   @Column(length=300)
   public String higherGeography;
-  @Column(length=100)
+  @Column(length=2000)
   public String continent;
-  @Column(length=100)
+  @Column(length=2000)
   public String waterBody;
-  @Column(length=100)
+  @Column(length=2000)
   public String islandGroup;
-  @Column(length=100)
+  @Column(length=2000)
   public String island;
-  @Column(length=100)
+  @Column(length=2000)
   public String country;
-  @Column(length=100)
+  @Column(length=2000)
   public String countryCode;
-  @Column(length=100)
+  @Column(length=2000)
   public String stateProvince;
-  @Column(length=100)
+  @Column(length=2000)
   public String county;
-  @Column(length=100)
+  @Column(length=2000)
   public String municipality;
   @Column(length=400)
   public String locality;
-  @Column(length=100)
+  @Column(length=2000)
   public String verbatimLocality;
-  @Column(length=100)
+  @Column(length=2000)
   public String verbatimElevation;
-  @Column(length=100)
+  @Column(length=2000)
   public String minimumElevationInMeters;
-  @Column(length=100)
+  @Column(length=2000)
   public String maximumElevationInMeters;
-  @Column(length=100)
+  @Column(length=2000)
   public String verbatimDepth;
-  @Column(length=100)
+  @Column(length=2000)
   public String minimumDepthInMeters;
-  @Column(length=100)
+  @Column(length=2000)
   public String maximumDepthInMeters;
-  @Column(length=100)
+  @Column(length=2000)
   public String minimumDistanceAboveSurfaceInMeters;
-  @Column(length=100)
+  @Column(length=2000)
   public String maximumDistanceAboveSurfaceInMeters;
-  @Column(length=100)
+  @Column(length=2000)
   public String locationAccordingTo;
   @Column(length=400)
   public String locationRemarks;
-  @Column(length=100)
+  @Column(length=2000)
   public String verbatimCoordinates;
-  @Column(length=100)
+  @Column(length=2000)
   public String verbatimLatitude;
-  @Column(length=100)
+  @Column(length=2000)
   public String verbatimLongitude;
-  @Column(length=100)
+  @Column(length=2000)
   public String verbatimCoordinateSystem;
-  @Column(length=100)
+  @Column(length=2000)
   public String verbatimSRS;
-  @Column(length=100)
+  @Column(length=2000)
   public String decimalLatitude;
-  @Column(length=100)
+  @Column(length=2000)
   public String decimalLongitude;
-  @Column(length=100)
+  @Column(length=2000)
   public String geodeticDatum;
-  @Column(length=100)
+  @Column(length=2000)
   public String coordinateUncertaintyInMeters;
-  @Column(length=100)
+  @Column(length=2000)
   public String coordinatePrecision;
-  @Column(length=100)
+  @Column(length=2000)
   public String pointRadiusSpatialFit;
-  @Column(length=100)
+  @Column(length=2000)
   public String footprintWKT;
-  @Column(length=100)
+  @Column(length=2000)
   public String footprintSRS;
-  @Column(length=100)
+  @Column(length=2000)
   public String footprintSpatialFit;
-  @Column(length=100)
+  @Column(length=2000)
   public String georeferencedBy;
-  @Column(length=100)
+  @Column(length=2000)
   public String georeferencedDate;
-  @Column(length=100)
+  @Column(length=2000)
   public String georeferenceProtocol;
-  @Column(length=100)
+  @Column(length=2000)
   public String georeferenceSources;
-  @Column(length=100)
+  @Column(length=2000)
   public String georeferenceVerificationStatus;
-  @Column(length=100)
+  @Column(length=2000)
   public String georeferenceRemarks;
   
   //GeologicalContext
-  @Column(length=100)
+  @Column(length=2000)
   public String geologicalContextID;
-  @Column(length=100)
+  @Column(length=2000)
   public String earliestEonOrLowestEonothem;
-  @Column(length=100)
+  @Column(length=2000)
   public String latestEonOrHighestEonothem;
-  @Column(length=100)
+  @Column(length=2000)
   public String earliestEraOrLowestErathem;
-  @Column(length=100)
+  @Column(length=2000)
   public String latestEraOrHighestErathem;
-  @Column(length=100)
+  @Column(length=2000)
   public String earliestPeriodOrLowestSystem;
-  @Column(length=100)
+  @Column(length=2000)
   public String latestPeriodOrHighestSystem;
-  @Column(length=100)
+  @Column(length=2000)
   public String earliestEpochOrLowestSeries;
-  @Column(length=100)
+  @Column(length=2000)
   public String latestEpochOrHighestSeries;
-  @Column(length=100)
+  @Column(length=2000)
   public String earliestAgeOrLowestStage;
-  @Column(length=100)
+  @Column(length=2000)
   public String latestAgeOrHighestStage;
-  @Column(length=100)
+  @Column(length=2000)
   public String lowestBiostratigraphicZone;
-  @Column(length=100)
+  @Column(length=2000)
   public String highestBiostratigraphicZone;
-  @Column(length=100)
+  @Column(length=2000)
   public String lithostratigraphicTerms;
-  @Column(length=100)
+  @Column(length=2000)
   public String groupp;
-  @Column(length=100)
+  @Column(length=2000)
   public String formation;
-  @Column(length=100)
+  @Column(length=2000)
   public String member;
-  @Column(length=100)
+  @Column(length=2000)
   public String bed;
   
   //Identification
-  @Column(length=100)
+  @Column(length=2000)
   public String identificationID;
   @Column(length=200)
   public String identifiedBy;
-  @Column(length=100)
+  @Column(length=2000)
   public String dateIdentified;
-  @Column(length=100)
+  @Column(length=2000)
   public String identificationVerificationStatus;
-  @Column(length=100)
+  @Column(length=2000)
   public String identificationRemarks;
-  @Column(length=100)
+  @Column(length=2000)
   public String identificationQualifier;
-  @Column(length=100)
+  @Column(length=2000)
   public String typeStatus;
   
   //Taxon
-  @Column(length=100)
+  @Column(length=2000)
   public String taxonID;
-  @Column(length=100)
+  @Column(length=2000)
   public String scientificNameID;
-  @Column(length=100)
+  @Column(length=2000)
   public String acceptedNameUsageID;
-  @Column(length=100)
+  @Column(length=2000)
   public String parentNameUsageID;
-  @Column(length=100)
+  @Column(length=2000)
   public String originalNameUsageID;
-  @Column(length=100)
+  @Column(length=2000)
   public String nameAccordingToID;
   @Column(length=200)
   public String namePublishedInID;
-  @Column(length=100)
+  @Column(length=2000)
   public String taxonConceptID;
   @Column(length=200)
   @Index(name = "idx_scientificName")
   @Required
   public String scientificName;
-  @Column(length=100)
+  @Column(length=2000)
   public String acceptedNameUsage;
-  @Column(length=100)
+  @Column(length=2000)
   public String parentNameUsage;
-  @Column(length=100)
+  @Column(length=2000)
   public String originalNameUsage;
-  @Column(length=100)
+  @Column(length=2000)
   public String nameAccordingTo;
   @Column(length=500)
   public String namePublishedIn;
-  @Column(length=100)
+  @Column(length=2000)
   public String namePublishedInYear;
-  @Column(length=100)
+  @Column(length=2000)
   public String higherClassification;
-  @Column(length=100)
+  @Column(length=2000)
   public String kingdom;
-  @Column(length=100)
+  @Column(length=2000)
   public String phylum;
-  @Column(length=100)
+  @Column(length=2000)
   public String classs; //class is a Java keyword
-  @Column(length=100)
+  @Column(length=2000)
   public String orderr; //order is a SQL keyword
-  @Column(length=100)
+  @Column(length=2000)
   public String family;
-  @Column(length=100)
+  @Column(length=2000)
   public String genus;
-  @Column(length=100)
+  @Column(length=2000)
   public String subgenus;
-  @Column(length=100)
+  @Column(length=2000)
   public String specificEpithet;
-  @Column(length=100)
+  @Column(length=2000)
   public String infraSpecificEpithet;
-  @Column(length=100)
+  @Column(length=2000)
   public String kingdom_interpreted;
-  @Column(length=100)
+  @Column(length=2000)
   public String phylum_interpreted;
-  @Column(length=100)
+  @Column(length=2000)
   public String classs_interpreted;
-  @Column(length=100)
+  @Column(length=2000)
   public String orderr_interpreted;
-  @Column(length=100)
+  @Column(length=2000)
   public String family_interpreted;
-  @Column(length=100)
+  @Column(length=2000)
   public String genus_interpreted;
-  @Column(length=100)
+  @Column(length=2000)
   public String subgenus_interpreted;
-  @Column(length=100)
+  @Column(length=2000)
   public String specificEpithet_interpreted;
-  @Column(length=100)
+  @Column(length=2000)
   public String infraSpecificEpithet_interpreted;
-  @Column(length=100)
+  @Column(length=2000)
   public String taxonRank;
-  @Column(length=100)
+  @Column(length=2000)
   public String verbatimTaxonRank;
-  @Column(length=100)
+  @Column(length=2000)
   public String scientificNameAuthorship;
-  @Column(length=100)
+  @Column(length=2000)
   public String vernacularName;
-  @Column(length=100)
+  @Column(length=2000)
   public String nomenclaturalCode;
-  @Column(length=100)
+  @Column(length=2000)
   public String taxonomicStatus;
-  @Column(length=100)
+  @Column(length=2000)
   public String nomenclaturalStatus;
-  @Column(length=100)
+  @Column(length=2000)
   public String taxonRemarks;
   
   //Geospatial
   //public Geometry the_geom;
   
   //Harvester
-  @Column(length=100)
+  @Column(length=2000)
   public String taxonStatus;
   
   //ecat

@@ -26,7 +26,7 @@ public class GbifRacine extends Model{
 	private Citation citation;
 
 	@OneToMany(mappedBy="gbifRacine", cascade=CascadeType.ALL)
-	private List<Citation> bibliography = new ArrayList<Citation>();
+	private List<Biblio> bibliography = new ArrayList<Biblio>();
 
 	@OneToMany(mappedBy="gbifRacine", cascade=CascadeType.ALL)
 	private List<Physical> physicals = new ArrayList<Physical>();
@@ -55,10 +55,10 @@ public class GbifRacine extends Model{
 		this.setCitation(citation.parse(element.getChild("citation"), this));
 
 		if(element.getChild("bibliography")!=null){
-			bibliography = new ArrayList<Citation>();
+			bibliography = new ArrayList<Biblio>();
 			List<Element> bibliographyElement = element.getChild("bibliography").getChildren("citation");
 			for (int i=0; i <bibliographyElement.size(); i++){
-				Citation cit = new Citation();
+				Biblio cit = new Biblio();
 				this.addBibliography(cit.parse(bibliographyElement.get(i), this));
 			}
 		}
@@ -125,13 +125,13 @@ public class GbifRacine extends Model{
 	public void setCitation(Citation citation) {
 		this.citation = citation;
 	}
-	public List<Citation> getBibliography() {
+	public List<Biblio> getBibliography() {
 		return bibliography;
 	}
-	public void setBibliography(ArrayList<Citation> bibliography) {
+	public void setBibliography(ArrayList<Biblio> bibliography) {
 		this.bibliography = bibliography;
 	}
-	public void addBibliography(Citation bibliography) {
+	public void addBibliography(Biblio bibliography) {
 		this.bibliography.add(bibliography);
 	}
 	public List<Physical> getPhysicals() {

@@ -20,7 +20,7 @@ import play.db.jpa.Model;
 @Entity
 public class TaxonomicCoverage extends Model{
 
-	@Column(length=10000)
+	@Column(length=2000)
 	public String generalTaxonomicCoverage;
 	
 	@OneToMany(mappedBy="taxonomicCoverage", cascade=CascadeType.ALL)
