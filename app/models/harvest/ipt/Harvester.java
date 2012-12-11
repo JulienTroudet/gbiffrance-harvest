@@ -442,6 +442,12 @@ public class Harvester extends models.harvest.Harvester
 			if (rec.value(DwcTerm.taxonomicStatus) != null && !rec.value(DwcTerm.taxonomicStatus).isEmpty()) occurrence.taxonomicStatus = rec.value(DwcTerm.taxonomicStatus);
 			if (rec.value(DwcTerm.nomenclaturalStatus) != null && !rec.value(DwcTerm.nomenclaturalStatus).isEmpty()) occurrence.nomenclaturalStatus = rec.value(DwcTerm.nomenclaturalStatus);
 			if (rec.value(DwcTerm.taxonRemarks) != null && !rec.value(DwcTerm.taxonRemarks).isEmpty()) occurrence.taxonRemarks = rec.value(DwcTerm.taxonRemarks);
+			
+			
+			if (rec.value(DwcTerm.verbatimEventDate) != null && !rec.value(DwcTerm.verbatimEventDate).isEmpty()) occurrence.verbatimEventDate = rec.value(DwcTerm.verbatimEventDate);
+			if (rec.value(DwcTerm.eventID) != null && !rec.value(DwcTerm.eventID).isEmpty()) occurrence.eventID = rec.value(DwcTerm.eventID);
+			if (rec.value(DwcTerm.eventDate) != null && !rec.value(DwcTerm.eventDate).isEmpty()) occurrence.eventDate = rec.value(DwcTerm.eventDate);
+			//if (rec.value(DwcTerm.language) != null && !rec.value(DwcTerm.language).isEmpty()) occurrence.language = rec.value(DwcTerm.language);
 			//GeoSpatial
 			//occurrence.the_geom. = new SpatialPointFromTextMethod();
 			occurrences.add(occurrence);
