@@ -45,7 +45,7 @@ public class EmlParser {
 						Element datasetElement = racine.getChild("additionalMetadata").getChild("metadata").getChild("gbif");
 						gbif = new GbifRacine();
 						gbif = gbif.parse(datasetElement, data);	
-						data.setGbifRacine(gbif);
+						//data.setGbifRacine(gbif);
 						//System.out.println (gbif);
 					}
 				}

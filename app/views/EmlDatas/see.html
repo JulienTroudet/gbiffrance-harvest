@@ -19,9 +19,7 @@
 				#{list items:emlData.keywordSets, as:'keywordSet'}
 					<p>
 					${keywordSet.keywordThesaurus} ; 
-					#{list items:keywordSet.keywords, as:'keyword'}
-					${keyword}, 
-					#{/list}
+					${keywordSet.keywords}
 					</p>
 				#{/list} 
 			#{/if}
@@ -104,9 +102,7 @@
 		
 		#{if emlData.methods != null}
 			<h3>Method : </h3>
-			<ul>#{list items:emlData.methods.methodSteps, as:'methodStep'}
-			<li>${methodStep}</li>
-			#{/list}</ul>
+			<p>${emlData.methods.methodSteps}</p>
 			<p>Study extent : ${emlData.methods.studyExtent}</p>
 			<p>Sampling description : ${emlData.methods.samplingDescription}</p>
 			<p>Quality control : ${emlData.methods.qualityControl}</p>

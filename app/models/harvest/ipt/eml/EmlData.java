@@ -28,7 +28,7 @@ import play.db.jpa.Model;
 @Entity
 public class EmlData extends Model{
 
-	public ArrayList<String> alternateIdentifiers = new ArrayList<String>();
+	public String alternateIdentifiers;
 	public String title;
 
 	@OneToMany(mappedBy="emlData", cascade=CascadeType.ALL)
@@ -73,7 +73,6 @@ public class EmlData extends Model{
 	public EmlData parse(Element dataElement) {
 		parties = new ArrayList<Party>();
 		//alternateIdentifiers
-		alternateIdentifiers = new ArrayList<String>();
 		List<Element> alternateIdentifiersElement = dataElement.getChildren("alternateIdentifier");
 		for (int i=0; i <alternateIdentifiersElement.size(); i++){
 			this.addAlternateIdentifier((alternateIdentifiersElement.get(i).getText()));
@@ -182,14 +181,14 @@ public class EmlData extends Model{
 		return str;
 	}
 
-	public ArrayList<String> getAlternateIdentifiers() {
+	public String getAlternateIdentifiers() {
 		return alternateIdentifiers;
 	}
-	public void setAlternateIdentifiers(ArrayList<String> alternateIdentifiers) {
+	public void setAlternateIdentifiers(String alternateIdentifiers) {
 		this.alternateIdentifiers = alternateIdentifiers;
 	}
 	public void addAlternateIdentifier(String alt) {
-		this.alternateIdentifiers.add(alt);
+		this.alternateIdentifiers = this.alternateIdentifiers+" ; "+alt;
 	}
 	public String getTitle() {
 		return title;

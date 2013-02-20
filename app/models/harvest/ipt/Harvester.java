@@ -377,7 +377,7 @@ public class Harvester extends models.harvest.Harvester
 			//*georeferencedDate
 			if (rec.value(DwcTerm.georeferenceProtocol) != null && !rec.value(DwcTerm.georeferenceProtocol).isEmpty()) occurrence.georeferenceProtocol = rec.value(DwcTerm.georeferenceProtocol);
 			if (rec.value(DwcTerm.georeferenceSources) != null && !rec.value(DwcTerm.georeferenceSources).isEmpty()) occurrence.georeferenceSources = rec.value(DwcTerm.georeferenceSources);
-			if (rec.value(DwcTerm.georeferenceVerificationStatus) != null && !rec.value(DwcTerm.georeferenceVerificationStatus).isEmpty()) occurrence.georeferenceVerificationStatus = rec.value(DwcTerm.georeferenceVerificationStatus);
+			if (rec.value(DwcTerm.georeferenceVerificationStatus) != null && !rec.value(DwcTerm.georeferenceVerificationStatus).isEmpty()) occurrence.georeferenceVerifStatus = rec.value(DwcTerm.georeferenceVerificationStatus);
 			if (rec.value(DwcTerm.georeferenceRemarks) != null && !rec.value(DwcTerm.georeferenceRemarks).isEmpty()) occurrence.georeferenceRemarks = rec.value(DwcTerm.georeferenceRemarks);
 
 			//GeologicalContext

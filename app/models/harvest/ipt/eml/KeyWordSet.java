@@ -17,47 +17,41 @@ import play.db.jpa.Model;
 
 @Entity
 public class KeyWordSet extends Model{
-	
-	public ArrayList<String> keywords;
+
+	public String keywords;
 	public String keywordThesaurus;
-	
+
 	@ManyToOne
 	public EmlData emlData;
-	
+
 	public KeyWordSet parse(Element element, EmlData data) {
 		if (element!=null){
-		keywords = new ArrayList<String>();
-		List<Element> keywordsElement = element.getChildren("keyword");
-		for (int i=0; i<keywordsElement.size(); i++){
-			this.addKeywords((keywordsElement.get(i).getText()));
-		}
-		this.setKeywordThesaurus(element.getChildText("keywordThesaurus"));
-		this.emlData = data;
-		return this;
+			ArrayList<String> words = new ArrayList<String>();
+			List<Element> keywordsElement = element.getChildren("keyword");
+			for (int i=0; i<keywordsElement.size(); i++){
+				words.add((keywordsElement.get(i).getText()));
+			}
+			this.setKeywords(words.toString());
+			this.setKeywordThesaurus(element.getChildText("keywordThesaurus"));
+			this.emlData = data;
+			return this;
 		}
 		return null;
 	}
 
-public String toString(){
+	public String toString(){
 		String str = "\n keywordSet";
-
-		for (int i=0; i<this.getKeywords().size(); i++){
-			str = str+ "\n\t keyword : " + this.getKeywords().get(i);
-		}
-		
+		str = str+ "\n\t keyword : " + this.getKeywords();
 		str = str+ "\n\t keywordThesaurus : " + this.getKeywordThesaurus();
 
 		return str;
 	}
-	
-	public ArrayList<String> getKeywords() {
+
+	public String getKeywords() {
 		return keywords;
 	}
-	public void setKeywords(ArrayList<String> keywords) {
-		this.keywords = keywords;
-	}
-	public void addKeywords(String keyword) {
-		this.keywords.add(keyword);
+	public void setKeywords(String keyw) {
+		this.keywords = keyw;
 	}
 	public String getKeywordThesaurus() {
 		return keywordThesaurus;
@@ -73,7 +67,7 @@ public String toString(){
 	public void setEmlData(EmlData emlData) {
 		this.emlData = emlData;
 	}
-	
 
-	
+
+
 }

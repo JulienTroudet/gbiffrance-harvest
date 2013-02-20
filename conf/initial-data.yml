@@ -1,4 +1,4 @@
-User(superadmin):
+HarvestUser(superadmin):
     email: admin@gbif.com
     password: secret
     name: superadmin

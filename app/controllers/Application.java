@@ -3,6 +3,7 @@ package controllers;
 import play.*;
 import play.data.validation.Required;
 import play.db.jpa.GenericModel;
+import play.db.jpa.JPA;
 import play.jobs.Job;
 import play.jobs.OnApplicationStart;
 import play.mvc.*;
@@ -19,6 +20,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.*;
+
+import javax.persistence.TypedQuery;
 
 import models.harvest.*;
 import models.harvest.ipt.eml.EmlData;
@@ -82,6 +85,15 @@ public class Application extends Controller {
 	 * Renders the available datasets
 	 */
 	public static void index() {
+		
+		TypedQuery<Long> q = JPA.em().createQuery("select id from HarvestUser where isAdmin= :admin", Long.class);
+		q.setParameter("admin", true);
+		List<Long> admins = q.getResultList();
+		
+		if(admins.size()<=0) {
+			//cette instruction instancie un utilisateur Admin si la table est vide.
+			Fixtures.loadModels("initial-data.yml");
+		}
 
 	  String targetDirectory = Application.targetDirectory;
 	  List<DataPublishers> dataPublishers = DataPublisher.all().fetch();

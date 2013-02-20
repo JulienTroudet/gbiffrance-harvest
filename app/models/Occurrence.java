@@ -139,7 +139,7 @@ public class Occurrence extends Model
   public String locationID;
   @Column(length=2000)
   public String higherGeographyID;
-  @Column(length=300)
+  @Column(length=2000)
   public String higherGeography;
   @Column(length=2000)
   public String continent;
@@ -159,7 +159,7 @@ public class Occurrence extends Model
   public String county;
   @Column(length=2000)
   public String municipality;
-  @Column(length=400)
+  @Column(length=2000)
   public String locality;
   @Column(length=2000)
   public String verbatimLocality;
@@ -176,12 +176,12 @@ public class Occurrence extends Model
   @Column(length=2000)
   public String maximumDepthInMeters;
   @Column(length=2000)
-  public String minimumDistanceAboveSurfaceInMeters;
+  public String minDistAboveSurfaceInMeters;
   @Column(length=2000)
-  public String maximumDistanceAboveSurfaceInMeters;
+  public String maxDistAboveSurfaceInMeters;
   @Column(length=2000)
   public String locationAccordingTo;
-  @Column(length=400)
+  @Column(length=2000)
   public String locationRemarks;
   @Column(length=2000)
   public String verbatimCoordinates;
@@ -220,7 +220,7 @@ public class Occurrence extends Model
   @Column(length=2000)
   public String georeferenceSources;
   @Column(length=2000)
-  public String georeferenceVerificationStatus;
+  public String georeferenceVerifStatus;
   @Column(length=2000)
   public String georeferenceRemarks;
   
@@ -270,7 +270,7 @@ public class Occurrence extends Model
   @Column(length=2000)
   public String dateIdentified;
   @Column(length=2000)
-  public String identificationVerificationStatus;
+  public String identifVerificationStatus;
   @Column(length=2000)
   public String identificationRemarks;
   @Column(length=2000)
@@ -295,7 +295,7 @@ public class Occurrence extends Model
   public String namePublishedInID;
   @Column(length=2000)
   public String taxonConceptID;
-  @Column(length=200)
+  @Column(length=2000)
   @Index(name = "idx_scientificName")
   @Required
   public String scientificName;
@@ -307,7 +307,7 @@ public class Occurrence extends Model
   public String originalNameUsage;
   @Column(length=2000)
   public String nameAccordingTo;
-  @Column(length=500)
+  @Column(length=2000)
   public String namePublishedIn;
   @Column(length=2000)
   public String namePublishedInYear;
@@ -348,7 +348,7 @@ public class Occurrence extends Model
   @Column(length=2000)
   public String specificEpithet_interpreted;
   @Column(length=2000)
-  public String infraSpecificEpithet_interpreted;
+  public String infraSpecificEpithet_inter;
   @Column(length=2000)
   public String taxonRank;
   @Column(length=2000)
@@ -637,8 +637,8 @@ public class Occurrence extends Model
 	this.verbatimDepth = verbatimDepth;
 	this.minimumDepthInMeters = minimumDepthInMeters;
 	this.maximumDepthInMeters = maximumDepthInMeters;
-	this.minimumDistanceAboveSurfaceInMeters = minimumDistanceAboveSurfaceInMeters;
-	this.maximumDistanceAboveSurfaceInMeters = maximumDistanceAboveSurfaceInMeters;
+	this.minDistAboveSurfaceInMeters = minimumDistanceAboveSurfaceInMeters;
+	this.maxDistAboveSurfaceInMeters = maximumDistanceAboveSurfaceInMeters;
 	this.locationAccordingTo = locationAccordingTo;
 	this.locationRemarks = locationRemarks;
 	this.verbatimCoordinates = verbatimCoordinates;
@@ -659,7 +659,7 @@ public class Occurrence extends Model
 	this.georeferencedDate = georeferencedDate;
 	this.georeferenceProtocol = georeferenceProtocol;
 	this.georeferenceSources = georeferenceSources;
-	this.georeferenceVerificationStatus = georeferenceVerificationStatus;
+	this.georeferenceVerifStatus = georeferenceVerificationStatus;
 	this.georeferenceRemarks = georeferenceRemarks;
 	//GeologicalContext
 	this.geologicalContextID = geologicalContextID;
@@ -684,7 +684,7 @@ public class Occurrence extends Model
 	this.identificationID = identificationID;
 	this.identifiedBy = identifiedBy;
 	this.dateIdentified = dateIdentified;
-	this.identificationVerificationStatus = identificationVerificationStatus;
+	this.identifVerificationStatus = identificationVerificationStatus;
 	this.identificationRemarks = identificationRemarks;
 	this.identificationQualifier = identificationQualifier;
 	this.typeStatus = typeStatus;
