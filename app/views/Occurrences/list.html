@@ -1,0 +1,151 @@
+#{extends 'main.html' /} #{set title:'Occurrences' /}
+<div id="main">
+
+#{if data != null}
+	<h1>${data.emlData.title}</h1>
+
+	<h4>Nombre d'occurences : ${data.occurrences.size()}</h4>
+	<div id="ListTable">
+		
+		<table class="table table-striped table-condensed" id="occurrence_table">
+		<tr class="table">
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=catalogNumber">catalogNumber</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=occurrenceRemarks">occurrenceRemarks</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=recordNumber">recordNumber</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=recordedBy">recordedBy</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=individualID">individualID</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=individualCount">individualCount</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=sex">sex</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=lifeStage">lifeStage</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=reproductiveCondition">reproductiveCondition</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=behavior">behavior</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=establishmentMeans">establishmentMeans</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=occurrenceStatus">occurrenceStatus</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=preparations">preparations</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=disposition">disposition</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=otherCatalogNumbers">otherCatalogNumbers</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=previousIdentifications">previousIdentifications</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=associatedMedia">associatedMedia</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=associatedReferences">associatedReferences</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=associatedOccurrences">associatedOccurrences</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=associatedSequences">associatedSequences</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=associatedTaxa">associatedTaxa</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=taxonID">taxonID</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=scientificNameID">scientificNameID</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=acceptedNameUsageID">acceptedNameUsageID</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=parentNameUsageID">parentNameUsageID</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=originalNameUsageID">originalNameUsageID</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=nameAccordingToID">nameAccordingToID</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=namePublishedInID">namePublishedInID</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=taxonConceptID">taxonConceptID</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=scientificName">scientificName</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=acceptedNameUsage">acceptedNameUsage</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=parentNameUsage">parentNameUsage</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=originalNameUsage">originalNameUsage</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=nameAccordingTo">nameAccordingTo</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=namePublishedIn">namePublishedIn</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=namePublishedInYear">namePublishedInYear</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=higherClassification">higherClassification</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=kingdom">kingdom</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=phylum">phylum</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=classs">classs</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=orderr">orderr</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=family">family</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=genus">genus</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=subgenus">subgenus</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=specificEpithet">specificEpithet</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=infraSpecificEpithet">infraSpecificEpithet</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=kingdom_interpreted">kingdom_interpreted</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=phylum_interpreted">phylum_interpreted</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=classs_interpreted">classs_interpreted</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=orderr_interpreted">orderr_interpreted</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=family_interpreted">family_interpreted</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=genus_interpreted">genus_interpreted</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=subgenus_interpreted">subgenus_interpreted</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=specificEpithet_interpreted">specificEpithet_interpreted</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=infraSpecificEpithet_inter">infraSpecificEpithet_inter</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=taxonRank">taxonRank</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=verbatimTaxonRank">verbatimTaxonRank</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=scientificNameAuthorship">scientificNameAuthorship</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=vernacularName">vernacularName</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=nomenclaturalCode">nomenclaturalCode</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=taxonomicStatus">taxonomicStatus</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=nomenclaturalStatus">nomenclaturalStatus</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}?order=ASC&orderBy=taxonRemarks">taxonRemarks</a></h5></th>
+		</tr>
+				#{list items:data.occurrences.pageList(page, 25), as:'occurrence'}
+				<tr class="table">
+					<td class="table"><b>${occurrence.catalogNumber}</b></td>
+					<td class="table"><b>${occurrence.occurrenceRemarks}</b></td>
+					<td class="table"><b>${occurrence.recordNumber}</b></td>
+					<td class="table"><b>${occurrence.recordedBy}</b></td>
+					<td class="table"><b>${occurrence.individualID}</b></td>
+					<td class="table"><b>${occurrence.individualCount}</b></td>
+					<td class="table"><b>${occurrence.sex}</b></td>
+					<td class="table"><b>${occurrence.lifeStage}</b></td>
+					<td class="table"><b>${occurrence.reproductiveCondition}</b></td>
+					<td class="table"><b>${occurrence.behavior}</b></td>
+					<td class="table"><b>${occurrence.establishmentMeans}</b></td>
+					<td class="table"><b>${occurrence.occurrenceStatus}</b></td>
+					<td class="table"><b>${occurrence.preparations}</b></td>
+					<td class="table"><b>${occurrence.disposition}</b></td>
+					<td class="table"><b>${occurrence.otherCatalogNumbers}</b></td>
+					<td class="table"><b>${occurrence.previousIdentifications}</b></td>
+					<td class="table"><b>${occurrence.associatedMedia}</b></td>
+					<td class="table"><b>${occurrence.associatedReferences}</b></td><td class="table"><b>${occurrence.associatedOccurrences}</b></td>
+					<td class="table"><b>${occurrence.associatedSequences}</b></td>
+					<td class="table"><b>${occurrence.associatedTaxa}</b></td>
+					<td class="table"><b>${occurrence.taxonID}</b></td>
+					<td class="table"><b>${occurrence.scientificNameID}</b></td>
+					<td class="table"><b>${occurrence.acceptedNameUsageID}</b></td>
+					<td class="table"><b>${occurrence.parentNameUsageID}</b></td>
+					<td class="table"><b>${occurrence.originalNameUsageID}</b></td>
+					<td class="table"><b>${occurrence.nameAccordingToID}</b></td><td class="table"><b>${occurrence.namePublishedInID}</b></td>
+					<td class="table"><b>${occurrence.taxonConceptID}</b></td>
+					<td class="table"><b>${occurrence.scientificName}</b></td>
+					<td class="table"><b>${occurrence.acceptedNameUsage}</b></td>
+					<td class="table"><b>${occurrence.parentNameUsage}</b></td>
+					<td class="table"><b>${occurrence.originalNameUsage}</b></td>
+					<td class="table"><b>${occurrence.nameAccordingTo}</b></td>
+					<td class="table"><b>${occurrence.namePublishedIn}</b></td>
+					<td class="table"><b>${occurrence.namePublishedInYear}</b></td>
+					<td class="table"><b>${occurrence.higherClassification}</b></td>
+					<td class="table"><b>${occurrence.kingdom}</b></td>
+					<td class="table"><b>${occurrence.phylum}</b></td>
+					<td class="table"><b>${occurrence.classs}</b></td>
+					<td class="table"><b>${occurrence.orderr}</b></td>
+					<td class="table"><b>${occurrence.family}</b></td>
+					<td class="table"><b>${occurrence.genus}</b></td>
+					<td class="table"><b>${occurrence.subgenus}</b></td>
+					<td class="table"><b>${occurrence.specificEpithet}</b></td>
+					<td class="table"><b>${occurrence.infraSpecificEpithet}</b></td>
+					<td class="table"><b>${occurrence.kingdom_interpreted}</b></td>
+					<td class="table"><b>${occurrence.phylum_interpreted}</b></td>
+					<td class="table"><b>${occurrence.classs_interpreted}</b></td>
+					<td class="table"><b>${occurrence.orderr_interpreted}</b></td>
+					<td class="table"><b>${occurrence.family_interpreted}</b></td>
+					<td class="table"><b>${occurrence.genus_interpreted}</b></td>
+					<td class="table"><b>${occurrence.subgenus_interpreted}</b></td>
+					<td class="table"><b>${occurrence.specificEpithet_interpreted}</b></td>
+					<td class="table"><b>${occurrence.infraSpecificEpithet_inter}</b></td>
+					<td class="table"><b>${occurrence.taxonRank}</b></td>
+					<td class="table"><b>${occurrence.verbatimTaxonRank}</b></td>
+					<td class="table"><b>${occurrence.scientificNameAuthorship}</b></td>
+					<td class="table"><b>${occurrence.vernacularName}</b></td>
+					<td class="table"><b>${occurrence.nomenclaturalCode}</b></td>
+					<td class="table"><b>${occurrence.taxonomicStatus}</b></td>
+					<td class="table"><b>${occurrence.nomenclaturalStatus}</b></td>
+					<td class="table"><b>${occurrence.taxonRemarks}</b></td>
+				</tr>
+				#{/list}
+		</table>
+		#{if page >= 2 }
+		<a href="${page-1}" class="btn btn-primary"><i class="icon-chevron-left"></i> Page ${page-1}</a> 
+		#{/if}
+		
+		<a href="${page+1}" class="btn btn-primary">Page ${page+1} <i class="icon-chevron-right"></i></a> 
+		
+	</div>
+
+#{/if}
+</div>

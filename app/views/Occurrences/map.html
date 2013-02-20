@@ -1,0 +1,38 @@
+#{extends 'main.html' /} #{set title:'Occurrences-Map' /}
+<div id="main">
+
+	#{if data != null}
+	<h1>${data.emlData.title}</h1>
+
+	<h4>Nombre d'occurences : ${data.occurrences.size()}</h4>
+
+
+	<script src="@{'/public/javascripts/OpenLayers-2.12/OpenLayers.js'}"
+		type="text/javascript" charset="${_response_encoding}"></script>
+
+
+
+	<div id="map" style="height: 200px; width: 500px"></div>
+
+
+	<script type="text/javascript">
+	<script type="text/javascript">
+    var map, layer;
+    function init(){
+        map = new OpenLayers.Map( 'map');
+        layer = new OpenLayers.Layer.OSM( "Simple OSM Map");
+        map.addLayer(layer);
+        map.setCenter(
+            new OpenLayers.LonLat(-71.147, 42.472).transform(
+                new OpenLayers.Projection("EPSG:4326"),
+                map.getProjectionObject()
+            ), 12
+        );    
+    }
+</script>
+
+
+
+
+	#{/if}
+</div>

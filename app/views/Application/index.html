@@ -33,6 +33,18 @@
 						<a href="see/${dataset.id}"><i title="see" class="icon-eye-open"></i></a> 
 						#{/if}
 				</td>
+				<td class="table" id="">
+						#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
+						<a href="occurrences/map/${dataset.id}"><i title="map-see" class="icon-globe"></i></a> 
+						#{/if}
+				</td>
+				
+				<td class="table" id="occurrence_see">
+						#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
+						<a href="occurrences/list/${dataset.id}/page/1"><i title="list-occurences" class="icon-list"></i></a> 
+						#{/if}
+				</td>
+				
 				 #{secure.check 'publisher'}
 				<td class="table" id="dataset_action">
 					<div>

@@ -11,6 +11,8 @@ GET     /taxonomize/{id}                        Application.taxonomize
 GET     /delete/{id}/occurrences                Application.deleteDatasetOccurrences
 GET     /delete/{id}                            Application.deleteDataset
 GET     /see/{id}                            	EmlDatas.see
+GET     /occurrences/list/{id}/page/{page}      Occurrences.list
+GET     /occurrences/map/{id}                   Occurrences.map
 GET     /add/datapublisher                      DataPublishers.add
 GET     /add/dataset                            Datasets.add
 GET     /edit/targetdirectory                   Application.editTargetDirectory

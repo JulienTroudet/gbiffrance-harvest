@@ -6,10 +6,10 @@
 	</div>
 	<div class="modal-body" id="new_data_publisher">
 		#{form @Datasets.save()} <label>Name:</label>
-		</td> <input type="text" id="name" name="name" value="${flash.name}" />
+		</td> <input type="text" id="name" name="name" value="${flash.name}" class="input-xxlarge"/>
 		#{ifError 'name'}<span class="alert alert-error">#{error 'name'
 			/}</span>#{/ifError} <label>Access point URL:</label> <input type="text"
-			id="url" name="url" /> #{ifError 'url'}<span
+			id="url" name="url" class="input-xxlarge"/> #{ifError 'url'}<span
 			class="alert alert-error">#{error 'url' /}</span>#{/ifError} <label>Type:</label>
 		<select id="type" name="type">
 			<option></option>
