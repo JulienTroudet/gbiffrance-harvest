@@ -1,38 +1,62 @@
-#{extends 'main.html' /} #{set title:'Occurrences-Map' /}
+#{extends 'main-map.html' /} #{set title:'Occurrences' /}
 <div id="main">
-
-	#{if data != null}
-	<h1>${data.emlData.title}</h1>
-
-	<h4>Nombre d'occurences : ${data.occurrences.size()}</h4>
-
 
 	<script src="@{'/public/javascripts/OpenLayers-2.12/OpenLayers.js'}"
 		type="text/javascript" charset="${_response_encoding}"></script>
-
-
-
-	<div id="map" style="height: 200px; width: 500px"></div>
-
-
+	#{get 'moreScripts' /}
 	<script type="text/javascript">
-	<script type="text/javascript">
-    var map, layer;
-    function init(){
-        map = new OpenLayers.Map( 'map');
-        layer = new OpenLayers.Layer.OSM( "Simple OSM Map");
-        map.addLayer(layer);
-        map.setCenter(
-            new OpenLayers.LonLat(-71.147, 42.472).transform(
-                new OpenLayers.Projection("EPSG:4326"),
-                map.getProjectionObject()
-            ), 12
-        );    
-    }
+	function blockloading() {
+		$.blockUI({
+			message : $('#blockloading'),
+			css : {
+				border : '1px solid #5595a7',
+				background : 'white',
+				width : '400px'
+			}
+		});
+	};
 </script>
 
 
 
 
-	#{/if}
+	<script src="@{'/public/javascripts/OpenLayers-2.12/OpenLayers.js'}"
+		type="text/javascript" charset="${_response_encoding}"></script>
+	<script>
+      function init() {
+        map = new OpenLayers.Map("basicMap");
+        var mapnik         = new OpenLayers.Layer.OSM();
+        var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+        var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+        var position       = new OpenLayers.LonLat(13.41,52.52).transform( fromProjection, toProjection);
+        var zoom           = 0; 
+ 
+        map.addLayer(mapnik);
+        
+        var markers = new OpenLayers.Layer.Markers( "Markers" );
+        
+        #{list items:data.occurrences, as:'occurrence'}
+	    #{if occurrence.decimalLongitude !=null && occurrence.decimalLatitude !=null }
+			var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
+    	    var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
+    	    var position       = new OpenLayers.LonLat(${occurrence.decimalLongitude}, ${occurrence.decimalLatitude}).transform( fromProjection, toProjection);
+    	    markers.addMarker(new OpenLayers.Marker(position));
+	    #{/if}
+    	#{/list}
+        
+        map.addLayer(markers);
+       
+        
+        map.setCenter(position, zoom );
+      }
+      
+    </script>
+
+
+
+
+
+	<div id="basicMap"></div>
 </div>
+
+
