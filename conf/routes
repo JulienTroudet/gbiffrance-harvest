@@ -7,7 +7,6 @@ GET     /                                       Application.index
 GET     /harvest/{type}/{id}/                    Application.harvest
 GET     /harvest/{type}/{id}/{begin}      		Application.harvest
 GET     /harvest/{type}/{id}/{begin}/{end}      Application.harvest
-GET     /taxonomize/{id}                        Application.taxonomize
 GET     /delete/{id}/occurrences                Application.deleteDatasetOccurrences
 GET     /delete/{id}                            Application.deleteDataset
 GET     /see/{id}                            	EmlDatas.see
@@ -15,9 +14,7 @@ GET     /occurrences/list/{id}/page/{page}      Occurrences.list
 GET     /occurrences/map/{id}                   Occurrences.map
 GET     /add/datapublisher                      DataPublishers.add
 GET     /add/dataset                            Datasets.add
-GET     /edit/targetdirectory                   Application.editTargetDirectory
 GET     /edit/{id}                   			Datasets.edit
-GET     /geospatial/{id}                   		Application.geospatial
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
