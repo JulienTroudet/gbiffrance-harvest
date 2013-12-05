@@ -16,7 +16,7 @@
 				<td>Type : </td><td>${dataset.type}</td>
 			</tr>
 			<tr>
-				<td>Staut : </td><td>${dataset.status}</td>
+				<td>Statut : </td><td>${dataset.status}</td>
 			</tr>
 			<tr>
 				<td>Exclure les donnees non francaises : </td><td>${dataset.fromOutside}</td>
@@ -65,7 +65,7 @@
 		#{ifError 'dataPublisherId'}<span class="alert alert-error">#{error
 			'dataPublisherId' /}</span>#{/ifError} 
 			
-			<label>From outside?</label> <input
+			<label>Exclure les donnees non francaises?</label> <input
 			type="checkbox" name="fromOutside" value="true">
 	</div>
 	<div class="modal-footer">

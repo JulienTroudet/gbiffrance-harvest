@@ -46,10 +46,29 @@
 					<a class="brand" id="logo" href="@{Application.index()}">GBIF
 						France Harvester</a>
 					<ul class="nav">
-						<li><a href="@{DataPublishers.add()}">Add a new Data Publisher</a></li>
-						<li><a href="@{Datasets.add()}">Add a new Dataset</a></li>
-						<li><a href="@{HarvestUsers.list()}">Manage Users</a></li>
-						<li><a href="@{Secure.logout()}">Log out</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Fournisseurs <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+		                        <li class="">
+		                        	<a href="@{DataPublishers.list()}">Liste des fournisseurs</a>
+		                        </li>
+		                        <li class="">
+									<a href="@{DataPublishers.add()}">Ajouter un fournisseur</a>
+								</li>
+		                    </ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Jeux de données <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+		                        <li class="">
+		                        	<a href="@{Datasets.list()}">Liste des jeux de données</a>
+		                        </li>
+		                        <li class="">
+									<a href="@{Datasets.add()}">Ajouter un jeu de données</a>
+								</li>
+		                    </ul>
+						</li>
+						<li><a href="@{Secure.logout()}">Déconnexion</a></li>
 					</ul>
 				</div>
 			</div>

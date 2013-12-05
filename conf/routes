@@ -4,17 +4,23 @@
 
 # Home page
 GET     /                                       Application.index
-GET     /harvest/{type}/{id}/                    Application.harvest
-GET     /harvest/{type}/{id}/{begin}      		Application.harvest
-GET     /harvest/{type}/{id}/{begin}/{end}      Application.harvest
-GET     /delete/{id}/occurrences                Application.deleteDatasetOccurrences
-GET     /delete/{id}                            Application.deleteDataset
-GET     /see/{id}                            	EmlDatas.see
-GET     /occurrences/list/{id}/page/{page}      Occurrences.list
-GET     /occurrences/map/{id}                   Occurrences.map
-GET     /add/datapublisher                      DataPublishers.add
+GET     /list                                   Datasets.list
 GET     /add/dataset                            Datasets.add
 GET     /edit/{id}                   			Datasets.edit
+GET     /delete/{id}                            Datasets.delete
+GET     /harvest/{type}/{id}/                   Datasets.harvest
+GET     /harvest/{type}/{id}/{begin}      		Datasets.harvest
+GET     /harvest/{type}/{id}/{begin}/{end}      Datasets.harvest
+
+GET     /add/datapublisher                      DataPublishers.add
+GET     /list/datapublisher                     DataPublishers.list
+
+GET     /see/{id}                            	EmlDatas.see
+
+GET     /occurrences/list/{id}/page/{page}      Occurrences.list
+GET     /occurrences/map/{id}                   Occurrences.map
+GET     /delete/{id}/occurrences                Occurrences.delete
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

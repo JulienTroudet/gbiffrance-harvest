@@ -11,10 +11,15 @@ import play.mvc.Controller;
 import play.mvc.With;
 @With(Secure.class)
 public class DataPublishers extends Controller {
+
+	public static void add(){
+		render();
+	}
 	
-  public static void add(){
-	render();
-  }
+	public static void list(){
+		List<DataPublishers> dataPublishers = DataPublisher.all().fetch();
+		render(dataPublishers);
+	}	
 	
   public static void save(@Required(message="Name is required") String name, 
                           @Required(message="A description is required") String description,
