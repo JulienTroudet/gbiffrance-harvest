@@ -47,14 +47,16 @@
 						France Harvester</a>
 					<ul class="nav">
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Fournisseurs <b class="caret"></b></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Fournisseurs de données <b class="caret"></b></a>
 							<ul class="dropdown-menu">
 		                        <li class="">
 		                        	<a href="@{DataPublishers.list()}">Liste des fournisseurs</a>
 		                        </li>
+		                        #{secure.check 'publisher'}
 		                        <li class="">
 									<a href="@{DataPublishers.add()}">Ajouter un fournisseur</a>
 								</li>
+								#{/secure.check}
 		                    </ul>
 						</li>
 						<li class="dropdown">
@@ -63,11 +65,14 @@
 		                        <li class="">
 		                        	<a href="@{Datasets.list()}">Liste des jeux de données</a>
 		                        </li>
+		                        #{secure.check 'publisher'}
 		                        <li class="">
 									<a href="@{Datasets.add()}">Ajouter un jeu de données</a>
 								</li>
+								#{/secure.check}
 		                    </ul>
 						</li>
+						
 						<li><a href="@{Secure.logout()}">Déconnexion</a></li>
 					</ul>
 				</div>

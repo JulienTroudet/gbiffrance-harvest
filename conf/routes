@@ -12,8 +12,12 @@ GET     /harvest/{type}/{id}/                   Datasets.harvest
 GET     /harvest/{type}/{id}/{begin}      		Datasets.harvest
 GET     /harvest/{type}/{id}/{begin}/{end}      Datasets.harvest
 
-GET     /add/datapublisher                      DataPublishers.add
+
 GET     /list/datapublisher                     DataPublishers.list
+GET     /add/datapublisher                      DataPublishers.add
+GET     /edit/datapublisher/{id}                DataPublishers.edit
+GET     /delete/datapublisher/{id}              DataPublishers.delete
+
 
 GET     /see/{id}                            	EmlDatas.see
 

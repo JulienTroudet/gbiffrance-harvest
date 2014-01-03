@@ -1,6 +1,0 @@
-HarvestUser(superadmin):
-    email: admin@gbif.com
-    password: secret
-    name: superadmin
-    isAdmin: true
-    isPublisher: true

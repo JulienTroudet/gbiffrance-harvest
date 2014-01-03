@@ -4,31 +4,44 @@
 	<div class="modal-header">
 		<h3>Add a new Dataset</h3>
 	</div>
-	<div class="modal-body" id="new_data_publisher">
-		#{form @Datasets.save()} <label>Name:</label>
-		</td> <input type="text" id="name" name="name" value="${flash.name}" class="input-xxlarge"/>
-		#{ifError 'name'}<span class="alert alert-error">#{error 'name'
-			/}</span>#{/ifError} <label>Access point URL:</label> <input type="text"
-			id="url" name="url" class="input-xxlarge"/> #{ifError 'url'}<span
-			class="alert alert-error">#{error 'url' /}</span>#{/ifError} <label>Type:</label>
-		<select id="type" name="type">
-			<option></option>
-			<option value="biocase">biocase</option>
-			<option value="digir">digir</option>
-			<option value="ipt">ipt</option>
-			<option value="tapir">tapir</option>
-		</select> #{ifError 'type'}<span class="alert alert-error">#{error
-			'type' /}</span>#{/ifError} <label>Data Publisher</label> <select
-			id="dataPublisherId" name="dataPublisherId" width="200">
-			<option></option> #{list items:datapublishers, as:'datapublisher'}
-			<option value="${datapublisher.id}">${datapublisher.name}</option>
-			#{/list}
-		</select> #{ifError 'dataPublisherId'}<span class="alert alert-error">#{error
-			'dataPublisherId' /}</span>#{/ifError} <label>Exclure les donnees non francaises?</label> <input
-			type="checkbox" name="fromOutside" value="true">
-	</div>
-	<div class="modal-footer">
-		<button class="btn" type="submit">Submit</button>
-		#{/form}
-	</div>
+	#{form @Datasets.save()}
+		<div class="modal-body" id="new_data_publisher">
+			<label>Name:</label>
+			</td> <input type="text" id="name" name="name" value="${flash.name}" class="input-xxlarge"/>
+			#{ifError 'name'}
+			<span class="alert alert-error">#{error 'name'/}</span>#{/ifError}
+			<label>Access point URL:</label> 
+			<input type="text" id="url" name="url" class="input-xxlarge"/> 
+			#{ifError 'url'}<span class="alert alert-error">#{error 'url' /}</span>#{/ifError} <label>Type:</label>
+			
+			<select id="type" name="type">
+				<option></option>
+				<option value="biocase">biocase</option>
+				<option value="digir">digir</option>
+				<option value="ipt">ipt</option>
+				<option value="tapir">tapir</option>
+			</select> 
+			
+			#{ifError 'type'}<span class="alert alert-error">#{error
+				'type' /}</span>#{/ifError} 
+				
+				<label>Data Publisher</label> 
+				<select id="dataPublisherId" name="dataPublisherId" width="200">
+					<option></option> 
+					#{list items:datapublishers, as:'datapublisher'}
+					<option value="${datapublisher.id}">${datapublisher.name}</option>
+					#{/list}
+				</select> 
+				
+				
+				#{ifError 'dataPublisherId'}<span class="alert alert-error">#{error
+				'dataPublisherId' /}</span>#{/ifError} 
+				
+					<label>Exclure les donnees non francaises?</label> 
+					<input type="checkbox" name="fromOutside" value="true">
+		</div>
+		<div class="modal-footer">
+			<button class="btn" type="submit">Submit</button>
+		</div>
+	#{/form}
 </div>
