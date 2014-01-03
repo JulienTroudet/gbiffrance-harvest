@@ -1,0 +1,69 @@
+#{extends 'main.html' /} #{set title:'Edition du fournisseur de données' /}
+
+<div id="modal">
+	<div class="modal-header">
+		<h3>Fournisseur de donn&eacute;es :</h3>
+	</div>
+	<div class="modal-body" id="new_data_publisher">
+		
+		<table>
+			<tr>
+				<td><strong>Nom : </strong></td>
+				<td>${dataPublisher.name}</td>
+			</tr>
+			<tr>
+				<td><strong>Description : </strong></td>
+				<td>${dataPublisher.description}</td>
+			</tr>
+			<tr>
+				<td><strong>Contact administratif : </strong></td>
+				<td>${dataPublisher.administrativeContact}</td>
+			</tr>
+			<tr>
+				<td><strong>Contact technique : </strong></td>
+				<td>${dataPublisher.technicalContact}</td>
+			</tr>
+		</table>
+	</div>
+
+</div>
+
+#{secure.check 'publisher'}
+<div id="modal">
+	<div class="modal-header">
+		<h3>Mise &agrave; jour des informations</h3>
+	</div>
+	#{form @DataPublishers.editSave()} 
+		<div class="modal-body" id="new_data_publisher">
+			<input type="hidden" id="id" name="id" name="id" value="${dataPublisher.id}" /> 
+			
+			<label>Nom: </label> 
+			<input type="text" id="name" name="name" value="${dataPublisher.name}" /> 
+			#{ifError 'name'}
+				<span class="alert alert-error">#{error 'name' /}</span>
+			#{/ifError} 
+			
+			<label>Description:</label> 
+			<input type="text" id="description" name="description" value="${dataPublisher.description}" /> 
+			#{ifError 'description'}
+				<span class="alert alert-error">#{error 'description' /}</span>
+			#{/ifError} 
+			
+			<label>Contact administratif: </label> 
+			<input type="text" id="administrativeContact" name="administrativeContact" value="${dataPublisher.administrativeContact}" />
+			#{ifError 'administrativeContact'}
+				<span class="alert alert-error">#{error 'administrativeContact' /}</span>
+			#{/ifError} 
+			
+			<label>Contact technique: </label> 
+			<input type="text" id="technicalContact" name="technicalContact" value="${dataPublisher.technicalContact}" /> 
+			#{ifError 'technicalContact'}
+				<span class="alert alert-error">#{error 'technicalContact' /}</span>
+			#{/ifError}
+		</div>
+		<div class="modal-footer">
+			<button class="btn" type="submit">Enregistrer</button>
+		</div>
+	#{/form}
+</div>
+#{/secure.check}

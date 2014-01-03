@@ -1,0 +1,45 @@
+#{extends 'main.html' /} #{set title:'Liste des fournisseurs de données' /}
+
+<div id="modal">
+	<div class="modal-header">
+		<h3>Liste des fournisseurs de donn&eacute;es</h3>
+		<br/>
+	</div>
+	<div id="main">
+		
+		<div id="dataset_table">
+			<table class="table table-striped table-condensed" id="dataset_table">
+				<thead>
+					<tr>
+						#{secure.check 'publisher'}
+						<th>&nbsp;</th>
+						#{/secure.check}
+						<th>Nom</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					#{list items:dataPublishers, as:'dataPublisher'}
+						<tr class="table">
+							#{secure.check 'publisher'}
+							<td><a href="/delete/datapublisher/${dataPublisher.id}"><i
+									title="Supprimer le fournisseur de donn&eacute;es" class="icon-remove"></i></a>
+							</td>
+							#{/secure.check}
+									
+							<td class="table" id="datapublisher_name">
+								<a id="edit_datapublisher" href="/edit/datapublisher/${dataPublisher.id}">
+									<strong>${dataPublisher.name}</strong>
+								</a>
+							</td>
+							<td class="table" id="dataset_description">
+								${dataPublisher.description}
+							</td>
+						</tr>
+					#{/list}
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+</div>
