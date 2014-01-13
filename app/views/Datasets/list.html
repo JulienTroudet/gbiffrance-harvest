@@ -68,6 +68,8 @@
 							<a href="harvest/${dataset.type}/${dataset.id}/"
 								onclick="blockloading()"><i class="icon-play-circle"></i></a>
 						#{/elseif}
+						<a href="@{export(dataset.id)}">
+						<i class="icon-file"></i></a>
 					</div>
 				</td>
 				#{/secure.check}

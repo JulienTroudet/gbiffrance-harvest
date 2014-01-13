@@ -11,34 +11,69 @@
 			#{ifError 'name'}
 			<span class="alert alert-error">#{error 'name'/}</span>#{/ifError}
 			<label>Access point URL:</label> 
-			<input type="text" id="url" name="url" class="input-xxlarge"/> 
+			<input type="text" id="url" name="url" value="${flash.url}" class="input-xxlarge"/> 
 			#{ifError 'url'}<span class="alert alert-error">#{error 'url' /}</span>#{/ifError} <label>Type:</label>
 			
 			<select id="type" name="type">
 				<option></option>
-				<option value="biocase">biocase</option>
-				<option value="digir">digir</option>
-				<option value="ipt">ipt</option>
-				<option value="tapir">tapir</option>
+					#{if flash.type == "biocase"}
+					<option value="biocase" selected="selected">biocase</option>
+					#{/if}
+					#{else}
+						<option value="biocase">biocase</option>
+					#{/else}
+					#{if flash.type == "digir"}
+					<option value="digir" selected="selected">digir</option>
+					#{/if}
+					#{else}
+					<option value="digir">digir</option>
+					#{/else}
+					#{if flash.type == "inpn"}
+					<option value="inpn" selected="selected">inpn</option>
+					#{/if}
+					#{else}
+					<option value="inpn">inpn</option>
+					#{/else}
+					#{if flash.type == "ipt"}
+					<option value="ipt" selected="selected">ipt</option>
+					#{/if}
+					#{else}
+					<option value="ipt">ipt</option>
+					#{/else}
+					#{if flash.type == "tapir"}
+					<option value="tapir" selected="selected">tapir</option>
+					#{/if}
+					#{else}
+					<option value="tapir">tapir</option>
+					#{/else}
 			</select> 
 			
 			#{ifError 'type'}<span class="alert alert-error">#{error
 				'type' /}</span>#{/ifError} 
 				
-				<label>Data Publisher</label> 
+				<label>Data Publisher</label>
 				<select id="dataPublisherId" name="dataPublisherId" width="200">
-					<option></option> 
+					<option></option>
 					#{list items:datapublishers, as:'datapublisher'}
+						#{if String.valueOf(datapublisher.id) == flash.dataPublisherId}
+					<option value="${datapublisher.id}" selected="selected">${datapublisher.name}</option>
+						#{/if}
+						#{else}
 					<option value="${datapublisher.id}">${datapublisher.name}</option>
+						#{/else}
 					#{/list}
 				</select> 
 				
 				
 				#{ifError 'dataPublisherId'}<span class="alert alert-error">#{error
 				'dataPublisherId' /}</span>#{/ifError} 
-				
 					<label>Exclure les donnees non francaises?</label> 
+					#{if flash.fromOutside == "true"}
+					<input type="checkbox" name="fromOutside" value="true" checked="checked">
+					#{/if}
+					#{else}
 					<input type="checkbox" name="fromOutside" value="true">
+					#{/else}
 		</div>
 		<div class="modal-footer">
 			<button class="btn" type="submit">Submit</button>

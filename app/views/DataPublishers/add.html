@@ -7,25 +7,25 @@
 	#{form @DataPublishers.save()} 
 		<div class="modal-body" id="new_data_publisher">
 			<label>Name: </label> 
-			<input type="text" id="name" name="name" /> 
+			<input type="text" id="name" name="name" value="${flash.name}" /> 
 			#{ifError 'name'}
 				<span class="alert alert-error">#{error 'name' /}</span>
 			#{/ifError} 
 			
 			<label>Description:</label> 
-			<input type="text" id="description" name="description" /> 
+			<input type="text" id="description" name="description" value="${flash.description}" /> 
 			#{ifError 'description'}
 				<span class="alert alert-error">#{error 'description' /}</span>
 			#{/ifError} 
 			
 			<label>Administrative Contact: </label> 
-			<input type="text" id="administrativeContact" name="administrativeContact" />
+			<input type="text" id="administrativeContact" name="administrativeContact" value="${flash.administrativeContact}" />
 			#{ifError 'administrativeContact'}
 				<span class="alert alert-error">#{error 'administrativeContact' /}</span>
 			#{/ifError} 
 			
 			<label>Technical Contact: </label> 
-			<input type="text" id="technicalContact" name="technicalContact" /> 
+			<input type="text" id="technicalContact" name="technicalContact" value="${flash.technicalContact}" /> 
 			#{ifError 'technicalContact'}
 				<span class="alert alert-error">#{error 'technicalContact' /}</span>
 			#{/ifError}
