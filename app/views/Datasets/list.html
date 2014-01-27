@@ -7,6 +7,9 @@
 	#{/if}
 </div>
 <div id="main">
+	#{if flash.success}
+	   <p class="success">${flash.success}</p>
+	#{/if}
 	#{list items:dataPublishers, as:'dataPublisher'}
 	<div id="dataset_table">
 		<div id="datapublisher_name">
@@ -21,8 +24,8 @@
 							title="remove the dataset" class="icon-remove"></i></a>
 					</td>
 				#{/secure.check}
-				<td class="table" id="dataset_name"><a id="edit_dataset"
-					href="edit/${dataset.id}"><b>${dataset.name}</b></a></td>
+				<td class="table" id="dataset_name">#{secure.check 'publisher'}<a id="edit_dataset"
+					href="edit/${dataset.id}">#{/secure.check}<b>${dataset.name}</b>#{secure.check 'publisher'}</a>#{/secure.check}</td>
 				<td class="table" id="dataset_status">
 					#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
 						<i title="successfully harvested" class="icon-ok-sign"></i> 
@@ -36,7 +39,7 @@
 						<a href="see/${dataset.id}"><i title="see" class="icon-eye-open"></i></a> 
 					#{/if}
 				</td>
-				<td class="table" id="">
+				<td class="table" id="map_see">
 					#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
 						<a href="occurrences/map/${dataset.id}"><i title="map-see" class="icon-globe"></i></a> 
 					#{/if}
@@ -68,8 +71,19 @@
 							<a href="harvest/${dataset.type}/${dataset.id}/"
 								onclick="blockloading()"><i class="icon-play-circle"></i></a>
 						#{/elseif}
+						#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
 						<a href="@{export(dataset.id)}">
-						<i class="icon-file"></i></a>
+						<i title="export" class="icon-download"></i></a>
+						
+						<a href="/dataset/uploadtaxref/${dataset.id}">
+						<i title="import" class="icon-upload"></i></a>
+						
+						<a href="control/${dataset.id}">
+						<i title="control" class="icon-play"></i></a>
+						
+						<a href="qualification/${dataset.id}/1">
+						<i title="qualification" class="icon-zoom-in"></i></a>
+						#{/if} 
 					</div>
 				</td>
 				#{/secure.check}

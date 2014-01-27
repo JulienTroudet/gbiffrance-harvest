@@ -1,0 +1,24 @@
+#{extends 'main.html' /} #{set title:'Add a taxref' /}
+
+<div id="modal">
+	<div class="modal-header">
+		<h3>Add a new Dataset</h3>
+	</div>
+	#{form @Datasets.uploadResult(), enctype:'multipart/form-data'}
+	<div class="modal-body" id="result_taxref">
+		<input type="hidden" id="id" name="id" value="${dataset.id}" />
+		<div>
+		<label>File:</label> 
+		<input type="file" id="attachment" name="attachment" value="${flash.attachment}" /> 
+		#{ifError 'attachment'}
+		<span class="alert alert-error">
+		#{error 'attachment' /}
+		</span>
+		#{/ifError}
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" type="submit">Submit</button>
+	</div>
+	#{/form}
+</div>

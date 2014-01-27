@@ -3,10 +3,12 @@ package models;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import play.data.validation.Required;
 import play.db.jpa.*;
+
 import javax.persistence.*;
 
 import org.hibernate.annotations.Index;
@@ -366,6 +368,9 @@ public class Occurrence extends Model
   @Column(length=2000)
   public String taxonRemarks;
   
+  @Column(name="CD_NOM", length=2000)
+  public String cdNom;
+  
   //Geospatial
   //public Geometry the_geom;
   
@@ -381,6 +386,11 @@ public class Occurrence extends Model
 
   @ManyToOne
   public Dataset dataset;
+  
+  @OneToMany(mappedBy="occurrence", cascade=CascadeType.ALL)
+  public List<Result> results;
+  
+  public boolean qualified;
    
   public Occurrence(){}
   

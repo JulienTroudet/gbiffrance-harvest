@@ -5,6 +5,7 @@ package models;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -38,7 +39,10 @@ public class Utilisateurs extends GenericModel {
 	@Required
 	public String login;	
 	@Required
-	public String password;	
+	public String password;
+	
+	@Column(name="PASSWORD_CRYPTE")
+	public String passwordCrypte;
 	
 	
     @Override

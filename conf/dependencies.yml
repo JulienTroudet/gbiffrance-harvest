@@ -5,3 +5,4 @@ require:
     - play -> mongo 1.3
     - play -> secure
     - play -> crud
+    - play -> paginate head

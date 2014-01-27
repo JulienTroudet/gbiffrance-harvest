@@ -11,9 +11,11 @@ GET     /delete/{id}                            Datasets.delete
 GET     /harvest/{type}/{id}/                   Datasets.harvest
 GET     /harvest/{type}/{id}/{begin}      		Datasets.harvest
 GET     /harvest/{type}/{id}/{begin}/{end}      Datasets.harvest
+GET     /dataset/uploadtaxref/{id}				    Datasets.result
 
 
-GET     /list/datapublisher                     DataPublishers.list
+GET     /list/datapublisher/	                DataPublishers.list
+GET     /list/datapublisher/{order}/{nomChamp}  DataPublishers.list
 GET     /add/datapublisher                      DataPublishers.add
 GET     /edit/datapublisher/{id}                DataPublishers.edit
 GET     /delete/datapublisher/{id}              DataPublishers.delete
@@ -21,9 +23,23 @@ GET     /delete/datapublisher/{id}              DataPublishers.delete
 
 GET     /see/{id}                            	EmlDatas.see
 
-GET     /occurrences/list/{id}/page/{page}      Occurrences.list
+GET     /occurrences/list/{id}/page/{page}     			Occurrences.list
+GET     /occurrences/list/{id}/page/{page}/{order}/{nomChamp}      			Occurrences.list
 GET     /occurrences/map/{id}                   Occurrences.map
 GET     /delete/{id}/occurrences                Occurrences.delete
+
+GET     /list/control                     		Control.list
+GET     /add/control                      		Control.add
+GET     /edit/control/{id}                		Control.edit
+GET     /delete/control/{id}             		Control.delete
+GET		/control/{idDataset} 					Control.control
+
+GET		/qualification/{id}/{page}				Qualification.list
+GET		/qualification/{id}/{page}/{order}/{nomChamp}	Qualification.list
+
+#JSON
+GET		/list/field/{id}		  Control.listField
+GET		/controls/list/{idDataset}/{idValidationType} Control.listControls
 
 
 # Ignore favicon requests

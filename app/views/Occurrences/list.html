@@ -4,7 +4,7 @@
 #{if data != null}
 	<h1>${data.emlData.title}</h1>
 
-	<h4>Nombre d'occurences : ${lListOccurence.size()}</h4>
+	<h4>Nombre d'occurences : ${paginator.size()}</h4>
 	<div id="ListTable">
 		
 		<table class="table table-striped table-condensed" id="occurrence_table">
@@ -73,7 +73,7 @@
 			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/nomenclaturalStatus">nomenclaturalStatus</a></h5></th>
 			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonRemarks">taxonRemarks</a></h5></th>
 		</tr>
-				#{list items:lListOccurence, as:'occurrence'}
+				#{paginate.list items:paginator, as:'occurrence'} 
 				<tr class="table">
 					<td class="table"><b>${occurrence.catalogNumber}</b></td>
 					<td class="table"><b>${occurrence.occurrenceRemarks}</b></td>
@@ -137,16 +137,10 @@
 					<td class="table"><b>${occurrence.nomenclaturalStatus}</b></td>
 					<td class="table"><b>${occurrence.taxonRemarks}</b></td>
 				</tr>
-				#{/list}
+				#{/paginate.list} 
 		</table>
 		
-		#{if page >= 2 }
-		<a href="${page-1}" class="btn btn-primary"><i class="icon-chevron-left"></i> Page ${page-1}</a> 
-		#{/if}
-		
-		#{if data.occurrences.size()> page*25}
-		<a href="${page+1}" class="btn btn-primary">Page ${page+1} <i class="icon-chevron-right"></i></a> 
-		#{/if}
+		#{paginate.controls items:paginator /} 
 	</div>
 
 #{/if}

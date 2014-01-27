@@ -1,7 +1,5 @@
 package controllers;
 
-import groovy.sql.DataSet;
-
 import java.util.List;
 
 import models.DataPublisher;
@@ -9,6 +7,7 @@ import models.Dataset;
 import models.harvest.Harvester;
 import play.data.validation.Required;
 import play.db.jpa.Transactional;
+import play.modules.paginate.ModelPaginator;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -18,9 +17,16 @@ public class DataPublishers extends Controller {
 	/**
 	 * Retrieve the data publisher list
 	 */
-	public static void list() {
-		List<DataPublishers> dataPublishers = DataPublisher.all().fetch();
-		render(dataPublishers);
+	public static void list(String order, String nomChamp) {
+		ModelPaginator<DataPublisher> paginator = new ModelPaginator(
+				DataPublisher.class);
+		paginator.setPageSize(25);
+		if (nomChamp != null && !nomChamp.isEmpty()) {
+			if (order != null && !order.isEmpty()) {
+				paginator.orderBy(nomChamp + " " + order);
+			}
+		}
+		render(paginator);
 	}
 
 	/**
@@ -30,20 +36,27 @@ public class DataPublishers extends Controller {
 	 *            id of the datapublisher to delete
 	 */
 	@Transactional
+	@Check("publisher")
 	public static void delete(Long id) {
 		DataPublisher dataPublisher = DataPublisher.findById(id);
-		if (dataPublisher.datasets != null) {
-			for (Dataset dataset : dataPublisher.datasets) {
-				Harvester.deleteTemporaryDirectory(dataset.tempDirectory, null);
+		if (dataPublisher.datasets != null && dataPublisher.datasets.size() > 0) {
+			flash.error("Delete impossible");
+		} else {
+			if (dataPublisher.datasets != null) {
+				for (Dataset dataset : dataPublisher.datasets) {
+					Harvester.deleteTemporaryDirectory(dataset.tempDirectory,
+							null);
+				}
 			}
+			dataPublisher.delete();
 		}
-		dataPublisher.delete();
-		list();
+		list("", "");
 	}
 
 	/**
 	 * Init the form for adding a data publisher
 	 */
+	@Check("publisher")
 	public static void add() {
 		render();
 	}
@@ -61,6 +74,7 @@ public class DataPublishers extends Controller {
 	 *            technical contact of the new data publisher
 	 */
 	@Transactional
+	@Check("publisher")
 	public static void save(
 			@Required(message = "Name is required") String name,
 			@Required(message = "A description is required") String description,
@@ -84,6 +98,7 @@ public class DataPublishers extends Controller {
 	 * @param id
 	 *            id of the datapublisher to edit
 	 */
+	@Check("publisher")
 	public static void edit(long id) {
 		DataPublisher dataPublisher = DataPublisher.findById(id);
 		render(dataPublisher);
@@ -91,13 +106,20 @@ public class DataPublishers extends Controller {
 
 	/**
 	 * Sauvegarde un fournisseur de données.
-	 * @param id identifiant du fournisseur de données
-	 * @param name nom du fournisseur de données
-	 * @param description description du fournisseur de données
-	 * @param administrativeContact contact administratif du fournisseur de données
-	 * @param technicalContact contact technique du fournisseur de données
+	 * 
+	 * @param id
+	 *            identifiant du fournisseur de données
+	 * @param name
+	 *            nom du fournisseur de données
+	 * @param description
+	 *            description du fournisseur de données
+	 * @param administrativeContact
+	 *            contact administratif du fournisseur de données
+	 * @param technicalContact
+	 *            contact technique du fournisseur de données
 	 */
 	@Transactional
+	@Check("publisher")
 	public static void editSave(
 			long id,
 			@Required(message = "Name is required") String name,
@@ -115,7 +137,7 @@ public class DataPublishers extends Controller {
 			dataPublisher.administrativeContact = administrativeContact;
 			dataPublisher.technicalContact = technicalContact;
 			dataPublisher.save();
-			list();
+			list("", "");
 		}
 	}
 

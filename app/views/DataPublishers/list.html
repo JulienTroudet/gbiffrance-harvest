@@ -1,4 +1,4 @@
-#{extends 'main.html' /} #{set title:'Liste des fournisseurs de données' /}
+#{extends 'main.html' /} #{set title:'Liste des fournisseurs de donnï¿½es' /}
 
 <div id="modal">
 	<div class="modal-header">
@@ -6,7 +6,9 @@
 		<br/>
 	</div>
 	<div id="main">
-		
+		#{if flash.error}
+	   <p class="success">${flash.error}</p>
+	#{/if}
 		<div id="dataset_table">
 			<table class="table table-striped table-condensed" id="dataset_table">
 				<thead>
@@ -14,12 +16,13 @@
 						#{secure.check 'publisher'}
 						<th>&nbsp;</th>
 						#{/secure.check}
-						<th>Nom</th>
-						<th>Description</th>
+						<th><a href="/list/datapublisher/ASC/name">Nom</a></th>
+						<th><a href="/list/datapublisher/ASC/description">Description</a></th>
 					</tr>
 				</thead>
 				<tbody>
-					#{list items:dataPublishers, as:'dataPublisher'}
+					
+					#{paginate.list items:paginator, as:'dataPublisher'}
 						<tr class="table">
 							#{secure.check 'publisher'}
 							<td><a href="/delete/datapublisher/${dataPublisher.id}"><i
@@ -28,17 +31,18 @@
 							#{/secure.check}
 									
 							<td class="table" id="datapublisher_name">
-								<a id="edit_datapublisher" href="/edit/datapublisher/${dataPublisher.id}">
+								#{secure.check 'publisher'}<a id="edit_datapublisher" href="/edit/datapublisher/${dataPublisher.id}">#{/secure.check}
 									<strong>${dataPublisher.name}</strong>
-								</a>
+								#{secure.check 'publisher'}</a>#{/secure.check}
 							</td>
 							<td class="table" id="dataset_description">
-								${dataPublisher.description}
+								<strong>${dataPublisher.description}</strong>
 							</td>
 						</tr>
-					#{/list}
+					#{/paginate.list}
 				</tbody>
 			</table>
+			#{paginate.controls items:paginator /}
 		</div>
 		
 	</div>

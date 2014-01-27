@@ -1,0 +1,52 @@
+#{extends 'main.html' /} #{set title:'Qualification' /}
+
+<div id="modal">
+	<div class="modal-header">
+		<h3>Liste des données à qualifier</h3>
+		<br/>
+	</div>
+<div id="main">
+	<div id="dataset_table">
+		<div id="dataset_name">
+			<h4 id="dataset_name">${dataset.name}</h4>
+		</div>
+		#{form @Qualification.save()}
+		<input type="hidden" name="id" value="${dataset.id}">
+		<input type="hidden" name="page" value="${page}">
+		<div class="dataTables_wrapper form-inline">
+		<table class="table table-striped table-condensed" id="qualification_table">
+			<thead>
+					<tr>
+						<th>Résumé information</th>
+						<th>Code taxon</th>
+						#{list items:controls, as:'control'}
+						<th>${control.name}</th>
+						#{/list}
+						<th>Qualification</th>
+					</tr>
+				</thead>
+				<tbody>
+					#{paginate.list items:paginator, as:'occurrence'} 
+						<tr class="table">
+							<td>${occurrence.scientificName} ${occurrence.occurrenceRemarks} ${occurrence.cdNom}</td>
+							<td><input type="text" name="occurrences[${occurrence_index-1}].cdNom" id="cdNom" value="${occurrence.cdNom}" style="width:80px;"></td>
+							#{list items:occurrence.results, as:'result'}
+							<td>${result.result}</td>
+							#{/list}
+							<td>
+								<input type="hidden" name="occurrences[${occurrence_index-1}].id" id="occurences.id" value="${occurrence.id}">
+								<input type="checkbox" id="occurences.qualified" name="occurrences[${occurrence_index-1}].qualified" value="true" #{if occurrence.qualified} checked #{/if}/>
+			
+							</td>
+						</tr>
+					#{/paginate.list}
+				</tbody>
+		</table>
+		</div>
+		<div class="modal-footer">
+			<button class="btn" type="submit">Valider</button>
+		</div>
+		#{/form}
+		#{paginate.controls items:paginator /}
+	</div>
+</div>

@@ -1,0 +1,40 @@
+#{extends 'main.html' /} #{set title:'Liste des controles' /}
+
+<div id="modal">
+	<div class="modal-header">
+		<h3>Controls list</h3>
+		<br/>
+	</div>
+	<div id="main">
+		
+		<div id="control_table">
+			<table class="table table-striped table-condensed" id="control_table">
+				<thead>
+					<tr>
+						<th>&nbsp;</th>
+						<th>Nom</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					#{list items:controls, as:'control'}
+						<tr class="table">
+							<td><a href="/delete/control/${control.id}"><i
+									title="Delete control" class="icon-remove"></i></a>
+							</td>
+							<td class="table" id="control_name">
+								<a id="edit_control" href="/edit/control/${control.id}">
+									<strong>${control.name}</strong>
+								</a>#
+							</td>
+							<td class="table" id="control_description">
+								<strong>${control.description}</strong>
+							</td>
+						</tr>
+					#{/list}
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+</div>

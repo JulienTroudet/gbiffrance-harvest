@@ -1,0 +1,55 @@
+#{extends 'main.html' /} #{set title:'Lauch a control' /}
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	 var $validationType = $('#typeId');
+	 var $control = $('#idControl');
+	 $validationType.on('change', function() {
+	        var val = $(this).val(); // on récupère la valeur de validationType
+	 
+	        if(val != '') {
+	            $control.empty(); // on vide la liste des control
+	             
+	            $.ajax({
+	                url: '/controls/list/' +${dataset.id} + "/" + val,
+	                dataType: 'json',
+	                success: function(json) {
+	                    $.each(json, function(index, value) {
+	                        $control.append('<option value="'+ value.id +'">'+ value.name +'</option>');
+	                    });
+	                }
+	            });
+	        }
+	    });
+	});
+</script>
+<div id="main">
+	<div class="modal-header">
+		<h3>Launch a control</h3>
+	</div>
+	<div class="modal-body" id="new_controls">
+		#{form @Control.launchControl()} 
+			<input type="hidden" id="idDataset" name="idDataset" value="${dataset.id}" />
+			<label>Validation Type</label>
+			<select id="typeId" name="typeId" width="200">
+				<option></option>
+				#{list items:typeValidations, as:'typeValidation'}
+					<option value="${typeValidation.id}">${typeValidation.name}</option>
+					#{/list}
+			</select>  
+			#{ifError 'typeId'}<span class="alert alert-error">#{error
+				'typeId' /}</span>#{/ifError}
+				
+				<label>Control</label>
+			<select id="idControl" name="idControl" width="200" height="400">
+				<option></option>
+			</select>
+			#{ifError 'idControl'}<span class="alert alert-error">#{error
+				'idControl' /}</span>
+			#{/ifError}
+			
+			<div class="modal-footer">
+			<button class="btn" type="submit">Valider</button>
+		</div>
+		#{/form}	
+	</div>
+</div>

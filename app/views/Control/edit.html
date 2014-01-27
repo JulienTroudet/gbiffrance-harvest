@@ -1,0 +1,163 @@
+#{extends 'main.html' /} #{set title:'Edit Control' /}
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	//Si la valeur de la selectbox change
+	 jQuery("#typeId").change(function(){
+		 //on recupere la valeur de la selectbox
+		 v =  $("#typeId").val();
+		 //On rend invisible tout les champs
+		 $("#regexClass").hide();
+		 $("#boudaryClass").hide();
+		 $("#valueClass").hide();
+		 
+		 //En fonction de la valeur de la selectbox
+		 //on rend visible les champs
+		 switch(v){
+			 case "5":
+			 		$("#valueClass").show();
+			 		break;
+			 case "6":
+			 		$("#regexClass").show();
+			 		break;
+			 case "8":
+				 	$("#boudaryClass").show();
+			 		break;
+		 }
+	 });
+	 var $datasetType = $('#datasetTypeId');
+	 var $field = $('#fieldIdTab');
+	 $datasetType.on('change', function() {
+	        var val = $(this).val(); // on récupère la valeur du datasetType
+	 
+	        if(val != '') {
+	            $field.empty(); // on vide la liste des field
+	             
+	            $.ajax({
+	                url: '/list/field/' + val,
+	                dataType: 'json',
+	                success: function(json) {
+	                    $.each(json, function(index, value) {
+	                        $field.append('<option value="'+ value.id +'">'+ value.name +'</option>');
+	                    });
+	                }
+	            });
+	        }
+	    });
+	});
+</script>
+<div id="modal">
+	<div class="modal-header">
+		<h3>Edit control</h3>
+	</div>
+	#{form @Control.editSave()} 
+		<div class="modal-body" id="new_controls">
+			<input type="hidden" id="id" name="id" value="${control.id}" />
+			<label>Name: </label> 
+			<input type="text" id="name" name="name" value="${control.name}" /> 
+			#{ifError 'name'}
+				<span class="alert alert-error">#{error 'name' /}</span>
+			#{/ifError}
+			
+			<label>Description: </label> 
+			<input type="text" id="description" name="description" value="${control.description}" /> 
+			#{ifError 'description'}
+				<span class="alert alert-error">#{error 'description' /}</span>
+			#{/ifError}
+			
+			<label>Dataset Type</label>
+			<select id="datasetTypeId" name="datasetTypeId" width="200">
+				<option></option>
+				#{list items:datasetTypes, as:'datasetType'}
+					#{if datasetType.id == control.datasetType.id}
+					<option value="${datasetType.id}" selected="selected">${datasetType.name}</option>
+						#{/if}
+						#{else}
+					<option value="${datasetType.id}">${datasetType.name}</option>
+						#{/else}
+					#{/list}
+			</select>  
+			#{ifError 'datasetTypeId'}<span class="alert alert-error">#{error
+				'datasetTypeId' /}</span>
+			#{/ifError}  
+				
+			<label>Validation Type</label>
+			<select id="typeId" name="typeId" width="200">
+				<option></option>
+				#{list items:typeValidations, as:'typeValidation'}
+					#{if typeValidation.id == control.validationType.id}
+					<option value="${typeValidation.id}" selected="selected">${typeValidation.name}</option>
+						#{/if}
+						#{else}
+					<option value="${typeValidation.id}">${typeValidation.name}</option>
+						#{/else}
+					#{/list}
+			</select>  
+			#{ifError 'typeId'}<span class="alert alert-error">#{error
+				'typeId' /}</span>#{/ifError}
+				
+			#{if control.validationType.id ==6}
+			<div id="regexClass">
+			#{/if}
+			#{else}
+			<div id="regexClass" style="display: none;">
+			#{/else}
+				<label>Regex: </label> 
+				<input type="text" id="regex" name="regex" value="${control.regex}" /> 
+				#{ifError 'regex'}
+					<span class="alert alert-error">#{error 'regex' /}</span>
+				#{/ifError}
+			</div>
+			#{if control.validationType.id == 8}
+			<div id="boudaryClass">
+			#{/if}
+			#{else}
+			<div id="boudaryClass" style="display: none;">
+			#{/else}
+				<label>Boudary lower: </label> 
+				<input type="text" id="boudaryLower" name="boudaryLower" value="${control.boudaryLower}" /> 
+				#{ifError 'boudaryLower'}
+					<span class="alert alert-error">#{error 'boudaryLower' /}</span>
+				#{/ifError}
+				<label>Boudary higher: </label> 
+				<input type="text" id="boudaryHigher" name="boudaryHigher" value="${control.boudaryHigher}" /> 
+				#{ifError 'boudaryHigher'}
+					<span class="alert alert-error">#{error 'boudaryHigher' /}</span>
+				#{/ifError}
+			</div>
+			
+			
+			#{if control.validationType.id == 5}
+			<div id="valueClass">
+			#{/if}
+			#{else}
+			<div id="valueClass" style="display: none;">
+			#{/else}
+				<label>Not possible value: </label> 
+				<input type="text" id="value" name="value" value="${control.value}" /> 
+				#{ifError 'value'}
+					<span class="alert alert-error">#{error 'value' /}</span>
+				#{/ifError}
+			</div>
+			<div>
+			<label>Field</label>
+			<select id="fieldIdTab" name="fieldIdTab" width="200" height="400" multiple>
+				#{list items:control.datasetType.fields, as:'field'}
+					#{list items:control.fields, as:'fieldselect'}
+						#{if field.id == fieldselect.id}
+					<option value="${field.id}" selected="selected">${field.name}</option>
+						#{/if}
+						#{else}
+						<option value="${field.id}">${field.name}</option>
+						#{/else}
+					#{/list}
+				#{/list}
+			</select>
+			#{ifError 'fieldIdTab'}<span class="alert alert-error">#{error
+				'fieldIdTab' /}</span>
+			#{/ifError}
+		</div>
+		<div class="modal-footer">
+			<button class="btn" type="submit">Ajouter</button>
+		</div>
+	#{/form}
+</div>

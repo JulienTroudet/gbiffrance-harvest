@@ -1,40 +1,24 @@
 package controllers;
 
-import play.*;
-import play.data.validation.Required;
-import play.db.jpa.GenericModel;
+import java.util.List;
+
+import models.Field;
+import models.Occurrence;
+import play.Play;
 import play.db.jpa.JPA;
-import play.jobs.Job;
-import play.jobs.OnApplicationStart;
-import play.mvc.*;
-import play.test.Fixtures;
+import play.db.jpa.JPAPlugin;
+import play.mvc.Before;
+import play.mvc.Controller;
+import play.mvc.With;
 
-import groovy.sql.DataSet;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.util.*;
-
-import javax.persistence.TypedQuery;
-
-import models.harvest.*;
-import models.harvest.ipt.eml.EmlData;
-import models.*;
-
-
+@With(Secure.class)
 public class Application extends Controller {
 
 	/*
 	 * Renders the available datasets
 	 */
 	public static void index() {
-	  render();
-    }
-	
+		render();
+	}
+
 }
