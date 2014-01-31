@@ -140,7 +140,7 @@ jQuery(document).ready(function(){
 			</div>
 			<div>
 			<label>Field</label>
-			<select id="fieldIdTab" name="fieldIdTab" width="200" height="400" multiple>
+			<select id="fieldIdTab" name="fieldIdTab" style="height:245px;" multiple>
 				#{list items:control.datasetType.fields, as:'field'}
 					#{list items:control.fields, as:'fieldselect'}
 						#{if field.id == fieldselect.id}

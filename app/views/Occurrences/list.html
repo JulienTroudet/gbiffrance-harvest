@@ -9,6 +9,7 @@
 		
 		<table class="table table-striped table-condensed" id="occurrence_table">
 		<tr class="table">
+			#{if !data.type.equals("inpn")}
 			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/catalogNumber">catalogNumber</a></h5></th>
 			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/occurrenceRemarks">occurrenceRemarks</a></h5></th>
 			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/recordNumber">recordNumber</a></h5></th>
@@ -72,9 +73,45 @@
 			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonomicStatus">taxonomicStatus</a></h5></th>
 			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/nomenclaturalStatus">nomenclaturalStatus</a></h5></th>
 			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonRemarks">taxonRemarks</a></h5></th>
+			#{/if}
+			#{else}
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/catalogNumber">catalogNumber</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/coordinateUncertaintyInMeters">coordinateUncertaintyInMeters</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/county">county</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/decimalLatitude">decimalLatitude</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/decimalLatitude">decimalLongitude</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/identifiedBy">identifiedBy</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/locality">locality</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/nameAccordingTo">nameAccordingTo</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/occurrenceStatus">occurrenceStatus</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/recordNumber">recordNumber</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonID">taxonID</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/typeSource">typeSource</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/restrictionLocalisationP">restrictionLocalisationP</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/restrictionMaille">restrictionMaille</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/restrictionCommune">restrictionCommune</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/restrictionTotal">restrictionTotal</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/lienOrigine">lienOrigine</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/nomScientifiqueCite">nomScientifiqueCite</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/identiteOBS">identiteOBS</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/organismeOBS">organismeOBS</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/validateur">validateur</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/dateInf">dateInf</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/dateSup">dateSup</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/codeInsee">codeInsee</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/nomCommune">nomCommune</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/pourcentageCommune">pourcentageCommune</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/codeEN">codeEN</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/typeEN">typeEN</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/pourcentageEN">pourcentageEN</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/codeMaille">codeMaille</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/pourcentageMaille">pourcentageMaille</a></h5></th>
+			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/cdNom">cdNom</a></h5></th>
+			#{/else}
 		</tr>
 				#{paginate.list items:paginator, as:'occurrence'} 
 				<tr class="table">
+					#{if !data.type.equals("inpn")}
 					<td class="table"><b>${occurrence.catalogNumber}</b></td>
 					<td class="table"><b>${occurrence.occurrenceRemarks}</b></td>
 					<td class="table"><b>${occurrence.recordNumber}</b></td>
@@ -136,6 +173,41 @@
 					<td class="table"><b>${occurrence.taxonomicStatus}</b></td>
 					<td class="table"><b>${occurrence.nomenclaturalStatus}</b></td>
 					<td class="table"><b>${occurrence.taxonRemarks}</b></td>
+					#{/if}
+					#{else}
+					<td class="table"><b>${occurrence.catalogNumber}</b></td>
+					<td class="table"><b>${occurrence.coordinateUncertaintyInMeters}</b></td>
+					<td class="table"><b>${occurrence.county}</b></td>
+					<td class="table"><b>${occurrence.decimalLatitude}</b></td>
+					<td class="table"><b>${occurrence.decimalLongitude}</b></td>
+					<td class="table"><b>${occurrence.identifiedBy}</b></td>
+					<td class="table"><b>${occurrence.locality}</b></td>
+					<td class="table"><b>${occurrence.nameAccordingTo}</b></td>
+					<td class="table"><b>${occurrence.occurrenceStatus}</b></td>
+					<td class="table"><b>${occurrence.recordNumber}</b></td>
+					<td class="table"><b>${occurrence.taxonID}</b></td>
+					<td class="table"><b>${occurrence.typeSource}</b></td>
+					<td class="table"><b>${occurrence.restrictionLocalisationP}</b></td>
+					<td class="table"><b>${occurrence.restrictionMaille}</b></td>
+					<td class="table"><b>${occurrence.restrictionCommune}</b></td>
+					<td class="table"><b>${occurrence.restrictionTotal}</b></td>
+					<td class="table"><b>${occurrence.lienOrigine}</b></td>
+					<td class="table"><b>${occurrence.nomScientifiqueCite}</b></td>
+					<td class="table"><b>${occurrence.identiteOBS}</b></td>
+					<td class="table"><b>${occurrence.organismeOBS}</b></td>
+					<td class="table"><b>${occurrence.validateur}</b></td>
+					<td class="table"><b>${occurrence.dateInf}</b></td>
+					<td class="table"><b>${occurrence.dateSup}</b></td>
+					<td class="table"><b>${occurrence.codeInsee}</b></td>
+					<td class="table"><b>${occurrence.nomCommune}</b></td>
+					<td class="table"><b>${occurrence.pourcentageCommune}</b></td>
+					<td class="table"><b>${occurrence.codeEN}</b></td>
+					<td class="table"><b>${occurrence.typeEN}</b></td>
+					<td class="table"><b>${occurrence.pourcentageEN}</b></td>
+					<td class="table"><b>${occurrence.codeMaille}</b></td>
+					<td class="table"><b>${occurrence.pourcentageMaille}</b></td>
+					<td class="table"><b>${occurrence.cdNom}</b></td>
+					#{/else}
 				</tr>
 				#{/paginate.list} 
 		</table>

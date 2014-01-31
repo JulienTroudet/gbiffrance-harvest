@@ -3,11 +3,11 @@ package models.harvest.ipt;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
- 
+
+import org.gbif.dwc.record.StarRecord;
 import org.gbif.dwc.terms.DwcTerm;
 import org.gbif.dwc.text.Archive;
 import org.gbif.dwc.text.ArchiveFactory;
-import org.gbif.dwc.record.StarRecord;
 import org.gbif.dwc.text.UnsupportedArchiveException;
  
 public class UsageExample {

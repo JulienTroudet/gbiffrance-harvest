@@ -1,21 +1,13 @@
 package models.harvest.tapir;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.GZIPInputStream;
-import java.util.zip.GZIPOutputStream;
+
+import models.Occurrence;
 
 import org.apache.commons.digester.Digester;
-import org.apache.commons.io.IOUtils;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.ResponseHandler;
-import org.apache.log4j.Logger;
-import models.Occurrence;
 import org.xml.sax.SAXException;
 
 public class ResponseToModelHandler 

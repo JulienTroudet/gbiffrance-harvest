@@ -1,22 +1,15 @@
 package models.harvest.dataaccess;
 
-import java.sql.BatchUpdateException;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import javax.persistence.EntityManager;
 import models.Dataset;
 import models.Occurrence;
 
-import org.apache.log4j.Logger;
 import org.hibernate.Session;
 import org.hibernate.StatelessSession;
 
 import play.db.jpa.JPA;
-
-import com.mysql.jdbc.PreparedStatement;
 
 /**
  * Utility to synchronise a single occurrence record with the database

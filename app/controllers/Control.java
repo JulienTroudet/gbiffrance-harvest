@@ -3,8 +3,6 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.gbif.metadata.eml.TaxonKeyword;
-
 import manager.ControlMG;
 import manager.FieldMG;
 import manager.job.BoudaryJob;
@@ -17,11 +15,9 @@ import models.Controls;
 import models.Dataset;
 import models.DatasetType;
 import models.Field;
-import models.Occurrence;
 import models.ValidationType;
 import play.data.validation.Required;
 import play.db.jpa.Transactional;
-import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -44,10 +40,10 @@ public class Control extends Controller {
 	}
 
 	/**
-	 * Fonction qui renvois en Json un tableau d'objet
+	 * Function that returns a Json object (Field) in table
 	 * 
 	 * @param id
-	 *            identifiant du datasetType
+	 *            id of the datasetType
 	 */
 	public static void listField(long id) {
 		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation()
@@ -57,12 +53,12 @@ public class Control extends Controller {
 	}
 
 	/**
-	 * Fonction qui renvois en Json un tableau d'objet
+	 * Function that returns a Json object (Controls) in table
 	 * 
 	 * @param idDataset
-	 *            identifiant du dataset
+	 *            id of the datasetType
 	 * @param idValidationType
-	 *            identifiant du type de validation
+	 *            id of the type of validation
 	 */
 	public static void listControls(long idDataset, Long idValidationType) {
 		Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation()
@@ -91,6 +87,9 @@ public class Control extends Controller {
 
 	/**
 	 * Init the form for editing a control
+	 * 
+	 * @param id
+	 *            id of the control
 	 */
 	@Check("admin")
 	public static void edit(long id) {
@@ -100,6 +99,12 @@ public class Control extends Controller {
 		render(typeValidations, control, datasetTypes);
 	}
 
+	/**
+	 * Init the form for launch a control
+	 * 
+	 * @param idDataset
+	 *            id of the dataset
+	 */
 	@Check("publisher")
 	public static void control(long idDataset) {
 		Dataset dataset = Dataset.findById(idDataset);
@@ -112,7 +117,9 @@ public class Control extends Controller {
 	 * dans un thread séparé pour eviter de bloqué l'application
 	 * 
 	 * @param idControl
+	 *            id of the control
 	 * @param idDataset
+	 *            id of the dataset
 	 */
 	@Check("publisher")
 	public static void launchControl(
@@ -123,6 +130,7 @@ public class Control extends Controller {
 			validation.keep(); // keep the errors for the next request
 			control(idDataset);
 		} else {
+
 			Controls lControl = Controls.findById(idControl);
 			switch (lControl.validationType.id.intValue()) {
 			case 1:
@@ -144,11 +152,34 @@ public class Control extends Controller {
 				new BoudaryJob(lControl, idDataset).now();
 				break;
 			}
+
 			flash.success("Success start of the control");
 			Datasets.list();
 		}
 	}
 
+	/**
+	 * Save a new control
+	 * 
+	 * @param name
+	 *            name of the new control
+	 * @param description
+	 *            description of the new control
+	 * @param typeId
+	 *            type of the new control
+	 * @param datasetTypeId
+	 *            datasetType of the new control
+	 * @param boudaryLower
+	 *            boudaryLower of the new control
+	 * @param boudaryHigher
+	 *            boudaryHigher of the new control
+	 * @param value
+	 *            value of the new control
+	 * @param regex
+	 *            regex of the new control
+	 * @param fieldIdTab
+	 *            fieldIdTab is a tab of field of the new control
+	 */
 	@Transactional
 	@Check("admin")
 	public static void save(
@@ -183,6 +214,30 @@ public class Control extends Controller {
 
 	}
 
+	/**
+	 * Sauvegarde un controle
+	 * 
+	 * @param id
+	 *            id of the control
+	 * @param name
+	 *            name of the control
+	 * @param description
+	 *            description of the control
+	 * @param typeId
+	 *            type of the control
+	 * @param datasetTypeId
+	 *            datasetType of the control
+	 * @param boudaryLower
+	 *            boudaryLower of the control
+	 * @param boudaryHigher
+	 *            boudaryHigher of the control
+	 * @param value
+	 *            value of the control
+	 * @param regex
+	 *            regex of the control
+	 * @param fieldIdTab
+	 *            fieldIdTab is a tab of field of the new control
+	 */
 	@Check("admin")
 	public static void editSave(
 			long id,
@@ -212,8 +267,11 @@ public class Control extends Controller {
 		}
 	}
 
-	/*
+	/**
 	 * Deletes the given controls
+	 * 
+	 * @param id
+	 *            id of the control
 	 */
 	@Transactional
 	@Check("admin")

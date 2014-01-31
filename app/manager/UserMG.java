@@ -1,15 +1,18 @@
 package manager;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
 
-import play.db.jpa.JPA;
-import models.Field;
 import models.Groups;
-import models.Occurrence;
+import play.db.jpa.JPA;
 
+/**
+ * Manager pour la class User
+ * 
+ * @author Rémy PLAISANCE
+ * 
+ */
 public class UserMG {
 
 	/**
@@ -31,10 +34,10 @@ public class UserMG {
 	}
 
 	/**
-	 * Retour les groups de l'utilisateur
+	 * Retourne les groupes de l'utilisateur
 	 * 
 	 * @param idUtilisateur
-	 * @return List de groups
+	 * @return List<Groups>
 	 */
 	public List<Groups> listGroupByUser(Long idUtilisateur) {
 		TypedQuery<Groups> q = JPA

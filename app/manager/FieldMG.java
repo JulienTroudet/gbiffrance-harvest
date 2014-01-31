@@ -1,18 +1,18 @@
 package manager;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
-import play.db.jpa.GenericModel.JPAQuery;
-import play.db.jpa.JPA;
-import models.Controls;
 import models.Field;
-import models.Occurrence;
-import controllers.CRUD;
+import play.db.jpa.JPA;
 
+/**
+ * Manager pour la class Field
+ * 
+ * @author Rémy PLAISANCE
+ * 
+ */
 public class FieldMG {
 
 	/**

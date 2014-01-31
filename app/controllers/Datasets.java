@@ -15,13 +15,13 @@ import models.DataPublisher;
 import models.Dataset;
 import models.Occurrence;
 import models.harvest.Harvester;
+import models.harvest.inpn.Inpn;
 import play.Logger;
 import play.Play;
 import play.data.validation.Required;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.jobs.Job;
-import play.modules.paginate.ModelPaginator;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -45,6 +45,12 @@ public class Datasets extends Controller {
 		render(dataPublishers, workInProgress);
 	}
 
+	/**
+	 * Renders upload of TaxRef
+	 * 
+	 * @param id
+	 *            id of the dataset
+	 */
 	public static void result(long id) {
 		Dataset dataset = Dataset.findById(id);
 		render(dataset);
@@ -59,6 +65,20 @@ public class Datasets extends Controller {
 		render(datapublishers);
 	}
 
+	/**
+	 * Save a new dataset
+	 * 
+	 * @param name
+	 *            name of the new dataset
+	 * @param url
+	 *            url of the new dataset
+	 * @param type
+	 *            type of the new dataset
+	 * @param dataPublisherId
+	 *            id data publisher of the new dataset
+	 * @param fromOutside
+	 *            fromOutside of the new dataset
+	 */
 	@Transactional
 	@Check("publisher")
 	public static void save(
@@ -80,6 +100,12 @@ public class Datasets extends Controller {
 		}
 	}
 
+	/**
+	 * Allow to edit a dataset
+	 * 
+	 * @param id
+	 *            id of the dataset
+	 */
 	@Check("publisher")
 	public static void edit(long id) {
 		Dataset dataset = Dataset.findById(id);
@@ -87,6 +113,22 @@ public class Datasets extends Controller {
 		render(dataset, datapublishers);
 	}
 
+	/**
+	 * Sauvegarde un dataset
+	 * 
+	 * @param id
+	 *            id of the dataset
+	 * @param name
+	 *            name of the dataset
+	 * @param url
+	 *            url of the dataset
+	 * @param type
+	 *            type of the dataset
+	 * @param dataPublisherId
+	 *            id data publisher of the dataset
+	 * @param fromOutside
+	 *            fromOutside of the dataset
+	 */
 	@Transactional
 	@Check("publisher")
 	public static void editSave(
@@ -112,10 +154,12 @@ public class Datasets extends Controller {
 		}
 	}
 
-	/*
+	/**
 	 * Deletes the given dataset
+	 * 
+	 * @param id
+	 *            id of the dataset
 	 */
-	@Transactional
 	@Check("publisher")
 	public static void delete(Long id) {
 		Dataset dataset = Dataset.findById(id);
@@ -161,6 +205,9 @@ public class Datasets extends Controller {
 					|| dataset.type.equals("tapir")
 					|| dataset.type.equals("digir")) {
 				app = new Harvester(dataset, targetDirectory, begin, end);
+			} else if (dataset.type.equals("inpn")) {
+				app = new Inpn(dataset, targetDirectory);
+
 			} else {
 				Logger.error("Bad dataset type, cannot start the harvesting process");
 			}
@@ -182,6 +229,12 @@ public class Datasets extends Controller {
 		}
 	}
 
+	/**
+	 * Export a file for TaxRef
+	 * 
+	 * @param id
+	 *            id of the dataset
+	 */
 	@Check("publisher")
 	public static void export(Long id) {
 
@@ -203,7 +256,8 @@ public class Datasets extends Controller {
 			for (Occurrence lOccurrence : data.occurrences) {
 				lWriter.append(lOccurrence.scientificName);
 				lWriter.append(";;");
-				lWriter.append(lOccurrence.taxonID==null?"":lOccurrence.taxonID);
+				lWriter.append(lOccurrence.taxonID == null ? ""
+						: lOccurrence.taxonID);
 				lWriter.append('\n');
 			}
 			lWriter.flush();
@@ -229,8 +283,13 @@ public class Datasets extends Controller {
 		}
 	}
 
-	/*
+	/**
 	 * Upload a file to reconcile
+	 * 
+	 * @param id
+	 *            id of the dataset
+	 * @param attachment
+	 *            file
 	 */
 	@Transactional
 	@Check("publisher")
@@ -253,7 +312,7 @@ public class Datasets extends Controller {
 				// we loop on the file
 				for (String line = lBr.readLine(); line != null; line = lBr
 						.readLine()) {
-					if (lNb < 1) {
+					if (lNb <= 1) {
 						String[] oneData = line.split(SEPARATOR);
 						// With the fk find the good occurence
 						TypedQuery<Occurrence> query = JPA

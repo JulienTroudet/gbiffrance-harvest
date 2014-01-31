@@ -14,7 +14,7 @@ jQuery(document).ready(function(){
 	                dataType: 'json',
 	                success: function(json) {
 	                    $.each(json, function(index, value) {
-	                        $control.append('<option value="'+ value.id +'">'+ value.name +'</option>');
+	                        $control.append('<option value="'+ value.id +'">'+ value.name +' - ' + value.description + '</option>');
 	                    });
 	                }
 	            });

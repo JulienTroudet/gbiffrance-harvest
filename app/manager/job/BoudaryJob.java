@@ -60,17 +60,21 @@ public class BoudaryJob extends Job {
 						// On compare si le champs est inferieur à la borne
 						// inférieur définit
 						String value = object.toString();
-						int result = Long.valueOf(value).compareTo(
-								Long.parseLong(lControls.boudaryLower));
-						if (result < 0) {
-							nb++;
-						}
-						// On compare si le champ est supérieur à la borne
-						// supérieur définit
-						result = Long.valueOf(value).compareTo(
-								Long.parseLong(lControls.boudaryHigher));
-						if (result > 0) {
-							nb++;
+						if (isNumeric(value)) {
+							int result = Long.valueOf(value).compareTo(
+									Long.parseLong(lControls.boudaryLower));
+							if (result < 0) {
+								nb++;
+							}
+							// On compare si le champ est supérieur à la borne
+							// supérieur définit
+							result = Long.valueOf(value).compareTo(
+									Long.parseLong(lControls.boudaryHigher));
+							if (result > 0) {
+								nb++;
+							}
+						} else {
+							Logger.debug("The value of occurence is not a number");
 						}
 					}
 				} catch (SecurityException e) {
@@ -91,6 +95,12 @@ public class BoudaryJob extends Job {
 		}
 	}
 
+	/**
+	 * Test if the value is a Long
+	 * 
+	 * @param pStr
+	 * @return boolean
+	 */
 	public static boolean isNumeric(String pStr) {
 		if (pStr == null) {
 			return false;

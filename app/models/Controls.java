@@ -17,6 +17,12 @@ import play.db.jpa.GenericModel;
 
 import com.google.gson.annotations.Expose;
 
+/**
+ * Classe représentant les contrôles sur les occurences
+ * 
+ * @author Rémy PLAISANCE
+ * 
+ */
 @Entity
 public class Controls extends GenericModel {
 
@@ -31,6 +37,7 @@ public class Controls extends GenericModel {
 	@ManyToOne
 	public ValidationType validationType;
 
+	@Expose
 	public String description;
 
 	public String regex;
@@ -45,10 +52,10 @@ public class Controls extends GenericModel {
 
 	@OneToMany(mappedBy = "controls", cascade = CascadeType.ALL)
 	public List<Result> results;
-	
+
 	@ManyToOne
 	public DatasetType datasetType;
-	
+
 	@ManyToMany(cascade = CascadeType.MERGE)
 	@JoinTable(name = "CONTROLSFIELD", joinColumns = { @JoinColumn(name = "CONTROLS_ID") }, inverseJoinColumns = { @JoinColumn(name = "FIELD_ID") })
 	public List<Field> fields;

@@ -17,24 +17,30 @@ public class Occurrences extends Controller {
 	 * List the occurrences of the given dataset with pagination.
 	 * 
 	 * @param id
+	 *            id of the dataset
 	 * @param page
 	 * @param order
 	 * @param nomChamp
 	 */
 	public static void list(Long id, int page, String order, String nomChamp) {
-		ModelPaginator paginator = new ModelPaginator(Occurrence.class, "dataset.id=?", id);
+		ModelPaginator paginator = new ModelPaginator(Occurrence.class,
+				"dataset.id=?", id);
 		paginator.setPageSize(25);
-		if(nomChamp != null && !nomChamp.isEmpty()){
-			if(order !=null && !order.isEmpty()){
-				paginator.orderBy(nomChamp +" "+ order);
+		if (nomChamp != null && !nomChamp.isEmpty()) {
+			if (order != null && !order.isEmpty()) {
+				paginator.orderBy(nomChamp + " " + order);
 			}
 		}
-		
+
 		Dataset data = Dataset.findById(id);
 
 		render(data, paginator, page);
 	}
 
+	/**
+	 * @param id
+	 *            id of the dataset
+	 */
 	public static void map(Long id) {
 
 		Dataset data = Dataset.findById(id);
@@ -42,8 +48,11 @@ public class Occurrences extends Controller {
 		render(data);
 	}
 
-	/*
+	/**
 	 * Deletes the occurrences of the given dataset. Empties the table
+	 * 
+	 * @param id
+	 *            id of the dataset
 	 */
 	@Transactional
 	@Check("publisher")

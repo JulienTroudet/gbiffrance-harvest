@@ -5,6 +5,12 @@ import javax.persistence.ManyToOne;
 
 import play.db.jpa.Model;
 
+/**
+ * Classe représentant les résultats des contrôles sur les Occurrences
+ * 
+ * @author Rémy PLAISANCE
+ * 
+ */
 @Entity
 public class Result extends Model {
 

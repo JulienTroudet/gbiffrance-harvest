@@ -8,7 +8,6 @@ import java.util.zip.GZIPInputStream;
 import models.Occurrence;
 
 import org.apache.commons.digester.Digester;
-import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
 /**

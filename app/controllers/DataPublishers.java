@@ -1,7 +1,5 @@
 package controllers;
 
-import java.util.List;
-
 import models.DataPublisher;
 import models.Dataset;
 import models.harvest.Harvester;
@@ -16,6 +14,9 @@ public class DataPublishers extends Controller {
 
 	/**
 	 * Retrieve the data publisher list
+	 * 
+	 * @param order
+	 * @param nomChamp
 	 */
 	public static void list(String order, String nomChamp) {
 		ModelPaginator<DataPublisher> paginator = new ModelPaginator(

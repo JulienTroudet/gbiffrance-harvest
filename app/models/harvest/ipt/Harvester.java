@@ -12,35 +12,25 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
-import javax.persistence.FlushModeType;
+import models.Dataset;
+import models.Occurrence;
+import models.harvest.dataaccess.OccurrenceToDBHandler;
+import models.harvest.ipt.eml.EmlData;
+import models.harvest.ipt.eml.EmlParser;
 
-import org.apache.log4j.Logger;
 import org.gbif.dwc.record.StarRecord;
 import org.gbif.dwc.terms.DwcTerm;
 import org.gbif.dwc.text.Archive;
 import org.gbif.dwc.text.ArchiveFactory;
 import org.gbif.dwc.text.UnsupportedArchiveException;
-import org.hibernate.Session;
-import org.hibernate.StatelessSession;
 
 import play.Play;
-import play.db.jpa.JPA;
-
-import models.harvest.dataaccess.DBToDatasetHandler;
-import models.harvest.dataaccess.OccurrenceToDBHandler;
-import models.harvest.ipt.eml.EmlData;
-import models.harvest.ipt.eml.EmlParser;
-import models.*;
 
 public class Harvester extends models.harvest.Harvester  
 {

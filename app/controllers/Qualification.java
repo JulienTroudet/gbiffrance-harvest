@@ -21,6 +21,7 @@ public class Qualification extends Controller {
 	 * List the occurrences of the given dataset for qualification.
 	 * 
 	 * @param id
+	 *            id of the dataset
 	 * @param page
 	 * @param pOrder
 	 * @param pNameField
@@ -44,6 +45,17 @@ public class Qualification extends Controller {
 		render(dataset, controls, page, paginator);
 	}
 
+	/**
+	 * Save all the occurence of the table
+	 * 
+	 * @param id
+	 *            id of the dataset
+	 * @param page
+	 * @param pOrder
+	 * @param pNameField
+	 * @param occurrences
+	 *            table of occurences
+	 */
 	@Transactional
 	@Check("publisher")
 	public static void save(long id, Integer page, String pOrder,
