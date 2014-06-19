@@ -2,111 +2,112 @@
 <div id="main">
 
 #{if data != null}
+	#{if data.emlData != null}
 	<h1>${data.emlData.title}</h1>
-
+	#{/if}
 	<h4>Nombre d'occurences : ${paginator.size()}</h4>
 	<div id="ListTable">
 		
 		<table class="table table-striped table-condensed" id="occurrence_table">
 		<tr class="table">
 			#{if !data.type.equals("inpn")}
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/catalogNumber">catalogNumber</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/occurrenceRemarks">occurrenceRemarks</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/recordNumber">recordNumber</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/recordedBy">recordedBy</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/individualID">individualID</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/individualCount">individualCount</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/sex">sex</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/lifeStage">lifeStage</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/reproductiveCondition">reproductiveCondition</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/behavior">behavior</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/establishmentMeans">establishmentMeans</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/occurrenceStatus">occurrenceStatus</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/preparations">preparations</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/disposition">disposition</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/otherCatalogNumbers">otherCatalogNumbers</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/previousIdentifications">previousIdentifications</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/associatedMedia">associatedMedia</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/associatedReferences">associatedReferences</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/associatedOccurrences">associatedOccurrences</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/associatedSequences">associatedSequences</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/associatedTaxa">associatedTaxa</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonID">taxonID</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/scientificNameID">scientificNameID</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/acceptedNameUsageID">acceptedNameUsageID</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/parentNameUsageID">parentNameUsageID</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/originalNameUsageID">originalNameUsageID</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/nameAccordingToID">nameAccordingToID</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/namePublishedInID">namePublishedInID</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonConceptID">taxonConceptID</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/scientificName">scientificName</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/acceptedNameUsage">acceptedNameUsage</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/parentNameUsage">parentNameUsage</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/originalNameUsage">originalNameUsage</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/nameAccordingTo">nameAccordingTo</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/namePublishedIn">namePublishedIn</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/namePublishedInYear">namePublishedInYear</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/higherClassification">higherClassification</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/kingdom">kingdom</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/phylum">phylum</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/classs">classs</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/orderr">orderr</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/family">family</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/genus">genus</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/subgenus">subgenus</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/specificEpithet">specificEpithet</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/infraSpecificEpithet">infraSpecificEpithet</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/kingdom_interpreted">kingdom_interpreted</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/phylum_interpreted">phylum_interpreted</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/classs_interpreted">classs_interpreted</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/orderr_interpreted">orderr_interpreted</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/family_interpreted">family_interpreted</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/genus_interpreted">genus_interpreted</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/subgenus_interpreted">subgenus_interpreted</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/specificEpithet_interpreted">specificEpithet_interpreted</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/infraSpecificEpithet_inter">infraSpecificEpithet_inter</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonRank">taxonRank</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/verbatimTaxonRank">verbatimTaxonRank</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/scientificNameAuthorship">scientificNameAuthorship</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/vernacularName">vernacularName</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/nomenclaturalCode">nomenclaturalCode</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonomicStatus">taxonomicStatus</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/nomenclaturalStatus">nomenclaturalStatus</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonRemarks">taxonRemarks</a></h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/catalogNumber"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/catalogNumber"></a>catalogNumber</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/occurrenceRemarks"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/occurrenceRemarks"></a>occurrenceRemarks</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/recordNumber"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/recordNumber"></a>recordNumber</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/recordedBy"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/recordedBy"></a>recordedBy</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/individualID"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/individualID"></a>individualID</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/individualCount"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/individualCount"></a>individualCount</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/sex"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/sex"></a>sex</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/lifeStage"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/lifeStage"></a>lifeStage</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/reproductiveCondition"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/reproductiveCondition"></a>reproductiveCondition</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/behavior"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/behavior"></a>behavior</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/establishmentMeans"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/establishmentMeans"></a>establishmentMeans</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/occurrenceStatus"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/occurrenceStatus"></a>occurrenceStatus</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/preparations"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/preparations"></a>preparations</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/disposition"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/disposition"></a>disposition</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/otherCatalogNumbers"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/otherCatalogNumbers"></a>otherCatalogNumbers</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/previousIdentifications"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/previousIdentifications"></a>previousIdentifications</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/associatedMedia"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/associatedMedia"></a>associatedMedia</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/associatedReferences"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/associatedReferences"></a>associatedReferences</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/associatedOccurrences"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/associatedOccurrences"></a>associatedOccurrences</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/associatedSequences"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/associatedSequences"></a>associatedSequences</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/associatedTaxa"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/associatedTaxa"></a>associatedTaxa</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonID"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/taxonID"></a>taxonID</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/scientificNameID"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/scientificNameID"></a>scientificNameID</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/acceptedNameUsageID"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/acceptedNameUsageID"></a>acceptedNameUsageID</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/parentNameUsageID"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/parentNameUsageID"></a>parentNameUsageID</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/originalNameUsageID"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/originalNameUsageID"></a>originalNameUsageID</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/nameAccordingToID"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/nameAccordingToID"></a>nameAccordingToID</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/namePublishedInID"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/namePublishedInID"></a>namePublishedInID</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonConceptID"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/taxonConceptID"></a>taxonConceptID</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/scientificName"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/scientificName"></a>scientificName</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/acceptedNameUsage"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/acceptedNameUsage"></a>acceptedNameUsage</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/parentNameUsage"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/parentNameUsage"></a>parentNameUsage</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/originalNameUsage"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/originalNameUsage"></a>originalNameUsage</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/nameAccordingTo"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/nameAccordingTo"></a>nameAccordingTo</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/namePublishedIn"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/namePublishedIn"></a>namePublishedIn</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/namePublishedInYear"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/namePublishedInYear"></a>namePublishedInYear</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/higherClassification"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/higherClassification"></a>higherClassification</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/kingdom"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/kingdom"></a>kingdom</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/phylum"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/phylum"></a>phylum</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/classs"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/classs"></a>classs</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/orderr"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/orderr"></a>orderr</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/family"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/family"></a>family</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/genus"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/genus"></a>genus</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/subgenus"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/subgenus"></a>subgenus</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/specificEpithet"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/specificEpithet"></a>specificEpithet</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/infraSpecificEpithet"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/infraSpecificEpithet"></a>infraSpecificEpithet</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/kingdom_interpreted"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/kingdom_interpreted"></a>kingdom_interpreted</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/phylum_interpreted"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/phylum_interpreted"></a>phylum_interpreted</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/classs_interpreted"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/classs_interpreted"></a>classs_interpreted</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/orderr_interpreted"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/orderr_interpreted"></a>orderr_interpreted</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/family_interpreted"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/family_interpreted"></a>family_interpreted</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/genus_interpreted"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/genus_interpreted"></a>genus_interpreted</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/subgenus_interpreted"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/subgenus_interpreted"></a>subgenus_interpreted</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/specificEpithet_interpreted"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/specificEpithet_interpreted"></a>specificEpithet_interpreted</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/infraSpecificEpithet_inter"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/infraSpecificEpithet_inter"></a>infraSpecificEpithet_inter</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonRank"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/taxonRank"></a>taxonRank</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/verbatimTaxonRank"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/verbatimTaxonRank"></a>verbatimTaxonRank</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/scientificNameAuthorship"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/scientificNameAuthorship"></a>scientificNameAuthorship</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/vernacularName"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/vernacularName"></a>vernacularName</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/nomenclaturalCode"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/nomenclaturalCode"></a>nomenclaturalCode</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonomicStatus"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/taxonomicStatus"></a>taxonomicStatus</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/nomenclaturalStatus"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/nomenclaturalStatus"></a>nomenclaturalStatus</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonRemarks"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/taxonRemarks"></a>taxonRemarks</h5></th>
 			#{/if}
 			#{else}
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/catalogNumber">catalogNumber</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/coordinateUncertaintyInMeters">coordinateUncertaintyInMeters</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/county">county</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/decimalLatitude">decimalLatitude</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/decimalLatitude">decimalLongitude</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/identifiedBy">identifiedBy</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/locality">locality</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/nameAccordingTo">nameAccordingTo</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/occurrenceStatus">occurrenceStatus</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/recordNumber">recordNumber</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonID">taxonID</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/typeSource">typeSource</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/restrictionLocalisationP">restrictionLocalisationP</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/restrictionMaille">restrictionMaille</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/restrictionCommune">restrictionCommune</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/restrictionTotal">restrictionTotal</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/lienOrigine">lienOrigine</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/nomScientifiqueCite">nomScientifiqueCite</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/identiteOBS">identiteOBS</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/organismeOBS">organismeOBS</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/validateur">validateur</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/dateInf">dateInf</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/dateSup">dateSup</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/codeInsee">codeInsee</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/nomCommune">nomCommune</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/pourcentageCommune">pourcentageCommune</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/codeEN">codeEN</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/typeEN">typeEN</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/pourcentageEN">pourcentageEN</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/codeMaille">codeMaille</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/pourcentageMaille">pourcentageMaille</a></h5></th>
-			<th><h5><a class="" href="/occurrences/list/${data.id}/page/${page}/ASC/cdNom">cdNom</a></h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/catalogNumber"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/catalogNumber"></a>catalogNumber</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/coordinateUncertaintyInMeters"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/coordinateUncertaintyInMeters"></a>coordinateUncertaintyInMeters</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/county"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/county"></a>county</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/decimalLatitude"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/decimalLatitude"></a>decimalLatitude</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/decimalLatitude"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/decimalLatitude"></a>decimalLongitude</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/identifiedBy"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/identifiedBy"></a>identifiedBy</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/locality"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/locality"></a>locality</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/nameAccordingTo"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/nameAccordingTo"></a>nameAccordingTo</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/occurrenceStatus"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/occurrenceStatus"></a>occurrenceStatus</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/recordNumber"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/recordNumber"></a>recordNumber</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/taxonID"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/taxonID"></a>taxonID</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/typeSource"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/typeSource"></a>typeSource</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/restrictionLocalisationP"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/restrictionLocalisationP"></a>restrictionLocalisationP</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/restrictionMaille"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/restrictionMaille"></a>restrictionMaille</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/restrictionCommune"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/restrictionCommune"></a>restrictionCommune</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/restrictionTotal"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/restrictionTotal"></a>restrictionTotal</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/lienOrigine"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/lienOrigine"></a>lienOrigine</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/nomScientifiqueCite"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/nomScientifiqueCite"></a>nomScientifiqueCite</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/identiteOBS"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/identiteOBS"></a>identiteOBS</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/organismeOBS"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/organismeOBS"></a>organismeOBS</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/validateur"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/validateur"></a>validateur</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/dateInf"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/dateInf"></a>dateInf</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/dateSup"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/dateSup"></a>dateSup</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/codeInsee"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/codeInsee"></a>codeInsee</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/nomCommune"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/nomCommune"></a>nomCommune</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/pourcentageCommune"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/pourcentageCommune"></a>pourcentageCommune</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/codeEN"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/codeEN"></a>codeEN</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/typeEN"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/typeEN"></a>typeEN</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/pourcentageEN"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/pourcentageEN"></a>pourcentageEN</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/codeMaille"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/codeMaille"></a>codeMaille</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/pourcentageMaille"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/pourcentageMaille"></a>pourcentageMaille</h5></th>
+			<th><h5><a class="icon-circle-arrow-up" href="/occurrences/list/${data.id}/page/${page}/ASC/cdNom"></a><a class="icon-circle-arrow-down" href="/occurrences/list/${data.id}/page/${page}/DESC/cdNom"></a>cdNom</h5></th>
 			#{/else}
 		</tr>
 				#{paginate.list items:paginator, as:'occurrence'} 

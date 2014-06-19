@@ -40,6 +40,7 @@ public class RegexJob extends Job {
 	 * @see play.jobs.Job#doJob()
 	 */
 	public void doJob() {
+		Logger.info("Debut du controle sur une regex");
 		try {
 			OccurrenceMG lOccurrenceMG = new OccurrenceMG();
 			List<Occurrence> lListOccurence = lOccurrenceMG
@@ -47,10 +48,11 @@ public class RegexJob extends Job {
 			// On recharge l'objet car dans un thread séparé il perd la session
 			// (JPA)
 			Controls lControls = Controls.findById(mControls.id);
-			int nb = 0;
 			boolean result = false;
 			if (lControls.fields != null) {
 				for (Occurrence lOccurrence : lListOccurence) {
+					int res = 0;
+					int nb = 0;
 					for (Field lField : lControls.fields) {
 						// On récupère la valeur du champ par introspection
 						java.lang.reflect.Field val;
@@ -66,11 +68,15 @@ public class RegexJob extends Job {
 							}
 						}
 					}
+					if(nb > 0){
+						res = 1;
+					}
 					Result lResult = new Result(lOccurrence, lControls,
-							String.valueOf(nb));
+							String.valueOf(res));
 					lResult.save();
 				}
 			}
+			Logger.info("Fin du controle sur une regex");
 		} catch (NoSuchFieldException e) {
 			Logger.error(e.toString(), "Regex");
 		} catch (IllegalArgumentException e) {

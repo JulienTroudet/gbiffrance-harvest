@@ -39,6 +39,7 @@ public class DoublonJob extends Job {
 	 * @see play.jobs.Job#doJob()
 	 */
 	public void doJob() {
+		Logger.info("Debut du controle de doublon");
 		OccurrenceMG lOccurrenceMG = new OccurrenceMG();
 		List<Occurrence> lListOccurence = lOccurrenceMG
 				.listOccurencesByDataset(mIdDataset);
@@ -46,6 +47,7 @@ public class DoublonJob extends Job {
 		// (JPA)
 		Controls lControls = Controls.findById(mControls.id);
 		Long result = null;
+		int res = 0;
 		if (lControls.fields != null) {
 			for (Occurrence lOccurrence : lListOccurence) {
 				try {
@@ -60,11 +62,14 @@ public class DoublonJob extends Job {
 				} catch (IllegalAccessException e) {
 					Logger.error(e.toString(), "Doublon");
 				}
+				if (result > 0) {
+					res = 1;
+				}
 				Result lResult = new Result(lOccurrence, lControls,
-						result.toString());
+						String.valueOf(res));
 				lResult.save();
 			}
 		}
-
+		Logger.info("Fin du controle de doublon");
 	}
 }

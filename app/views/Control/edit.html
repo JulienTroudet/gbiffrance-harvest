@@ -9,10 +9,19 @@ jQuery(document).ready(function(){
 		 $("#regexClass").hide();
 		 $("#boudaryClass").hide();
 		 $("#valueClass").hide();
+		 $("#taxoClass").hide();
+		 $("#refGeoClass").hide();
+		 $("#territoireClass").hide();
 		 
 		 //En fonction de la valeur de la selectbox
 		 //on rend visible les champs
 		 switch(v){
+			 case "2":
+		 			$("#taxoClass").show();
+			 		break;
+			 case "3":
+		 			$("#refGeoClass").show();
+			 		break;
 			 case "5":
 			 		$("#valueClass").show();
 			 		break;
@@ -21,6 +30,9 @@ jQuery(document).ready(function(){
 			 		break;
 			 case "8":
 				 	$("#boudaryClass").show();
+			 		break;
+			 case "9":
+				 	$("#territoireClass").show();
 			 		break;
 		 }
 	 });
@@ -138,6 +150,73 @@ jQuery(document).ready(function(){
 					<span class="alert alert-error">#{error 'value' /}</span>
 				#{/ifError}
 			</div>
+			
+			#{if control.validationType.id == 2}
+			<div id="taxoClass">
+			#{/if}
+			#{else}
+			<div id="taxoClass" style="display: none;">
+			#{/else}
+				<label>Type: </label> 
+				<select id="taxoId" name="taxoId" width="200">
+					<option></option>
+					<option value="1" #{if control.taxoId == 1}selected#{/if}>Taxref en cours</option>
+					<option value="2" #{if control.taxoId == 2}selected#{/if}>Taxref de travail</option>
+				</select> 
+				#{ifError 'taxoId'}
+					<span class="alert alert-error">#{error 'taxoId' /}</span>
+				#{/ifError}
+			</div>
+			
+			#{if control.validationType.id == 3}
+			<div id="refGeoClass">
+			#{/if}
+			#{else}
+			<div id="refGeoClass" style="display: none;">
+			#{/else}
+				<label>Type: </label> 
+				<select id="refGeoId" name="refGeoId" width="200">
+					<option></option>
+					<option value="1" #{if control.refGeoAdmID == 1}selected#{/if}>Commune</option>
+					<option value="2" #{if control.refGeoAdmID == 2}selected#{/if}>Département</option>
+					<option value="3" #{if control.refGeoAdmID == 3}selected#{/if}>Maille</option>
+				</select> 
+				#{ifError 'refGeoId'}
+					<span class="alert alert-error">#{error 'refGeoId' /}</span>
+				#{/ifError}
+			</div>
+			
+			#{if control.validationType.id == 9}
+			<div id="territoireClass">
+			#{/if}
+			#{else}
+			<div id="territoireClass" style="display: none;">
+			#{/else}
+				<label>Territoire: </label> 
+				<select id="codeTerritoire" name="codeTerritoire" width="200">
+					<option></option>
+					<option value="FR" #{if control.codeTerritoire == "FR"}selected#{/if}>FR</option>
+					<option value="FRA" #{if control.codeTerritoire == "FRA"}selected#{/if}>FRA</option>
+					<option value="GF" #{if control.codeTerritoire == "GF"}selected#{/if}>GF</option>
+					<option value="MAR" #{if control.codeTerritoire == "MAR"}selected#{/if}>MAR</option>
+					<option value="GUA" #{if control.codeTerritoire == "GUA"}selected#{/if}>GUA</option>
+					<option value="SM" #{if control.codeTerritoire == "SM"}selected#{/if}>SM</option>
+					<option value="SB" #{if control.codeTerritoire == "SB"}selected#{/if}>SB</option>
+					<option value="SPM" #{if control.codeTerritoire == "SPM"}selected#{/if}>SPM</option>
+					<option value="MAY" #{if control.codeTerritoire == "MAY"}selected#{/if}>MAY</option>
+					<option value="REU" #{if control.codeTerritoire == "REU"}selected#{/if}>REU</option>
+					<option value="EPA" #{if control.codeTerritoire == "EPA"}selected#{/if}>EPA</option>
+					<option value="TAAF" #{if control.codeTerritoire == "TAAF"}selected#{/if}>TAAF</option>
+					<option value="NC" #{if control.codeTerritoire == "NC"}selected#{/if}>NC</option>
+					<option value="WF" #{if control.codeTerritoire == "WF"}selected#{/if}>WF</option>
+					<option value="PF" #{if control.codeTerritoire == "PF"}selected#{/if}>PF</option>
+					<option value="CLI" #{if control.codeTerritoire == "CLI"}selected#{/if}>CLI</option>
+				</select> 
+				#{ifError 'codeTerritoire'}
+					<span class="alert alert-error">#{error 'codeTerritoire' /}</span>
+				#{/ifError}
+			</div>
+			
 			<div>
 			<label>Field</label>
 			<select id="fieldIdTab" name="fieldIdTab" style="height:245px;" multiple>

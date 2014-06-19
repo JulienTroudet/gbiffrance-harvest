@@ -14,34 +14,31 @@ import play.db.jpa.GenericModel;
 
 /**
  * Classe représentant les utilisateurs de l'INPN.
+ * 
  * @author tstrauss
- *
+ * 
  */
 @Entity
-@Table(schema="ISB")
+@Table(schema = "ISB")
 public class Utilisateurs extends GenericModel {
 
 	@Id
-    @GeneratedValue
-    public Long id_utilisateur;
+	@GeneratedValue
+	public Long id_utilisateur;
 
 	@Required
-	public String nom;	
+	public String nom;
 	@Required
-	public String prenom;	
+	public String prenom;
 	@Required
-	public String civilite;	
+	public String civilite;
 	@Required
-	public String login;	
+	public String login;
 	@Required
 	public String password;
-	
-	@Column(name="PASSWORD_CRYPTE")
-	public String passwordCrypte;
-	
-	
-    @Override
-    public Object _key() {
-        return id_utilisateur;
-    }
+
+	@Override
+	public Object _key() {
+		return id_utilisateur;
+	}
 }

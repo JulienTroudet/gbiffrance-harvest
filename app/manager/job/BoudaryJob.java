@@ -40,6 +40,7 @@ public class BoudaryJob extends Job {
 	 * @see play.jobs.Job#doJob()
 	 */
 	public void doJob() {
+		Logger.info("Debut du controle de borne");
 		OccurrenceMG lOccurrenceMG = new OccurrenceMG();
 		List<Occurrence> lListOccurence = lOccurrenceMG
 				.listOccurencesByDataset(mIdDataset);
@@ -50,6 +51,7 @@ public class BoudaryJob extends Job {
 				&& isNumeric(lControls.boudaryLower)) {
 			for (Occurrence lOccurrence : lListOccurence) {
 				int nb = 0;
+				int res = 0;
 				try {
 					for (Field lField : lControls.fields) {
 						// On récupère la valeur du champ par introspection
@@ -86,12 +88,16 @@ public class BoudaryJob extends Job {
 				} catch (IllegalAccessException e) {
 					Logger.error(e.toString(), "Boudary");
 				}
+				if (nb > 0) {
+					res = 1;
+				}
 				Result lResult = new Result(lOccurrence, lControls,
-						String.valueOf(nb));
+						String.valueOf(res));
 				lResult.save();
 			}
+			Logger.info("Fin du controle de borne");
 		} else {
-			Logger.debug("Boudary lower or boudary higher is not a number");
+			Logger.error("Boudary lower or boudary higher is not a number");
 		}
 	}
 
@@ -106,6 +112,7 @@ public class BoudaryJob extends Job {
 			return false;
 		} else {
 			try {
+				@SuppressWarnings("unused")
 				Long d = Long.parseLong(pStr);
 			} catch (NumberFormatException nfe) {
 				return false;

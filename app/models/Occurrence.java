@@ -8,14 +8,15 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-
-import oracle.spatial.geometry.JGeometry;
+import javax.persistence.OrderBy;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.Index;
-import org.hibernate.annotations.Type;
 
 import play.data.validation.Required;
 import play.db.jpa.Model;
+
+import com.vividsolutions.jts.geom.Geometry;
 
 @Entity
 public class Occurrence extends Model {
@@ -378,21 +379,21 @@ public class Occurrence extends Model {
 
 	// ecat
 	@Column(nullable = true)
-	public int ecatTaxonId;
+	public Integer ecatTaxonId;
 	@Column(nullable = true)
-	public int ecatParentTaxonId;
+	public Integer ecatParentTaxonId;
 
 	@ManyToOne
 	public Dataset dataset;
 
 	@OneToMany(mappedBy = "occurrence", cascade = CascadeType.ALL)
+	@OrderBy(value="id")
 	public List<Result> results;
 
 	public boolean qualified;
 
-	@Type(type = "org.hibernatespatial.GeometryUserType")
-	@Column(nullable = true)
-	public JGeometry geometry;
+	@Transient
+	public Geometry shape;
 
 	@Column(name = "TYPE_SOURCE", length = 2000)
 	public String typeSource;
@@ -453,6 +454,9 @@ public class Occurrence extends Model {
 
 	@Column(name = "POURCENTAGE_MAILLE", length = 2000)
 	public String pourcentageMaille;
+
+	@Column(name = "PROJECTION", length = 2000)
+	public String projection;
 
 	public Occurrence() {
 	}
@@ -618,7 +622,7 @@ public class Occurrence extends Model {
 			// Harvester
 			String taxonStatus,
 			// ecat
-			int ecatTaxonId, int ecatParentTaxonId, Dataset dataset) {
+			Integer ecatTaxonId, Integer ecatParentTaxonId, Dataset dataset) {
 		// Record-level
 		this.typee = typee;
 		this.modified = modified;

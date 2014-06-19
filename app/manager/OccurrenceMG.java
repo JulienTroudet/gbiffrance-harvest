@@ -1,12 +1,18 @@
 package manager;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
+import models.Controls;
 import models.Field;
 import models.Occurrence;
+import play.Logger;
+import play.db.DB;
 import play.db.jpa.JPA;
 
 /**
@@ -154,4 +160,99 @@ public class OccurrenceMG {
 
 		return lQuery.getSingleResult();
 	}
+
+	/**
+	 * Insertion d'une occurrence avec des données géographiques en JDBC. On
+	 * utilise ici une requete JDBC suite a une problematique avec le driver
+	 * oracle spatial.
+	 * 
+	 * @param pOccurrence
+	 */
+	public void insertINPN(Occurrence pOccurrence) {
+
+		Connection lConnection = null;
+		PreparedStatement lPreparedStatement = null;
+
+		try {
+			lConnection = DB.getConnection();
+
+			// On prepare la requête
+			StringBuilder lBuilder = new StringBuilder(
+					"INSERT INTO OCCURRENCE (ID, CATALOGNUMBER, COORDINATEUNCERTAINTYINMETERS, DECIMALLATITUDE, DECIMALLONGITUDE");
+			lBuilder.append(", IDENTIFIEDBY, LOCALITY, NAMEACCORDINGTO, OCCURRENCESTATUS, RECORDNUMBER, TAXONID, TYPE_SOURCE");
+			lBuilder.append(", RESTRICTION_LOCALISATION_P, RESTRICTION_MAILLE, RESTRICTION_COMMUNE, RESTRICTION_TOTAL");
+			lBuilder.append(", LIEN_ORIGINE, NOM_SCIENTIFIQUE_CITE, IDENTITE_OBS, ORGANISME_OBS, VALIDATEUR, DATE_INF");
+			lBuilder.append(", DATE_SUP, CODE_INSEE, NOM_COMMUNE, POURCENTAGE_COMMUNE, CODE_EN, TYPE_EN, POURCENTAGE_EN");
+			lBuilder.append(", CODE_MAILLE, POURCENTAGE_MAILLE, PROJECTION, DATASET_ID");
+			if (pOccurrence.shape != null) {
+				lBuilder.append(", SHAPE");
+			}
+			lBuilder.append(") VALUES (HIBERNATE_SEQUENCE.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?");
+			if (pOccurrence.shape != null) {
+				lBuilder.append(", SDO_GEOMETRY(2001, ?, SDO_POINT_TYPE(?,?,NULL),NULL,NULL)");
+			}
+			lBuilder.append(")");
+
+			lPreparedStatement = lConnection.prepareStatement(lBuilder
+					.toString());
+
+			lPreparedStatement.setString(1, pOccurrence.catalogNumber);
+			lPreparedStatement.setString(2,
+					pOccurrence.coordinateUncertaintyInMeters);
+			lPreparedStatement.setString(3, pOccurrence.decimalLatitude);
+			lPreparedStatement.setString(4, pOccurrence.decimalLongitude);
+			lPreparedStatement.setString(5, pOccurrence.identifiedBy);
+			lPreparedStatement.setString(6, pOccurrence.locality);
+			lPreparedStatement.setString(7, pOccurrence.nameAccordingTo);
+			lPreparedStatement.setString(8, pOccurrence.occurrenceStatus);
+			lPreparedStatement.setString(9, pOccurrence.recordNumber);
+			lPreparedStatement.setString(10, pOccurrence.taxonID);
+			lPreparedStatement.setString(11, pOccurrence.typeSource);
+			lPreparedStatement.setString(12,
+					pOccurrence.restrictionLocalisationP);
+			lPreparedStatement.setString(13, pOccurrence.restrictionMaille);
+			lPreparedStatement.setString(14, pOccurrence.restrictionCommune);
+			lPreparedStatement.setString(15, pOccurrence.restrictionTotal);
+			lPreparedStatement.setString(16, pOccurrence.lienOrigine);
+			lPreparedStatement.setString(17, pOccurrence.nomScientifiqueCite);
+			lPreparedStatement.setString(18, pOccurrence.identiteOBS);
+			lPreparedStatement.setString(19, pOccurrence.organismeOBS);
+			lPreparedStatement.setString(20, pOccurrence.validateur);
+			lPreparedStatement.setString(21, pOccurrence.dateInf);
+			lPreparedStatement.setString(22, pOccurrence.dateSup);
+			lPreparedStatement.setString(23, pOccurrence.codeInsee);
+			lPreparedStatement.setString(24, pOccurrence.nomCommune);
+			lPreparedStatement.setString(25, pOccurrence.pourcentageCommune);
+			lPreparedStatement.setString(26, pOccurrence.codeEN);
+			lPreparedStatement.setString(27, pOccurrence.typeEN);
+			lPreparedStatement.setString(28, pOccurrence.pourcentageEN);
+			lPreparedStatement.setString(29, pOccurrence.codeMaille);
+			lPreparedStatement.setString(30, pOccurrence.pourcentageMaille);
+			lPreparedStatement.setString(31, pOccurrence.projection);
+			lPreparedStatement.setLong(32, pOccurrence.dataset.id);
+			if (pOccurrence.shape != null) {
+				lPreparedStatement.setDouble(33, pOccurrence.shape.getSRID());
+				lPreparedStatement.setDouble(34,
+						pOccurrence.shape.getCoordinate().x);
+				lPreparedStatement.setDouble(35,
+						pOccurrence.shape.getCoordinate().y);
+			}
+
+			lPreparedStatement.execute();
+		} catch (SQLException e) {
+			Logger.error(e.toString());
+		} finally {
+			try {
+				if (lConnection != null) {
+					lConnection.close();
+				}
+				if (lPreparedStatement != null) {
+					lPreparedStatement.close();
+				}
+			} catch (SQLException e) {
+				Logger.error(e.toString());
+			}
+		}
+	}
+
 }

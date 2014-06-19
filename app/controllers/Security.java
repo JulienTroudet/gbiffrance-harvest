@@ -5,19 +5,19 @@ import java.util.List;
 import manager.UserMG;
 import models.Groups;
 import models.Utilisateurs;
-import models.harvest.util.Sha1;
 
 public class Security extends Secure.Security {
-	
+
 	private static UserMG mUserMG = new UserMG();
 
 	static boolean authenticate(String username, String password) {
-		Long nbGroup = null;
+		Long nbGroup = 0L;
 		Utilisateurs user = Utilisateurs.find("byLogin", username).first();
-		nbGroup = mUserMG.verifGroup(user.id_utilisateur);
-		return user != null
-				&& user.passwordCrypte.equals(Sha1.encryptPassword(password))
-				&& nbGroup != 0;
+		if (user != null) {
+			nbGroup = mUserMG.verifGroup(user.id_utilisateur);
+			return user != null && user.password.equals(password);
+		}
+		return false;
 	}
 
 	static boolean check(String profile) {

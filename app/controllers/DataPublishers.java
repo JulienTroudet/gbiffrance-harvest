@@ -18,16 +18,21 @@ public class DataPublishers extends Controller {
 	 * @param order
 	 * @param nomChamp
 	 */
-	public static void list(String order, String nomChamp) {
-		ModelPaginator<DataPublisher> paginator = new ModelPaginator(
-				DataPublisher.class);
+	public static void list(String order, String nomChamp, String name) {
+		ModelPaginator<DataPublisher> paginator = null;
+		if (name != null && !name.isEmpty()) {
+			paginator = new ModelPaginator<DataPublisher>(DataPublisher.class,
+					"name like ?", "%" + name + "%");
+		} else {
+			paginator = new ModelPaginator(DataPublisher.class);
+		}
 		paginator.setPageSize(25);
 		if (nomChamp != null && !nomChamp.isEmpty()) {
 			if (order != null && !order.isEmpty()) {
 				paginator.orderBy(nomChamp + " " + order);
 			}
 		}
-		render(paginator);
+		render(paginator, order, nomChamp, name);
 	}
 
 	/**
@@ -51,7 +56,7 @@ public class DataPublishers extends Controller {
 			}
 			dataPublisher.delete();
 		}
-		list("", "");
+		list(null, null, null);
 	}
 
 	/**
@@ -138,7 +143,7 @@ public class DataPublishers extends Controller {
 			dataPublisher.administrativeContact = administrativeContact;
 			dataPublisher.technicalContact = technicalContact;
 			dataPublisher.save();
-			list("", "");
+			list(null, null, null);
 		}
 	}
 

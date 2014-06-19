@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -21,6 +22,21 @@ public class Dataset extends Model {
 	public String tempDirectory;
 	public String currentLower;
 	public boolean fromOutside;
+
+	@Column(name = "FILE_DATASET")
+	public String fileDataset;
+
+	@Column(name = "FILE_COMMUNE")
+	public String fileCommune;
+
+	@Column(name = "FILE_MAILLE")
+	public String fileMaille;
+
+	@Column(name = "FILE_ENP")
+	public String fileENP;
+
+	@Column(name = "FILE_SHAPE")
+	public String fileShape;
 
 	@OneToMany(mappedBy = "dataset", cascade = CascadeType.ALL)
 	public List<Occurrence> occurrences;

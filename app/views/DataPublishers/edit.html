@@ -1,5 +1,6 @@
-#{extends 'main.html' /} #{set title:'Edition du fournisseur de données' /}
+#{extends 'main.html' /} #{set title:'Edition du fournisseur de donnï¿½es' /}
 
+#{if dataPublisher!=null}
 <div id="modal">
 	<div class="modal-header">
 		<h3>Fournisseur de donn&eacute;es :</h3>
@@ -67,3 +68,11 @@
 	#{/form}
 </div>
 #{/secure.check}
+#{/if}
+#{else}
+<div id="modal">
+	<div class="modal-header">
+		<h3>Pas de datapublisher</h3>
+	</div>
+</div>
+#{/else}

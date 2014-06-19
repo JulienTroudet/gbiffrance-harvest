@@ -6,6 +6,7 @@ import manager.OccurrenceMG;
 import models.Controls;
 import models.Occurrence;
 import models.Result;
+import play.Logger;
 import play.jobs.Job;
 
 /**
@@ -39,6 +40,7 @@ public class RequireJob extends Job {
 	 * @see play.jobs.Job#doJob()
 	 */
 	public void doJob() {
+		Logger.info("Debut du controle sur un champ requis");
 		OccurrenceMG lOccurrenceMG = new OccurrenceMG();
 		List<Occurrence> lListOccurence = lOccurrenceMG
 				.listOccurencesByDataset(mIdDataset);
@@ -47,11 +49,16 @@ public class RequireJob extends Job {
 		// (JPA)
 		Controls lControls = Controls.findById(mControls.id);
 		for (Occurrence lOccurrence : lListOccurence) {
+			int res = 0;
 			result = lOccurrenceMG.verifRequireField(lControls.fields,
 					lOccurrence);
+			if (result > 0) {
+				res = 1;
+			}
 			Result lResult = new Result(lOccurrence, lControls,
-					result.toString());
+					String.valueOf(res));
 			lResult.save();
 		}
+		Logger.info("Fin du controle sur un champ requis");
 	}
 }

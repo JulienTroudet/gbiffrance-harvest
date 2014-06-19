@@ -29,6 +29,7 @@ GET     /occurrences/map/{id}                   Occurrences.map
 GET     /delete/{id}/occurrences                Occurrences.delete
 
 GET     /list/control                     		Control.list
+GET     /list/control/{order}/{nomChamp}   		Control.list
 GET     /add/control                      		Control.add
 GET     /edit/control/{id}                		Control.edit
 GET     /delete/control/{id}             		Control.delete

@@ -1,73 +1,102 @@
 package models.harvest.inpn;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.util.HashMap;
+import java.util.Map;
 
-import org.datanucleus.jdo.spatial.JgeomSpatialHelper;
-import org.datanucleus.store.mapped.mapping.jgeom.JGeometryMapping;
-import org.nocrala.tools.gis.data.esri.shapefile.ShapeFileReader;
-import org.nocrala.tools.gis.data.esri.shapefile.exception.InvalidShapeFileException;
-import org.nocrala.tools.gis.data.esri.shapefile.header.ShapeFileHeader;
-import org.nocrala.tools.gis.data.esri.shapefile.shape.AbstractShape;
-import org.nocrala.tools.gis.data.esri.shapefile.shape.PointData;
-import org.nocrala.tools.gis.data.esri.shapefile.shape.shapes.MultiPointZShape;
-import org.nocrala.tools.gis.data.esri.shapefile.shape.shapes.PointShape;
-import org.nocrala.tools.gis.data.esri.shapefile.shape.shapes.PolygonShape;
+import org.geotools.data.DataStore;
+import org.geotools.data.FeatureSource;
+import org.geotools.data.shapefile.ShapefileDataStore;
+import org.geotools.feature.FeatureCollection;
+import org.geotools.feature.FeatureIterator;
+import org.opengis.feature.simple.SimpleFeature;
+import org.opengis.feature.simple.SimpleFeatureType;
+import org.opengis.feature.type.AttributeDescriptor;
+import org.opengis.referencing.crs.CoordinateReferenceSystem;
 
-import models.Occurrence;
-import oracle.spatial.geometry.JGeometry;
-import oracle.spatial.util.*;
 import play.Logger;
+
+import com.vividsolutions.jts.geom.Geometry;
 
 public class ShapeFile {
 
-	public void reader(File pFile, Occurrence pOccurrence) {
-		FileInputStream is = null;
+	public Map<String, Geometry> reader(File pFile) {
+		Map<String, Geometry> lMapResult = null;
+
 		try {
-			is = new FileInputStream(pFile);
+			DataStore lShapefileDataStore = new ShapefileDataStore(pFile
+					.toURI().toURL());
 
-			ShapeFileReader r = new ShapeFileReader(is);
+			String lTypeName = lShapefileDataStore.getTypeNames()[0];
 
-			AbstractShape s;
-			while ((s = r.next()) != null) {
+			FeatureSource<SimpleFeatureType, SimpleFeature> lFeatureSource = lShapefileDataStore
+					.getFeatureSource(lTypeName);
 
-				switch (s.getShapeType()) {
-				case POINT:
-					PointShape aPoint = (PointShape) s;
-					pOccurrence.geometry = new JGeometry(aPoint.getX(),
-							aPoint.getY(), 1);
-					break;
-				case MULTIPOINT_Z:
-					MultiPointZShape aMultiPointZ = (MultiPointZShape) s;
+			FeatureCollection<SimpleFeatureType, SimpleFeature> lFeatureCollection = null;
 
-					pOccurrence.geometry = new JGeometry(
-							aMultiPointZ.getBoxMinX(),
-							aMultiPointZ.getBoxMinY(),
-							aMultiPointZ.getBoxMaxX(),
-							aMultiPointZ.getBoxMaxY(), 1);
+			lFeatureCollection = lFeatureSource.getFeatures();
 
-					break;
-				}
+			SimpleFeatureType lSimpleFeatureType = lFeatureSource.getSchema();
+
+			Map<String, Integer> lMap = new HashMap<String, Integer>();
+			for (int i = 0; i < lSimpleFeatureType.getAttributeCount(); i++) {
+				AttributeDescriptor lAttributeDescriptor = lSimpleFeatureType
+						.getDescriptor(i);
+				lMap.put(lAttributeDescriptor.getName().getLocalPart(), i);
 
 			}
 
-			is.close();
-		} catch (FileNotFoundException e) {
-			Logger.debug(e.toString(), "Shape");
-		} catch (InvalidShapeFileException e) {
-			Logger.debug(e.toString(), "Shape");
+			FeatureIterator<SimpleFeature> lFeatureIterator = lFeatureCollection
+					.features();
+
+			lMapResult = new HashMap<String, Geometry>();
+
+			while (lFeatureIterator.hasNext()) {
+				SimpleFeature lFeature = lFeatureIterator.next();
+
+				lMapResult.put(
+						(String) lFeature.getAttribute(lMap.get("identifian")),
+						(Geometry) lFeature.getAttribute(lMap.get("the_geom")));
+			}
+			lFeatureIterator.close();
+
+			return lMapResult;
+
+		} catch (MalformedURLException e) {
+			Logger.error("Shape : " + e.toString());
 		} catch (IOException e) {
-			Logger.debug(e.toString(), "Shape");
-		} finally {
-			if (is != null) {
-				try {
-					is.close();
-				} catch (IOException e) {
-					Logger.debug(e.toString(), "Shape");
-				}
-			}
+			Logger.error("Shape : " + e.toString());
+		} catch (Exception e) {
+			Logger.error("Shape : " + e.toString());
 		}
+		return lMapResult;
+	}
+
+	public String readPrj(File pFile) {
+
+		DataStore lShapefileDataStore;
+		CoordinateReferenceSystem crs = null;
+		try {
+			lShapefileDataStore = new ShapefileDataStore(pFile.toURI().toURL());
+
+			String lTypeName = lShapefileDataStore.getTypeNames()[0];
+
+			FeatureSource<SimpleFeatureType, SimpleFeature> lFeatureSource = lShapefileDataStore
+					.getFeatureSource(lTypeName);
+
+			SimpleFeatureType lSimpleFeatureType = lFeatureSource.getSchema();
+
+			crs = lSimpleFeatureType.getGeometryDescriptor()
+					.getCoordinateReferenceSystem();
+		} catch (MalformedURLException e) {
+			Logger.error("Shape : " + e.toString());
+		} catch (IOException e) {
+			Logger.error("Shape : " + e.toString());
+		}
+
+		return crs.getCoordinateSystem().getName().toString();
+
 	}
 }

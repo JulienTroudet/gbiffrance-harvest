@@ -35,6 +35,7 @@
         
         var markers = new OpenLayers.Layer.Markers( "Markers" );
         
+        #{if data!=null}
         #{list items:data.occurrences, as:'occurrence'}
 	    #{if occurrence.decimalLongitude !=null && occurrence.decimalLatitude !=null }
 			var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
@@ -43,7 +44,8 @@
     	    markers.addMarker(new OpenLayers.Marker(position));
 	    #{/if}
     	#{/list}
-        
+        #{/if}
+    	
         map.addLayer(markers);
        
         

@@ -6,3 +6,69 @@ require:
     - play -> secure
     - play -> crud
     - play -> paginate head
+    - commons-digester -> commons-digester 2.1
+    - org.geotools -> gt-shapefile 10.4
+    - org.geotools -> gt-main 10.4
+    - org.geotools -> gt-data 10.4
+    - org.geotools -> gt-geometry 10.4
+    - org.geotools -> gt-opengis 10.4
+    - org.geotools -> gt-metadata 10.4
+    - org.geotools -> gt-epsg-oracle 10.4
+    - org.geotools -> gt-transform 10.4
+    - javax.media -> jai_core 1.1.3
+    - java3d -> vecmath 1.3.2
+    - org.hibernatespatial -> hibernate-spatial-oracle 1.1.1
+    - jgridshift -> jgridshift 1.0
+    - org.apache.velocity -> velocity 1.7
+    - org.datanucleus -> datanucleus-spatial 2.2.0-m1
+    - org.gbif -> dwca-reader 1.0
+    - org.gbif -> ecat-common 1.3
+    - org.gbif -> gbif-common 0.1
+    - org.apache.httpcomponents -> httpclient 4.1.1
+    - oracle -> sdoapi 11.2.0
+    - oracle -> sdoutl 11.2.0
+    - com.oracle -> ojdbc14 10.2.0.3
+    - gnu -> trove 2.1.0
+    - jts -> jtsio 1.7.1
+    - jts -> jts 1.7.1
+    
+repositories:
+    - Hibernate Spatial repo:
+        type: iBiblio
+        root: "http://www.hibernatespatial.org/repository"
+        contains:
+            - org.hibernatespatial -> *
+    - OSGEO GeoTools repo:
+        type: iBiblio
+        root: "http://download.osgeo.org/webdav/geotools"
+        contains:
+            - org.geotools -> *
+            - jgridshift -> *
+    - mapfish repo:
+        type: iBiblio
+        root: "http://dev.mapfish.org/maven/repository/"
+        contains:
+            - java3d -> *
+            - javax.media -> *
+            - com.vividsolutions -> *
+    - gbif repo:
+        type: iBiblio
+        root: "http://maven.research-infrastructures.eu/nexus/content/repositories/gbif/"
+        contains:
+            - org.gbif -> *
+    - datanucleus repo:
+        type: iBiblio
+        root: "http://www.datanucleus.org/downloads/maven2/"
+        contains:
+            - oracle -> *
+            - jts
+    - lds repo:
+        type: iBiblio
+        root: "https://code.lds.org/nexus/content/groups/main-repo/"
+        contains:
+            - com.oracle -> *
+    - emn repo:
+        type: iBiblio
+        root: "http://www.emn.fr/z-info/choco-solver/mvn/repository/"
+        contains:
+            - gnu -> *

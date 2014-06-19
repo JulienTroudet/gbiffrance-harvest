@@ -7,6 +7,7 @@ import manager.OccurrenceMG;
 import models.Controls;
 import models.Dataset;
 import models.Occurrence;
+import models.Result;
 import play.db.jpa.Transactional;
 import play.modules.paginate.ModelPaginator;
 import play.mvc.Controller;
@@ -14,8 +15,6 @@ import play.mvc.With;
 
 @With(Secure.class)
 public class Qualification extends Controller {
-
-	private static ControlMG mControlMG = new ControlMG();
 
 	/**
 	 * List the occurrences of the given dataset for qualification.
@@ -27,11 +26,12 @@ public class Qualification extends Controller {
 	 * @param pNameField
 	 */
 	@Check("publisher")
+	@Transactional
 	public static void list(long id, Integer page, String pOrder,
 			String pNameField) {
 		Dataset dataset = Dataset.findById(id);
 
-		List<Controls> controls = mControlMG.listControlsDatasetType(id);
+		List<Result> results = dataset.occurrences.get(0).results;
 
 		ModelPaginator paginator = new ModelPaginator(Occurrence.class,
 				"dataset.id=?", id);
@@ -42,7 +42,7 @@ public class Qualification extends Controller {
 			}
 		}
 
-		render(dataset, controls, page, paginator);
+		render(dataset, results, page, paginator);
 	}
 
 	/**

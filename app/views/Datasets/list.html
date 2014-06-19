@@ -10,6 +10,9 @@
 	#{if flash.success}
 	   <p class="success">${flash.success}</p>
 	#{/if}
+	#{form @Datasets.list()}
+	Search : <input type="search" id="name" name="name" placeholder="Filtrer par nom" value="${name}"/><button class="btn btn-search" type="submit">OK</button>
+	#{/form}
 	#{list items:dataPublishers, as:'dataPublisher'}
 	<div id="dataset_table">
 		<div id="datapublisher_name">
@@ -17,77 +20,77 @@
 		</div>
 		<table class="table table-striped table-condensed" id="dataset_table">
 			#{list items:dataPublisher.datasets, as:'dataset'}
-			<tr class="table">
-			 	#{secure.check 'publisher'}
-					<td>
-						<a href="delete/${dataset.id}"><i
-							title="remove the dataset" class="icon-remove"></i></a>
-					</td>
-				#{/secure.check}
-				<td class="table" id="dataset_name">#{secure.check 'publisher'}<a id="edit_dataset"
-					href="edit/${dataset.id}">#{/secure.check}<b>${dataset.name}</b>#{secure.check 'publisher'}</a>#{/secure.check}</td>
-				<td class="table" id="dataset_status">
-					#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
-						<i title="successfully harvested" class="icon-ok-sign"></i> 
-					#{/if}
-					#{elseif dataset.status.equals("HARVESTED_WITH_ERROR")} 
-						<i title="harvested with errors" class="icon-exclamation-sign"></i>
-					#{/elseif}
-				</td>
-				<td class="table" id="dataset_see">
-					#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
-						<a href="see/${dataset.id}"><i title="see" class="icon-eye-open"></i></a> 
-					#{/if}
-				</td>
-				<td class="table" id="map_see">
-					#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
-						<a href="occurrences/map/${dataset.id}"><i title="map-see" class="icon-globe"></i></a> 
-					#{/if}
-				</td>
-				
-				<td class="table" id="occurrence_see">
-					#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
-						<a href="occurrences/list/${dataset.id}/page/1"><i title="list-occurences" class="icon-list"></i></a> 
-					#{/if}
-				</td>
-				
-				 #{secure.check 'publisher'}
-				<td class="table" id="dataset_action">
-					<div>
-						#{if dataset.status.equals("SUCCESSFULLY_HARVESTED") ||
-								dataset.status.equals("HARVESTED_WITH_ERROR")} 
-							<a href="delete/${dataset.id}/occurrences" onclick="blockloading()">
-								<i title="clear" class="icon-refresh"></i>
-							</a> 
-						#{/if} 
-						#{if dataset.status.equals("HARVESTED_WITH_ERROR")} 
-							<a id="dataset_action"
-								href="harvest/${dataset.type}/${dataset.id}/${dataset.currentLower}"
-								onclick="blockloading()"><i title="resume"
-								class="icon-chevron-right"></i>
-							</a> 
-						#{/if} 
-						#{elseif dataset.status.equals("empty") || dataset.status.equals("EMPTY")}
-							<a href="harvest/${dataset.type}/${dataset.id}/"
-								onclick="blockloading()"><i class="icon-play-circle"></i></a>
-						#{/elseif}
+				<tr class="table">
+				 	#{secure.check 'publisher'}
+						<td>
+							<a href="delete/${dataset.id}"><i
+								title="remove the dataset" class="icon-remove"></i></a>
+						</td>
+					#{/secure.check}
+					<td class="table" id="dataset_name">#{secure.check 'publisher'}<a id="edit_dataset"
+						href="edit/${dataset.id}">#{/secure.check}<b>${dataset.name}</b>#{secure.check 'publisher'}</a>#{/secure.check}</td>
+					<td class="table" id="dataset_status">
 						#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
-						<a href="@{export(dataset.id)}">
-						<i title="export" class="icon-download"></i></a>
-						
-						<a href="dataset/uploadtaxref/${dataset.id}">
-						<i title="import" class="icon-upload"></i></a>
-						
-						<a href="control/${dataset.id}">
-						<i title="control" class="icon-play"></i></a>
-						
-						<a href="qualification/${dataset.id}/1">
-						<i title="qualification" class="icon-zoom-in"></i></a>
-						#{/if} 
-					</div>
-				</td>
-				#{/secure.check}
-			</tr>
+							<i title="successfully harvested" class="icon-ok-sign"></i> 
+						#{/if}
+						#{elseif dataset.status.equals("HARVESTED_WITH_ERROR")} 
+							<i title="harvested with errors" class="icon-exclamation-sign"></i>
+						#{/elseif}
+					</td>
+					<td class="table" id="dataset_see">
+						#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
+							<a href="see/${dataset.id}"><i title="see" class="icon-eye-open"></i></a> 
+						#{/if}
+					</td>
+					<td class="table" id="map_see">
+						#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
+							<a href="occurrences/map/${dataset.id}"><i title="map-see" class="icon-globe"></i></a> 
+						#{/if}
+					</td>
+					
+					<td class="table" id="occurrence_see">
+						#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
+							<a href="occurrences/list/${dataset.id}/page/1"><i title="list-occurences" class="icon-list"></i></a> 
+						#{/if}
+					</td>
+					
+					 #{secure.check 'publisher'}
+					<td class="table" id="dataset_action">
+						<div>
+							#{if dataset.status.equals("SUCCESSFULLY_HARVESTED") ||
+									dataset.status.equals("HARVESTED_WITH_ERROR")} 
+								<a href="delete/${dataset.id}/occurrences" onclick="blockloading()">
+									<i title="clear" class="icon-refresh"></i>
+								</a> 
+							#{/if} 
+							#{if dataset.status.equals("HARVESTED_WITH_ERROR")} 
+								<a id="dataset_action"
+									href="harvest/${dataset.type}/${dataset.id}/${dataset.currentLower}"
+									onclick="blockloading()"><i title="resume"
+									class="icon-chevron-right"></i>
+								</a> 
+							#{/if} 
+							#{elseif dataset.status.equals("empty") || dataset.status.equals("EMPTY")}
+								<a href="harvest/${dataset.type}/${dataset.id}/"
+									onclick="blockloading()"><i class="icon-play-circle"></i></a>
+							#{/elseif}
+							#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
+							<a href="@{export(dataset.id)}">
+							<i title="export" class="icon-download"></i></a>
+							
+							<a href="dataset/uploadtaxref/${dataset.id}">
+							<i title="import" class="icon-upload"></i></a>
+							
+							<a href="control/${dataset.id}">
+							<i title="control" class="icon-play"></i></a>
+							
+							<a href="qualification/${dataset.id}/1">
+							<i title="qualification" class="icon-zoom-in"></i></a>
+							#{/if} 
+						</div>
+					</td>
+					#{/secure.check}
+				</tr>
 			#{/list}
 		</table>
 	</div>

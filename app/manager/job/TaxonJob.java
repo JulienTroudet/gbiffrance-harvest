@@ -4,10 +4,11 @@ import java.util.List;
 
 import manager.OccurrenceMG;
 import models.Controls;
-import models.Espece;
+import models.EspecesComplet;
 import models.Field;
 import models.Occurrence;
 import models.Result;
+import models.Taxref;
 import play.Logger;
 import play.jobs.Job;
 
@@ -40,6 +41,7 @@ public class TaxonJob extends Job {
 	 * @see play.jobs.Job#doJob()
 	 */
 	public void doJob() {
+		Logger.info("Debut du controle sur un taxon");
 		try {
 			OccurrenceMG lOccurrenceMG = new OccurrenceMG();
 			List<Occurrence> lListOccurence = lOccurrenceMG
@@ -47,6 +49,7 @@ public class TaxonJob extends Job {
 			// On recharge l'objet car dans un thread séparé il perd la session
 			// (JPA)
 			Controls lControls = Controls.findById(mControls.id);
+			String result = null;
 			Long nb = null;
 			if (lControls.fields != null) {
 				for (Occurrence lOccurrence : lListOccurence) {
@@ -55,21 +58,31 @@ public class TaxonJob extends Job {
 						java.lang.reflect.Field val;
 						val = lOccurrence.getClass().getField(lField.camelCase);
 						Object object = val.get(lOccurrence);
-						String value = (String) object;
-
-						// On controle si le taxon est dans le référentiel
-						if (value != null && !value.isEmpty()) {
-							nb = Espece.count("cdNom", value);
+						if (object == null) {
+							result = "NC";
+						} else {
+							if (mControls.taxoId == 1L) {
+								nb = Taxref.count("cdNom", object.toString());
+							} else if (mControls.taxoId == 2L) {
+								nb = EspecesComplet.count("cdNom", object.toString());
+							}
+							if(nb > 0){
+								result = "1";
+							}else{
+								result = "0";
+							}
 						}
 					}
-					Result lResult = new Result(lOccurrence, lControls,
-							String.valueOf(nb));
+					Result lResult = new Result(lOccurrence, lControls, result);
 					lResult.save();
 				}
 			}
+			Logger.info("Fin du controle sur un taxon");
+		} catch (IllegalArgumentException e) {
+			Logger.error(e.toString(), "Taxon");
 		} catch (NoSuchFieldException e) {
 			Logger.error(e.toString(), "Taxon");
-		} catch (IllegalArgumentException e) {
+		} catch (SecurityException e) {
 			Logger.error(e.toString(), "Taxon");
 		} catch (IllegalAccessException e) {
 			Logger.error(e.toString(), "Taxon");

@@ -2,9 +2,14 @@ package controllers;
 
 import java.util.ArrayList;
 
+import javax.persistence.Query;
+
+import models.Controls;
 import models.Dataset;
 import models.Occurrence;
+import models.Result;
 import models.harvest.Harvester;
+import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.modules.paginate.ModelPaginator;
 import play.mvc.Controller;
@@ -19,8 +24,11 @@ public class Occurrences extends Controller {
 	 * @param id
 	 *            id of the dataset
 	 * @param page
+	 *            int
 	 * @param order
+	 *            String
 	 * @param nomChamp
+	 *            String
 	 */
 	public static void list(Long id, int page, String order, String nomChamp) {
 		ModelPaginator paginator = new ModelPaginator(Occurrence.class,
@@ -57,10 +65,19 @@ public class Occurrences extends Controller {
 	@Transactional
 	@Check("publisher")
 	public static void delete(Long id) {
+		Query queryUpdate = JPA
+				.em()
+				.createQuery(
+						"delete Result where occurrence in (select o from Occurrence o where dataset_id=?)");
+		queryUpdate.setParameter(1, id);
+		queryUpdate.executeUpdate();
+		
 		Occurrence.delete("dataset_id=?", id);
 		// EmlData.delete("dataset_id=?", id);
 		Dataset dataset = Dataset.findById(id);
-		dataset.emlData.delete();
+		if (dataset.emlData != null) {
+			dataset.emlData.delete();
+		}
 		Harvester.deleteTemporaryDirectory(dataset.tempDirectory, null);
 		dataset.status = "EMPTY";
 		dataset.occurrences = new ArrayList<Occurrence>();
@@ -68,7 +85,7 @@ public class Occurrences extends Controller {
 		dataset.tempDirectory = null;
 		dataset.emlData = null;
 		dataset.save();
-		Datasets.list();
+		Datasets.list(null);
 	}
 
 }

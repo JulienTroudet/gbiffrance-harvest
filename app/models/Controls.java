@@ -60,13 +60,23 @@ public class Controls extends GenericModel {
 	@JoinTable(name = "CONTROLSFIELD", joinColumns = { @JoinColumn(name = "CONTROLS_ID") }, inverseJoinColumns = { @JoinColumn(name = "FIELD_ID") })
 	public List<Field> fields;
 
+	@Column(name = "TAXO_ID")
+	public long taxoId;
+
+	@Column(name = "REF_GEO_ADM_ID")
+	public long refGeoAdmID;
+
+	@Column(name = "CODE_TERRITOIRE")
+	public String codeTerritoire;
+
 	public Controls() {
 
 	}
 
 	public Controls(String pName, ValidationType pValidationType,
 			String pDescription, String pBoudaryLower, String pBoudaryHigher,
-			String pValue, String pRegex, DatasetType pDatasetType) {
+			String pValue, String pRegex, DatasetType pDatasetType,
+			long pTaxoId, long pRefGeoAdmID, String pCodeTerritoire) {
 		this.name = pName;
 		this.validationType = pValidationType;
 		this.datasetType = pDatasetType;
@@ -75,6 +85,9 @@ public class Controls extends GenericModel {
 		this.boudaryLower = pBoudaryLower;
 		this.value = pValue;
 		this.regex = pRegex;
+		this.taxoId = pTaxoId;
+		this.refGeoAdmID = pRefGeoAdmID;
+		this.codeTerritoire = pCodeTerritoire;
 	}
 
 }

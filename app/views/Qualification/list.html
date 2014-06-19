@@ -1,5 +1,20 @@
 #{extends 'main.html' /} #{set title:'Qualification' /}
-
+<script>
+$(function(){
+	$('#all').click(function(event) {   
+	 if(this.checked) {
+	     $(':checkbox').each(function() {
+	        this.checked = true;                        
+	     });
+	 }
+	 else{
+	     $(':checkbox').each(function(){
+        this.checked = false;
+     });
+ }
+});
+});
+</script>
 <div id="modal">
 	<div class="modal-header">
 		<h3>Liste des données à qualifier</h3>
@@ -8,6 +23,7 @@
 <div id="main">
 	<div id="dataset_table">
 		<div id="dataset_name">
+			#{if dataset !=null}
 			<h4 id="dataset_name">${dataset.name}</h4>
 		</div>
 		#{form @Qualification.save()}
@@ -19,16 +35,24 @@
 					<tr>
 						<th>Résumé information</th>
 						<th>Code taxon</th>
-						#{list items:controls, as:'control'}
-						<th>${control.name}</th>
+						#{list items:results, as:'result'}
+						<th>${result.controls.name}</th>
 						#{/list}
 						<th>Qualification</th>
+					</tr>
+					<tr>
+						<th>&nbsp;</th>
+						<th>&nbsp;</th>
+						#{list items:results, as:'result'}
+						<th>&nbsp;</th>
+						#{/list}
+						<th><input type="checkbox" id="all" name="all"/></th>
 					</tr>
 				</thead>
 				<tbody>
 					#{paginate.list items:paginator, as:'occurrence'} 
 						<tr class="table">
-							<td>${occurrence.scientificName} ${occurrence.occurrenceRemarks} ${occurrence.cdNom}</td>
+							<td>${occurrence.catalogNumber} ${occurrence.scientificName} ${occurrence.occurrenceRemarks} ${occurrence.eventDate} ${occurrence.nomScientifiqueCite}</td>
 							<td><input type="text" name="occurrences[${occurrence_index-1}].cdNom" id="cdNom" value="${occurrence.cdNom}" style="width:80px;"></td>
 							#{list items:occurrence.results, as:'result'}
 							<td>${result.result}</td>
@@ -48,5 +72,6 @@
 		</div>
 		#{/form}
 		#{paginate.controls items:paginator /}
+		#{/if}
 	</div>
 </div>

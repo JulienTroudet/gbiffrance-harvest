@@ -40,6 +40,7 @@ public class ValueJob extends Job {
 	 * @see play.jobs.Job#doJob()
 	 */
 	public void doJob() {
+		Logger.info("Debut du controle sur une valeur");
 		try {
 			OccurrenceMG lOccurrenceMG = new OccurrenceMG();
 			List<Occurrence> lListOccurence = lOccurrenceMG
@@ -47,9 +48,11 @@ public class ValueJob extends Job {
 			// On recharge l'objet car dans un thread séparé il perd la session
 			// (JPA)
 			Controls lControls = Controls.findById(mControls.id);
-			int result = 0;
+
 			if (lControls.fields != null) {
 				for (Occurrence lOccurrence : lListOccurence) {
+					int result = 0;
+					int res = 0;
 					for (Field lField : lControls.fields) {
 						// On récupère la valeur du champ par introspection
 						java.lang.reflect.Field val;
@@ -62,12 +65,15 @@ public class ValueJob extends Job {
 							result++;
 						}
 					}
-
+					if (result > 0) {
+						res = 1;
+					}
 					Result lResult = new Result(lOccurrence, lControls,
-							String.valueOf(result));
+							String.valueOf(res));
 					lResult.save();
 				}
 			}
+			Logger.info("Fin du controle sur une valeur");
 		} catch (NoSuchFieldException e) {
 			Logger.error(e.toString(), "Value");
 		} catch (SecurityException e) {

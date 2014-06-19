@@ -1,19 +1,38 @@
 #{extends 'main.html' /} #{set title:'Add a new Dataset' /}
-
+<script>
+jQuery(document).ready(function(){
+	//Si la valeur de la selectbox change
+	 jQuery("#type").change(function(){
+		 //on recupere la valeur de la selectbox
+		 v =  $("#type").val();
+		 //On rend invisible tout les champs
+		 $("#inpn").hide();
+		 $("#url").show();
+		 $("#donnees").show();
+		 
+		 //En fonction de la valeur de la selectbox
+		 //on rend visible les champs
+		 switch(v){
+			 case "inpn":
+			 		$("#inpn").show();
+			 		$("#url").hide();
+			 		$("#donnees").hide();
+			 		break;		 		
+		 }
+	 });
+});
+</script>
 <div id="modal">
 	<div class="modal-header">
 		<h3>Add a new Dataset</h3>
 	</div>
-	#{form @Datasets.save()}
+	#{form @Datasets.save(), enctype:'multipart/form-data'}
 		<div class="modal-body" id="new_data_publisher">
 			<label>Name:</label>
 			</td> <input type="text" id="name" name="name" value="${flash.name}" class="input-xxlarge"/>
 			#{ifError 'name'}
 			<span class="alert alert-error">#{error 'name'/}</span>#{/ifError}
-			<label>Access point URL:</label> 
-			<input type="text" id="url" name="url" value="${flash.url}" class="input-xxlarge"/> 
-			#{ifError 'url'}<span class="alert alert-error">#{error 'url' /}</span>#{/ifError} <label>Type:</label>
-			
+			<label>Type:</label>
 			<select id="type" name="type">
 				<option></option>
 					#{if flash.type == "biocase"}
@@ -47,6 +66,28 @@
 					<option value="tapir">tapir</option>
 					#{/else}
 			</select> 
+			<div id="url">
+				<label>Access point URL:</label> 
+				<input type="text" id="url" name="url" value="${flash.url}" class="input-xxlarge"/> 
+				#{ifError 'url'}<span class="alert alert-error">#{error 'url' /}</span>#{/ifError}
+			</div>
+			<label>File:</label>
+			<input type="file" id="file" name="file" class="input-xxlarge" value="${flash.file}"/>
+			#{ifError 'file'}<span class="alert alert-error">#{error 'file' /}</span>#{/ifError} 
+			<div id="inpn" style="display: none;">
+				<label>Commune file:</label>
+				<input type="file" id="fileCommune" name="fileCommune" class="input-xxlarge" value="${flash.fileCommune}"/>
+				#{ifError 'fileCommune'}<span class="alert alert-error">#{error 'fileCommune' /}</span>#{/ifError} 
+				<label>Maille file:</label>
+				<input type="file" id="fileMaille" name="fileMaille" class="input-xxlarge" value="${flash.fileMaille}"/>
+				#{ifError 'fileMaille'}<span class="alert alert-error">#{error 'fileMaille' /}</span>#{/ifError} 
+				<label>ENP file:</label>
+				<input type="file" id="fileENP" name="fileENP" class="input-xxlarge" value="${flash.fileENP}"/>
+				#{ifError 'fileENP'}<span class="alert alert-error">#{error 'fileENP' /}</span>#{/ifError} 
+				<label>Shape file:</label>
+				<input type="file" id="fileShape" name="fileShape" class="input-xxlarge" value="${flash.fileShape}"/>
+				#{ifError 'fileShape'}<span class="alert alert-error">#{error 'fileShape' /}</span>#{/ifError}
+			</div>
 			
 			#{ifError 'type'}<span class="alert alert-error">#{error
 				'type' /}</span>#{/ifError} 
@@ -67,6 +108,7 @@
 				
 				#{ifError 'dataPublisherId'}<span class="alert alert-error">#{error
 				'dataPublisherId' /}</span>#{/ifError} 
+				<div id="donnees">
 					<label>Exclure les donnees non francaises?</label> 
 					#{if flash.fromOutside == "true"}
 					<input type="checkbox" name="fromOutside" value="true" checked="checked">
@@ -74,6 +116,7 @@
 					#{else}
 					<input type="checkbox" name="fromOutside" value="true">
 					#{/else}
+				</div>
 		</div>
 		<div class="modal-footer">
 			<button class="btn" type="submit">Submit</button>

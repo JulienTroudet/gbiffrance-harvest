@@ -22,6 +22,7 @@ import play.data.validation.Required;
 import play.db.jpa.JPA;
 import play.db.jpa.Transactional;
 import play.jobs.Job;
+import play.libs.Files;
 import play.mvc.Controller;
 import play.mvc.With;
 
@@ -31,6 +32,9 @@ public class Datasets extends Controller {
 	//
 	public static String targetDirectory = Play.configuration
 			.getProperty("temp.path");
+
+	public static String datasetDirectory = Play.configuration
+			.getProperty("dataset.path");
 	// Informs if a harvest job is already running. if yes, the user will not be
 	// able to start a new one until the end of this
 	public static boolean workInProgress = false;
@@ -40,9 +44,16 @@ public class Datasets extends Controller {
 	/*
 	 * Renders the available datasets
 	 */
-	public static void list() {
-		List<DataPublishers> dataPublishers = DataPublisher.all().fetch();
-		render(dataPublishers, workInProgress);
+	public static void list(String name) {
+		List<DataPublishers> dataPublishers = null;
+		if (name != null && !name.isEmpty()) {
+			dataPublishers = DataPublisher
+					.find("name like ?", "%" + name + "%").fetch();
+		} else {
+			dataPublishers = DataPublisher.all().fetch();
+		}
+
+		render(dataPublishers, workInProgress, name);
 	}
 
 	/**
@@ -83,11 +94,20 @@ public class Datasets extends Controller {
 	@Check("publisher")
 	public static void save(
 			@Required(message = "Name is required") String name,
-			@Required(message = "Access point is required") String url,
+			String url,
+			File file,
+			File fileCommune,
+			File fileMaille,
+			File fileENP,
+			File fileShape,
 			@Required(message = "Type is required") String type,
 			@Required(message = "You need to select a data publisher") Long dataPublisherId,
 			boolean fromOutside) {
-		if (validation.hasErrors()) {
+		if (validation.hasErrors() && (url == null || file == null)) {
+			// validation.addError(url, "Access point or file is required");
+			if (url == null && file == null) {
+				validation.required(url);
+			}
 			params.flash(); // add http parameters to the flash scope
 			validation.keep(); // keep the errors for the next request
 			add();
@@ -96,7 +116,62 @@ public class Datasets extends Controller {
 					(DataPublisher) DataPublisher.findById(dataPublisherId));
 			dataset.fromOutside = fromOutside;
 			dataset.save();
-			list();
+			File lFileTo = null;
+			if (file != null) {
+				File lDirectory = new File(datasetDirectory + File.separator
+						+ "resource-" + dataset.id + File.separator);
+				if (!lDirectory.exists()) {
+					lDirectory.mkdirs();
+				}
+				lFileTo = new File(datasetDirectory + File.separator
+						+ "resource-" + dataset.id + File.separator
+						+ file.getName());
+				Files.copy(file, lFileTo);
+
+				dataset.fileDataset = datasetDirectory + File.separator
+						+ "resource-" + dataset.id + File.separator
+						+ file.getName();
+				dataset.save();
+			}
+			if (type.equals("inpn")) {
+				if (fileCommune != null) {
+					lFileTo = new File(datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileCommune.getName());
+					Files.copy(fileCommune, lFileTo);
+					dataset.fileCommune = datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileCommune.getName();
+				}
+				if (fileMaille != null) {
+					lFileTo = new File(datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileMaille.getName());
+					Files.copy(fileMaille, lFileTo);
+					dataset.fileMaille = datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileMaille.getName();
+				}
+				if (fileENP != null) {
+					lFileTo = new File(datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileENP.getName());
+					dataset.fileENP = datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileENP.getName();
+					Files.copy(fileENP, lFileTo);
+				}
+				if (fileShape != null) {
+					lFileTo = new File(datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileShape.getName());
+					dataset.fileShape = datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileShape.getName();
+					Files.copy(fileShape, lFileTo);
+				}
+			}
+			list(null);
 		}
 	}
 
@@ -134,11 +209,19 @@ public class Datasets extends Controller {
 	public static void editSave(
 			long id,
 			@Required(message = "Name is required") String name,
-			@Required(message = "Access point is required") String url,
+			String url,
+			File file,
+			File fileCommune,
+			File fileMaille,
+			File fileENP,
+			File fileShape,
 			@Required(message = "Type is required") String type,
 			@Required(message = "You need to select a data publisher") Long dataPublisherId,
 			boolean fromOutside) {
 		if (validation.hasErrors()) {
+			if (url == null && file == null) {
+				validation.required(url);
+			}
 			params.flash(); // add http parameters to the flash scope
 			validation.keep(); // keep the errors for the next request
 			edit(id);
@@ -149,8 +232,74 @@ public class Datasets extends Controller {
 			dataset.type = type;
 			dataset.dataPublisher = DataPublisher.findById(dataPublisherId);
 			dataset.fromOutside = fromOutside;
+			File lFileTo = null;
+			if (file != null) {
+				// On supprime les anciens fichiers
+				deleteAll(new File(datasetDirectory + File.separator
+						+ "resource-" + dataset.id + File.separator));
+
+				File lDirectory = new File(datasetDirectory + File.separator
+						+ "resource-" + dataset.id + File.separator);
+				if (!lDirectory.exists()) {
+					lDirectory.mkdirs();
+				}
+				// On met le nouveau fichier
+				lFileTo = new File(datasetDirectory + File.separator
+						+ "resource-" + dataset.id + File.separator
+						+ file.getName());
+				Files.copy(file, lFileTo);
+
+				// On set le nouveau lien du fichier
+				dataset.fileDataset = datasetDirectory + File.separator
+						+ "resource-" + dataset.id + File.separator
+						+ file.getName();
+
+			} else if (dataset.url != null && !dataset.url.isEmpty()) {
+				// Si l'utilisateur souhaite utiliser une url
+				deleteAll(new File(datasetDirectory + File.separator
+						+ "resource-" + dataset.id + File.separator));
+				dataset.fileDataset = null;
+			}
+			if (type.equals("inpn")) {
+				if (fileCommune != null) {
+					lFileTo = new File(datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileCommune.getName());
+					Files.copy(fileCommune, lFileTo);
+					dataset.fileCommune = datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileCommune.getName();
+				}
+				if (fileMaille != null) {
+					lFileTo = new File(datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileMaille.getName());
+					Files.copy(fileMaille, lFileTo);
+					dataset.fileMaille = datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileMaille.getName();
+				}
+				if (fileENP != null) {
+					lFileTo = new File(datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileENP.getName());
+					dataset.fileENP = datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileENP.getName();
+					Files.copy(fileENP, lFileTo);
+				}
+				if (fileShape != null) {
+					lFileTo = new File(datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileShape.getName());
+					dataset.fileShape = datasetDirectory + File.separator
+							+ "resource-" + dataset.id + File.separator
+							+ fileShape.getName();
+					Files.copy(fileShape, lFileTo);
+				}
+			}
 			dataset.save();
-			list();
+			list(null);
 		}
 	}
 
@@ -165,7 +314,7 @@ public class Datasets extends Controller {
 		Dataset dataset = Dataset.findById(id);
 		Harvester.deleteTemporaryDirectory(dataset.tempDirectory, null);
 		dataset.delete();
-		list();
+		list(null);
 	}
 
 	/*
@@ -225,7 +374,7 @@ public class Datasets extends Controller {
 				dataset.markDataset("SUCCESSFULLY_HARVESTED");
 			dataset.save();
 			workInProgress = false;
-			list();
+			list(null);
 		}
 	}
 
@@ -254,7 +403,12 @@ public class Datasets extends Controller {
 			lWriter.append("fk");
 			lWriter.append('\n');
 			for (Occurrence lOccurrence : data.occurrences) {
-				lWriter.append(lOccurrence.scientificName);
+				if (data.type.equals("inpn")) {
+					lWriter.append(lOccurrence.nomScientifiqueCite);
+				} else {
+					lWriter.append(lOccurrence.scientificName);
+				}
+
 				lWriter.append(";;");
 				lWriter.append(lOccurrence.taxonID == null ? ""
 						: lOccurrence.taxonID);
@@ -315,13 +469,24 @@ public class Datasets extends Controller {
 					if (lNb <= 1) {
 						String[] oneData = line.split(SEPARATOR);
 						// With the fk find the good occurence
-						TypedQuery<Occurrence> query = JPA
-								.em()
-								.createQuery(
-										"select o from Occurrence join o.dataset d where o.taxonID=? and d.id=?",
-										Occurrence.class);
-						query.setParameter(1, oneData[2]);
-						query.setParameter(2, id);
+						TypedQuery<Occurrence> query = null;
+						if (oneData[2] != null && !oneData[2].isEmpty()) {
+							query = JPA
+									.em()
+									.createQuery(
+											"select o from Occurrence join o.dataset d where o.taxonID=? and d.id=?",
+											Occurrence.class);
+							query.setParameter(1, oneData[2]);
+							query.setParameter(2, id);
+						} else {
+							query = JPA
+									.em()
+									.createQuery(
+											"select o from Occurrence join o.dataset d where o.nomScientifiqueCite=? and d.id=?",
+											Occurrence.class);
+							query.setParameter(1, oneData[0]);
+							query.setParameter(2, id);
+						}
 						Occurrence lOccurrence = query.getSingleResult();
 						if (oneData[0] != null && !oneData[0].isEmpty()) {
 							lOccurrence.cdNom = oneData[3];
@@ -358,8 +523,20 @@ public class Datasets extends Controller {
 					Logger.error(e1.toString(), "taxref import");
 				}
 			}
-			list();
+			list(null);
 		}
 
+	}
+
+	private static boolean deleteAll(File dir) {
+		if (dir.isDirectory()) {
+			File[] children = dir.listFiles();
+			for (int i = 0; i < children.length; i++) {
+				boolean success = deleteAll(children[i]);
+				if (!success)
+					return false;
+			}
+		}
+		return dir.delete();
 	}
 }
