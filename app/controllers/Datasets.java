@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.persistence.TypedQuery;
 
+import models.Adm;
 import models.DataPublisher;
 import models.Dataset;
 import models.Occurrence;
@@ -45,10 +46,17 @@ public class Datasets extends Controller {
 	 * Renders the available datasets
 	 */
 	public static void list(String name) {
-		List<DataPublishers> dataPublishers = null;
+		List<DataPublisher> dataPublishers = null;
 		if (name != null && !name.isEmpty()) {
-			dataPublishers = DataPublisher
-					.find("name like ?", "%" + name + "%").fetch();
+			TypedQuery<DataPublisher> query = JPA
+					.em()
+					.createQuery(
+							"select distinct d from DataPublisher d where lower(name) like lower(?)",
+							DataPublisher.class);
+			query.setParameter(1, "%" + name + "%");
+
+			dataPublishers = query.getResultList();
+
 		} else {
 			dataPublishers = DataPublisher.all().fetch();
 		}
