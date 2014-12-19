@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Transient;
 
+import oracle.sql.BLOB;
+
 import org.hibernate.annotations.Index;
 
 import play.data.validation.Required;

@@ -40,7 +40,7 @@ GET		/qualification/{id}/{page}/{order}/{nomChamp}	Qualification.list
 
 #JSON
 GET		/list/field/{id}		  Control.listField
-GET		/controls/list/{idDataset}/{idValidationType} Control.listControls
+GET		/control/list/{idDataset}/{idValidationType} Control.listControls
 
 
 # Ignore favicon requests

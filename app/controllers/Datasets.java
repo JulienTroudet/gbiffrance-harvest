@@ -7,8 +7,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 
 import models.Adm;
@@ -179,6 +183,7 @@ public class Datasets extends Controller {
 					Files.copy(fileShape, lFileTo);
 				}
 			}
+			dataset.save();
 			list(null);
 		}
 	}
@@ -463,54 +468,56 @@ public class Datasets extends Controller {
 			validation.keep();
 			result(id);
 		} else {
-			FileReader lReader = null;
+
 			BufferedReader lBr = null;
 			try {
-				// Open the file to read it
-				lReader = new FileReader(attachment);
+				String fileName = targetDirectory + File.separator + "taxref-"
+						+ new Date().getTime() + ".csv";
+				File lFileTo = new File(fileName);
+				Files.copy(attachment, lFileTo);
+
+				FileReader lReader = new FileReader(fileName);
 				lBr = new BufferedReader(lReader);
 
 				int lNb = 1;
 				// we loop on the file
 				for (String line = lBr.readLine(); line != null; line = lBr
 						.readLine()) {
-					if (lNb <= 1) {
-						String[] oneData = line.split(SEPARATOR);
-						// With the fk find the good occurence
-						TypedQuery<Occurrence> query = null;
-						if (oneData[2] != null && !oneData[2].isEmpty()) {
-							query = JPA
-									.em()
-									.createQuery(
-											"select o from Occurrence join o.dataset d where o.taxonID=? and d.id=?",
-											Occurrence.class);
-							query.setParameter(1, oneData[2]);
-							query.setParameter(2, id);
-						} else {
-							query = JPA
-									.em()
-									.createQuery(
-											"select o from Occurrence join o.dataset d where o.nomScientifiqueCite=? and d.id=?",
-											Occurrence.class);
-							query.setParameter(1, oneData[0]);
-							query.setParameter(2, id);
-						}
-						Occurrence lOccurrence = query.getSingleResult();
-						if (oneData[0] != null && !oneData[0].isEmpty()) {
-							lOccurrence.cdNom = oneData[3];
-						}
-						lOccurrence.save();
+					if (lNb == 0) {
+						lNb++;
+						continue;
 					}
+					String[] oneData = line.split(SEPARATOR);
+					TypedQuery<Occurrence> query = null;
+					query = JPA
+							.em()
+							.createQuery(
+									"select o from Occurrence o join o.dataset d where o.scientificName=? and d.id=?",
+									Occurrence.class);
+					Logger.debug("taxref", line);
+					query.setParameter(1, oneData[0]);
+					query.setParameter(2, id);
+					try {
+						List<Occurrence> lOccurrence = query.getResultList();
+						for (Occurrence occurrence : lOccurrence) {
+							if (oneData[0] != null && !oneData[0].isEmpty()) {
+								occurrence.cdNom = oneData[3];
+								occurrence.save();
+							}
+						}
+						
+						
+					} catch (NoResultException nre) {
+						Logger.error("TAXREF", nre.toString());
+					}
+
 					lNb++;
 				}
 				lBr.close();
-				lReader.close();
 
 			} catch (FileNotFoundException e) {
 				try {
-					if (lReader != null) {
-						lReader.close();
-					}
+
 					if (lBr != null) {
 						lBr.close();
 					}
@@ -520,9 +527,7 @@ public class Datasets extends Controller {
 				}
 			} catch (IOException e) {
 				try {
-					if (lReader != null) {
-						lReader.close();
-					}
+
 					if (lBr != null) {
 						lBr.close();
 					}

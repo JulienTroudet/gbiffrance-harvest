@@ -78,10 +78,13 @@ public class RegexJob extends Job {
 			}
 			Logger.info("Fin du controle sur une regex");
 		} catch (NoSuchFieldException e) {
+			wasError = true;
 			Logger.error(e.toString(), "Regex");
 		} catch (IllegalArgumentException e) {
+			wasError = true;
 			Logger.error(e.toString(), "Regex");
 		} catch (IllegalAccessException e) {
+			wasError = true;
 			Logger.error(e.toString(), "Regex");
 		}
 	}

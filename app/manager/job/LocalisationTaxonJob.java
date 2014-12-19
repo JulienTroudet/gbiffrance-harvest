@@ -98,12 +98,16 @@ public class LocalisationTaxonJob extends Job {
 			}
 			Logger.info("Fin du controle de localisation d'un taxon");
 		} catch (NoSuchFieldException e) {
+			wasError = true;
 			Logger.error(e.toString(), "Localisation taxon");
 		} catch (SecurityException e) {
+			wasError = true;
 			Logger.error(e.toString(), "Localisation taxon");
 		} catch (IllegalArgumentException e) {
+			wasError = true;
 			Logger.error(e.toString(), "Localisation taxon");
 		} catch (IllegalAccessException e) {
+			wasError = true;
 			Logger.error(e.toString(), "Localisation taxon");
 		}
 	}

@@ -15,12 +15,15 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.playframework.playclipse.playNature</nature>
 	</natures>
-	<linkedResources><link><name>mongo-1.3</name><type>2</type><location>C:/java/WorkspaceJEE/gbiffrance-harvest/modules/mongo-1.3/app</location></link>
-<link><name>crud</name><type>2</type><location>C:/java/play-1.2.5/modules/crud/app</location></link>
-<link><name>conf/crud</name><type>2</type><location>C:/java/play-1.2.5/modules/crud/conf</location></link>
-<link><name>public/crud</name><type>2</type><location>C:/java/play-1.2.5/modules/crud/public</location></link>
-<link><name>secure</name><type>2</type><location>C:/java/play-1.2.5/modules/secure/app</location></link>
-<link><name>conf/secure</name><type>2</type><location>C:/java/play-1.2.5/modules/secure/conf</location></link>
-<link><name>public/secure</name><type>2</type><location>C:/java/play-1.2.5/modules/secure/public</location></link>
+	<linkedResources><link><name>crud</name><type>2</type><location>D:/Progs/play-1.2.5.3/modules/crud/app</location></link>
+<link><name>conf/crud</name><type>2</type><location>D:/Progs/play-1.2.5.3/modules/crud/conf</location></link>
+<link><name>public/crud</name><type>2</type><location>D:/Progs/play-1.2.5.3/modules/crud/public</location></link>
+<link><name>paginate-head</name><type>2</type><location>D:/Progs/play-1.2.5.3/modules/paginate-head/app</location></link>
+<link><name>conf/paginate-head</name><type>2</type><location>D:/Progs/play-1.2.5.3/modules/paginate-head/conf</location></link>
+<link><name>public/paginate-head</name><type>2</type><location>D:/Progs/play-1.2.5.3/modules/paginate-head/public</location></link>
+<link><name>mongo-1.3</name><type>2</type><location>C:/Users/remy/git/gbiffrance-harvest/modules/mongo-1.3/app</location></link>
+<link><name>secure</name><type>2</type><location>D:/Progs/play-1.2.5.3/modules/secure/app</location></link>
+<link><name>conf/secure</name><type>2</type><location>D:/Progs/play-1.2.5.3/modules/secure/conf</location></link>
+<link><name>public/secure</name><type>2</type><location>D:/Progs/play-1.2.5.3/modules/secure/public</location></link>
 </linkedResources>
 </projectDescription>

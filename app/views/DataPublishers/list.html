@@ -17,8 +17,8 @@
 						#{secure.check 'publisher'}
 						<th>&nbsp;</th>
 						#{/secure.check}
-						<th><a class="icon-circle-arrow-up" href="/list/datapublisher/ASC/name"></a><a class="icon-circle-arrow-down" href="/list/datapublisher/DESC/name"></a>Nom</th>
-						<th><a class="icon-circle-arrow-up" href="/list/datapublisher/ASC/description"></a><a class="icon-circle-arrow-down" href="/list/datapublisher/DESC/description"></a>Description</th>
+						<th><a class="icon-circle-arrow-up" href="@{DataPublishers.list('ASC', 'name')}"></a><a class="icon-circle-arrow-down" href="@{DataPublishers.list('DESC', 'name')}"></a>Nom</th>
+						<th><a class="icon-circle-arrow-up" href="@{DataPublishers.list('ASC', 'description')}"></a><a class="icon-circle-arrow-down" href="@{DataPublishers.list('DESC', 'description')}"></a>Description</th>
 					</tr>
 					<tr>
 						#{secure.check 'publisher'}
@@ -34,13 +34,13 @@
 					#{paginate.list items:paginator, as:'dataPublisher'}
 						<tr class="table">
 							#{secure.check 'publisher'}
-							<td><a href="/delete/datapublisher/${dataPublisher.id}"><i
+							<td><a href="@{DataPublishers.delete(dataPublisher.id)}"><i
 									title="Supprimer le fournisseur de donn&eacute;es" class="icon-remove"></i></a>
 							</td>
 							#{/secure.check}
 									
 							<td class="table" id="datapublisher_name">
-								#{secure.check 'publisher'}<a id="edit_datapublisher" href="/edit/datapublisher/${dataPublisher.id}">#{/secure.check}
+								#{secure.check 'publisher'}<a id="edit_datapublisher" href="@{DataPublishers.edit(dataPublisher.id)}">#{/secure.check}
 									<strong>${dataPublisher.name}</strong>
 								#{secure.check 'publisher'}</a>#{/secure.check}
 							</td>

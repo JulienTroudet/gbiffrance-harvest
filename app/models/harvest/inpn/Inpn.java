@@ -174,6 +174,7 @@ public class Inpn extends Harvester {
 
 			// File Principal
 			// Open the file to read it
+
 			lReader = new FileReader(dataset.fileDataset);
 			// lBr = new BufferedReader(lReader);
 			BufferedReader ltest = new BufferedReader(new InputStreamReader(
@@ -220,45 +221,55 @@ public class Inpn extends Harvester {
 				// ENP
 				if (lMapsENP != null && lMapsENP.size() > 0) {
 					String[] lValueEnp = lMapsENP.get(oneData[7]);
-					lOccurrence.typeEN = lValueEnp[1];
-					lOccurrence.codeEN = lValueEnp[2];
-					lOccurrence.pourcentageEN = lValueEnp[3];
+					if (lValueEnp != null) {
+						lOccurrence.typeEN = lValueEnp[1];
+						lOccurrence.codeEN = lValueEnp[2];
+						lOccurrence.pourcentageEN = lValueEnp[3];
+					}
 				}
 				// Commune
 				if (lMapsCommune != null && lMapsCommune.size() > 0) {
 					String[] lValueCommune = lMapsCommune.get(oneData[7]);
-					lOccurrence.codeInsee = lValueCommune[1];
-					lOccurrence.nomCommune = lValueCommune[2];
-					lOccurrence.pourcentageCommune = lValueCommune[3];
+					if (lValueCommune != null) {
+						lOccurrence.codeInsee = lValueCommune[1];
+						lOccurrence.nomCommune = lValueCommune[2];
+						lOccurrence.pourcentageCommune = lValueCommune[3];
+					}
 				}
 
 				// Maille
 				if (lMapsMaille != null && lMapsMaille.size() > 0) {
+					Logger.debug("maille : map");
 					String[] lValueMaille = lMapsMaille.get(oneData[7]);
-					lOccurrence.codeMaille = lValueMaille[1];
-					lOccurrence.pourcentageMaille = lValueMaille[2];
+					if (lValueMaille != null) {
+						lOccurrence.codeMaille = lValueMaille[1];
+						lOccurrence.pourcentageMaille = lValueMaille[2];
+					}
 				}
 
 				// Shape
 				if (lMapsShape != null && lMapsShape.size() > 0) {
-					Geometry lValueShape = lMapsShape.get(oneData[8]);
+					
+					Geometry lValueShape = lMapsShape.get(oneData[7]);
+
 					if (lValueShape != null) {
 						lOccurrence.shape = lValueShape;
 						lOccurrence.projection = lProjection;
 					}
 				}
 
+				lOccurrence.qualified = false;
 				lNb++;
 				OccurrenceMG lOccurrenceMG = new OccurrenceMG();
 				lOccurrenceMG.insertINPN(lOccurrence);
 			}
-
 			ltest.close();
+
 			lReader.close();
 
 		} catch (Exception e) {
 			this.withErrors = true;
-			Logger.error("Inport INPN : " + e.toString());
+			Logger.error("Inport INPN : " + e);
 		} finally {
 			try {
 				if (lBr != null) {

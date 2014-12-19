@@ -14,7 +14,7 @@ public class EspecesComplet extends GenericModel{
 	public Long nomVern;
 	
 	@Column(name = "CD_NOM")
-	public String cdNom;
+	public Long cdNom;
 	
 	@Column(name = "NOM_COMPLET")
 	public String nomComplet;

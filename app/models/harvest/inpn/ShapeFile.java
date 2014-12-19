@@ -55,7 +55,6 @@ public class ShapeFile {
 
 			while (lFeatureIterator.hasNext()) {
 				SimpleFeature lFeature = lFeatureIterator.next();
-
 				lMapResult.put(
 						(String) lFeature.getAttribute(lMap.get("identifian")),
 						(Geometry) lFeature.getAttribute(lMap.get("the_geom")));

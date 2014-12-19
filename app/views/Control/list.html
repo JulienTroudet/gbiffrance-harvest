@@ -13,8 +13,8 @@
 				#{form @Control.list(name, order)}
 					<tr>
 						<th>&nbsp;</th>
-						<th><a class="icon-circle-arrow-up" href="/list/control/ASC/name"></a><a class="icon-circle-arrow-down" href="/list/control/DESC/name"></a>Nom</th>
-						<th><a class="icon-circle-arrow-up" href="/list/control/ASC/description"></a><a class="icon-circle-arrow-down" href="/list/control/DESC/description"></a>Description</th>
+						<th><a class="icon-circle-arrow-up" href="@{Control.list('name', 'ASC')}"></a><a class="icon-circle-arrow-down" href="@{Control.list('name', 'DESC')}"></a>Nom</th>
+						<th><a class="icon-circle-arrow-up" href="@{Control.list('description', 'ASC')}"></a><a class="icon-circle-arrow-down" href="@{Control.list('description', 'DESC')}"></a>Description</th>
 					</tr>
 					<th>&nbsp;</th>
 					<th><input type="search" id="name" name="name" value="${name}" placeholder="Filtrer par nom"/><button class="btn btn-search" type="submit">OK</button></th>
@@ -24,11 +24,11 @@
 				<tbody>
 					#{paginate.list items:paginator, as:'control'}
 						<tr class="table">
-							<td><a href="/delete/control/${control.id}"><i
+							<td><a href="@{Control.delete(control.id)}"><i
 									title="Delete control" class="icon-remove"></i></a>
 							</td>
 							<td class="table" id="control_name">
-								<a id="edit_control" href="/edit/control/${control.id}">
+								<a id="edit_control" href="@{Control.edit(control.id)}">
 									<strong>${control.name}</strong>
 								</a>
 							</td>

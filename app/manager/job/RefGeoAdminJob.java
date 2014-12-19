@@ -74,12 +74,16 @@ public class RefGeoAdminJob extends Job {
 						}
 					}
 				} catch (SecurityException e) {
+					wasError = true;
 					Logger.error(e.toString(), "Ref geo");
 				} catch (IllegalArgumentException e) {
+					wasError = true;
 					Logger.error(e.toString(), "Ref geo");
 				} catch (NoSuchFieldException e) {
+					wasError = true;
 					Logger.error(e.toString(), "Ref geo");
 				} catch (IllegalAccessException e) {
+					wasError = true;
 					Logger.error(e.toString(), "Ref geo");
 				}
 				Result lResult = new Result(lOccurrence, lControls,

@@ -133,35 +133,6 @@ public class OccurrenceMG {
 	}
 
 	/**
-	 * Retourne le nombre de champ qui ne sont pas remplis pour une occurence
-	 * 
-	 * @param pListField
-	 * @param pOccurrence
-	 * @return Long
-	 */
-	public Long verifRequireField(List<Field> pListField, Occurrence pOccurrence) {
-		StringBuilder lBuilder = new StringBuilder(
-				"select count(o) from Occurrence o where o.id=?");
-
-		for (int i = 0; i < pListField.size(); i++) {
-			lBuilder.append(" and ? is null");
-		}
-
-		TypedQuery<Long> lQuery = JPA.em().createQuery(lBuilder.toString(),
-				Long.class);
-		lQuery.setParameter(1, pOccurrence.id);
-
-		int i = 2;
-		for (Field lField : pListField) {
-			lQuery.setParameter(i, lField.camelCase);
-
-			i++;
-		}
-
-		return lQuery.getSingleResult();
-	}
-
-	/**
 	 * Insertion d'une occurrence avec des données géographiques en JDBC. On
 	 * utilise ici une requete JDBC suite a une problematique avec le driver
 	 * oracle spatial.
@@ -183,13 +154,13 @@ public class OccurrenceMG {
 			lBuilder.append(", RESTRICTION_LOCALISATION_P, RESTRICTION_MAILLE, RESTRICTION_COMMUNE, RESTRICTION_TOTAL");
 			lBuilder.append(", LIEN_ORIGINE, NOM_SCIENTIFIQUE_CITE, IDENTITE_OBS, ORGANISME_OBS, VALIDATEUR, DATE_INF");
 			lBuilder.append(", DATE_SUP, CODE_INSEE, NOM_COMMUNE, POURCENTAGE_COMMUNE, CODE_EN, TYPE_EN, POURCENTAGE_EN");
-			lBuilder.append(", CODE_MAILLE, POURCENTAGE_MAILLE, PROJECTION, DATASET_ID");
+			lBuilder.append(", CODE_MAILLE, POURCENTAGE_MAILLE, PROJECTION, DATASET_ID, QUALIFIED");
 			if (pOccurrence.shape != null) {
 				lBuilder.append(", SHAPE");
 			}
-			lBuilder.append(") VALUES (HIBERNATE_SEQUENCE.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?");
+			lBuilder.append(") VALUES (HIBERNATE_SEQUENCE.nextval, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?");
 			if (pOccurrence.shape != null) {
-				lBuilder.append(", SDO_GEOMETRY(2001, ?, SDO_POINT_TYPE(?,?,NULL),NULL,NULL)");
+				lBuilder.append(", SDO_UTIL.TO_WKTGEOMETRY(SDO_GEOMETRY(2001, NULL, SDO_POINT_TYPE(?,?,NULL),NULL,NULL))");
 			}
 			lBuilder.append(")");
 
@@ -230,8 +201,12 @@ public class OccurrenceMG {
 			lPreparedStatement.setString(30, pOccurrence.pourcentageMaille);
 			lPreparedStatement.setString(31, pOccurrence.projection);
 			lPreparedStatement.setLong(32, pOccurrence.dataset.id);
+			lPreparedStatement.setBoolean(33, pOccurrence.qualified);
 			if (pOccurrence.shape != null) {
-				lPreparedStatement.setDouble(33, pOccurrence.shape.getSRID());
+				Logger.debug("insert shape");
+
+				//lPreparedStatement.setDouble(34, pOccurrence.shape.getSRID());
+
 				lPreparedStatement.setDouble(34,
 						pOccurrence.shape.getCoordinate().x);
 				lPreparedStatement.setDouble(35,

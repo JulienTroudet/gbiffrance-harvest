@@ -54,15 +54,19 @@ public class DoublonJob extends Job {
 					result = lOccurrenceMG.verifDuplicateField(
 							lControls.fields, lOccurrence);
 				} catch (NoSuchFieldException e) {
+					wasError = true;
 					Logger.error(e.toString(), "Doublon");
 				} catch (SecurityException e) {
+					wasError = true;
 					Logger.error(e.toString(), "Doublon");
 				} catch (IllegalArgumentException e) {
+					wasError = true;
 					Logger.error(e.toString(), "Doublon");
 				} catch (IllegalAccessException e) {
+					wasError = true;
 					Logger.error(e.toString(), "Doublon");
 				}
-				if (result > 0) {
+				if (result > 1) {
 					res = 1;
 				}
 				Result lResult = new Result(lOccurrence, lControls,

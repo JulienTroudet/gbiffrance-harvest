@@ -6,12 +6,13 @@ jQuery(document).ready(function(){
 	 var $control = $('#idControl');
 	 $validationType.on('change', function() {
 	        var val = $(this).val(); // on récupère la valeur de validationType
+	        var updateRoute = #{jsRoute @Control.listControls(dataset.id, ':idValidationType') /}
 	 
 	        if(val != '') {
 	            $control.empty(); // on vide la liste des control
 	             
 	            $.ajax({
-	                url: '/controls/list/' +${dataset.id} + "/" + val,
+	                url: updateRoute.url({idValidationType: val}),
 	                dataType: 'json',
 	                success: function(json) {
 	                    $.each(json, function(index, value) {

@@ -20,7 +20,7 @@ public class Taxref extends GenericModel{
 	public String groupe;
 	
 	@Column(name = "CD_NOM")
-	public Long cdNom;
+	public String cdNom;
 	
 	@Column(name = "CD_SUP")
 	public Long cdSup;

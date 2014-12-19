@@ -62,9 +62,9 @@ public class TaxonJob extends Job {
 							result = "NC";
 						} else {
 							if (mControls.taxoId == 1L) {
-								nb = Taxref.count("cdNom", object.toString());
+								nb = EspecesComplet.count("cdNom", Integer.getInteger(object.toString()));
 							} else if (mControls.taxoId == 2L) {
-								nb = EspecesComplet.count("cdNom", object.toString());
+								nb = Taxref.count("cdNom", object.toString());
 							}
 							if(nb > 0){
 								result = "1";
@@ -79,12 +79,16 @@ public class TaxonJob extends Job {
 			}
 			Logger.info("Fin du controle sur un taxon");
 		} catch (IllegalArgumentException e) {
+			wasError = true;
 			Logger.error(e.toString(), "Taxon");
 		} catch (NoSuchFieldException e) {
+			wasError = true;
 			Logger.error(e.toString(), "Taxon");
 		} catch (SecurityException e) {
+			wasError = true;
 			Logger.error(e.toString(), "Taxon");
 		} catch (IllegalAccessException e) {
+			wasError = true;
 			Logger.error(e.toString(), "Taxon");
 		}
 	}

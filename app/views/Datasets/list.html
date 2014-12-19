@@ -28,7 +28,7 @@
 						</td>
 					#{/secure.check}
 					<td class="table" id="dataset_name">#{secure.check 'publisher'}<a id="edit_dataset"
-						href="edit/${dataset.id}">#{/secure.check}<b>${dataset.name}</b>#{secure.check 'publisher'}</a>#{/secure.check}</td>
+						href="@{Datasets.edit(dataset.id)}">#{/secure.check}<b>${dataset.name}</b>#{secure.check 'publisher'}</a>#{/secure.check}</td>
 					<td class="table" id="dataset_status">
 						#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
 							<i title="successfully harvested" class="icon-ok-sign"></i> 
@@ -39,18 +39,18 @@
 					</td>
 					<td class="table" id="dataset_see">
 						#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
-							<a href="see/${dataset.id}"><i title="see" class="icon-eye-open"></i></a> 
+							<a href="@{EmlDatas.see(dataset.id)}"><i title="see" class="icon-eye-open"></i></a> 
 						#{/if}
 					</td>
 					<td class="table" id="map_see">
 						#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
-							<a href="occurrences/map/${dataset.id}"><i title="map-see" class="icon-globe"></i></a> 
+							<a href="@{Occurrences.map(dataset.id)}"><i title="map-see" class="icon-globe"></i></a> 
 						#{/if}
 					</td>
 					
 					<td class="table" id="occurrence_see">
 						#{if dataset.status.equals("SUCCESSFULLY_HARVESTED")} 
-							<a href="occurrences/list/${dataset.id}/page/1"><i title="list-occurences" class="icon-list"></i></a> 
+							<a href="@{Occurrences.list(dataset.id, 1, null, null)}"><i title="list-occurences" class="icon-list"></i></a> 
 						#{/if}
 					</td>
 					
@@ -59,7 +59,7 @@
 						<div>
 							#{if dataset.status.equals("SUCCESSFULLY_HARVESTED") ||
 									dataset.status.equals("HARVESTED_WITH_ERROR")} 
-								<a href="delete/${dataset.id}/occurrences" onclick="blockloading()">
+								<a href="@{Occurrences.delete(dataset.id)}" onclick="blockloading()">
 									<i title="clear" class="icon-refresh"></i>
 								</a> 
 							#{/if} 
@@ -78,13 +78,13 @@
 							<a href="@{export(dataset.id)}">
 							<i title="export" class="icon-download"></i></a>
 							
-							<a href="dataset/uploadtaxref/${dataset.id}">
+							<a href="@{Datasets.result(dataset.id)}">
 							<i title="import" class="icon-upload"></i></a>
 							
-							<a href="control/${dataset.id}">
+							<a href="@{Control.control(dataset.id)}">
 							<i title="control" class="icon-play"></i></a>
 							
-							<a href="qualification/${dataset.id}/1">
+							<a href="@{Qualification.list(dataset.id, 1, null, null)}">
 							<i title="qualification" class="icon-zoom-in"></i></a>
 							#{/if} 
 						</div>

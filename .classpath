@@ -2,100 +2,125 @@
 <classpath>
 	<classpathentry excluding="views/**" kind="src" path="app"/>
 	<classpathentry kind="src" path="test"/>
-	<classpathentry kind="src" path="mongo-1.3"/>
 	<classpathentry kind="src" path="crud"/>
+	<classpathentry kind="src" path="paginate-head"/>
+	<classpathentry kind="src" path="mongo-1.3"/>
 	<classpathentry kind="src" path="secure"/>
+	
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/play-1.2.5.jar" sourcepath="C:/java/play-1.2.5/framework/src"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/commons-beanutils-1.8.0.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/commons-collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/commons-digester-1.8.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/commons-io-2.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/commons-lang-2.5.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/datanucleus-spatial-2.2.0-m1.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/dwca-reader-1.0.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/dwca-reader-1.7.5.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/ecat-common-1.3.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/hibernate-spatial-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/httpclient-4.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/httpcore-4.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/jts-1.12.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/log4j-1.2.15.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/mysql-connector-java-5.1.12.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/postgresql-9.1-901.jdbc4.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/lib/velocity-1.7.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/modules/mongo-1.3/lib/jackson-core-asl-1.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/modules/mongo-1.3/lib/jackson-mapper-asl-1.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/modules/mongo-1.3/lib/mongo-2.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/WorkspaceJEE/gbiffrance-harvest/modules/mongo-1.3/lib/play-mongo.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/activation-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/antlr-2.7.7.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/asm-all-3.3.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/async-http-client-1.7.4.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/bcprov-jdk15-1.45.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/c3p0-0.9.1.2.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/cglib-nodep-2.2.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/commons-beanutils-1.8.3.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/commons-codec-1.4.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/commons-collections-3.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/commons-email-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/commons-fileupload-1.2.2.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/commons-io-2.0.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/commons-javaflow-1209105.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/commons-lang-2.6.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/ehcache-core-2.4.3.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/ezmorph-1.0.3.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/geronimo-servlet_2.5_spec-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/groovy-all-1.8.6.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/gson-2.2.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/h2-1.3.166.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/hibernate-commons-annotations-3.2.0.Final.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/hibernate-core-3.6.10.Final.jar">
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\play-1.2.5.3.jar" sourcepath="D:/progs/play-1.2.5.3/framework/src" />
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\ant-1.6.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\commons-compress-1.0.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\commons-digester-2.1.jar" sourcepath="C:\Users\remy\.ivy2\cache\commons-digester\commons-digester\sources\commons-digester-2.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\commons-pool-1.5.4.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\dwca-reader-1.7.5.jar" sourcepath="C:\Users\remy\.ivy2\cache\org.gbif\dwca-reader\sources\dwca-reader-1.7.5-sources.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\ecat-common-1.3.jar" sourcepath="C:\Users\remy\.ivy2\cache\org.gbif\ecat-common\sources\ecat-common-1.3-sources.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\freemarker-2.3.15.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\gbif-common-0.1.jar" sourcepath="C:\Users\remy\.ivy2\cache\org.gbif\gbif-common\sources\gbif-common-0.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\gt-api-10.4.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\gt-data-10.4.jar" sourcepath="C:\Users\remy\.ivy2\cache\org.geotools\gt-data\sources\gt-data-10.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\gt-epsg-oracle-10.4.jar" sourcepath="C:\Users\remy\.ivy2\cache\org.geotools\gt-epsg-oracle\sources\gt-epsg-oracle-10.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\gt-geometry-10.4.jar" sourcepath="C:\Users\remy\.ivy2\cache\org.geotools\gt-geometry\sources\gt-geometry-10.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\gt-main-10.4.jar" sourcepath="C:\Users\remy\.ivy2\cache\org.geotools\gt-main\sources\gt-main-10.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\gt-metadata-10.4.jar" sourcepath="C:\Users\remy\.ivy2\cache\org.geotools\gt-metadata\sources\gt-metadata-10.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\gt-opengis-10.4.jar" sourcepath="C:\Users\remy\.ivy2\cache\org.geotools\gt-opengis\sources\gt-opengis-10.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\gt-referencing-10.4.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\gt-shapefile-10.4.jar" sourcepath="C:\Users\remy\.ivy2\cache\org.geotools\gt-shapefile\sources\gt-shapefile-10.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\gt-transform-10.4.jar" sourcepath="C:\Users\remy\.ivy2\cache\org.geotools\gt-transform\sources\gt-transform-10.4-sources.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\guava-r07.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\hibernate-spatial-1.1.1.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\hibernate-spatial-oracle-1.1.1.jar" sourcepath="C:\Users\remy\.ivy2\cache\org.hibernatespatial\hibernate-spatial-oracle\sources\hibernate-spatial-oracle-1.1.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\httpclient-4.1.1.jar" sourcepath="C:\Users\remy\.ivy2\cache\org.apache.httpcomponents\httpclient\sources\httpclient-4.1.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\httpcore-4.1.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\jai_core-1.1.3.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\jdom-1.0.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\jgridshift-1.0.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\jsr-275-1.0-beta-2.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\jts-1.13.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\jts-1.7.1.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\jtsio-1.7.1.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\logkit-2.0.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\ojdbc14-10.2.0.3.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\oro-2.0.8.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\sdoapi-11.2.0.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\sdoutl-11.2.0.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\servlet-api-2.3.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\trove-2.1.0.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\vecmath-1.3.2.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\velocity-1.7.jar" sourcepath="C:\Users\remy\.ivy2\cache\org.apache.velocity\velocity\sources\velocity-1.7-sources.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\lib\werken-xpath-0.9.4.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\modules\paginate-head\lib\play-paginate.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\modules\mongo-1.3\lib\jackson-core-asl-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\modules\mongo-1.3\lib\jackson-mapper-asl-1.6.1.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\modules\mongo-1.3\lib\mongo-2.1.jar"/>
+	<classpathentry kind="lib" path="C:\Users\remy\git\gbiffrance-harvest\modules\mongo-1.3\lib\play-mongo.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\activation-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\antlr-2.7.7.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\asm-all-3.3.1.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\async-http-client-1.7.4.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\bcprov-jdk15-1.45.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\c3p0-0.9.1.2.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\cglib-nodep-2.2.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\commons-beanutils-1.8.3.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\commons-codec-1.4.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\commons-email-1.2.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\commons-fileupload-1.2.2.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\commons-io-2.0.1.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\commons-javaflow-1209105.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\commons-lang-2.6.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\ehcache-core-2.4.3.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\ezmorph-1.0.3.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\geronimo-servlet_2.5_spec-1.2.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\groovy-all-1.8.6.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\gson-2.2.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\h2-1.3.166.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\hibernate-commons-annotations-3.2.0.Final.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\hibernate-core-3.6.10.Final.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="http://docs.jboss.org/hibernate/core/3.6/javadocs/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/hibernate-entitymanager-3.6.10.Final.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/hibernate-validator-4.1.0.Final.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/ivy-2.2.0.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/jamon-2.7.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/javassist-3.9.0.GA.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/javax.inject-1.0.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/jaxb-api-2.2.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/jaxb-impl-2.1.12.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/jaxen-1.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/jboss-transaction-api_1.1_spec-1.0.0.Final.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/jj-imaging.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/jj-simplecaptcha.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/jj-textile.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/jj-wikitext.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/joda-time-2.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/jregex-1.2_01.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/jsr107cache-1.0.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/junit-4.10.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/log4j-1.2.16.jar">
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\hibernate-entitymanager-3.6.10.Final.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\hibernate-validator-4.1.0.Final.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\ivy-2.2.0.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\jamon-2.7.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\javassist-3.9.0.GA.jar" sourcepath="C:\Users\remy\.ivy2\cache\javassist\javassist\sources\javassist-3.9.0.GA-sources.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\javax.inject-1.0.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\jaxb-api-2.2.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\jaxb-impl-2.1.12.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\jaxen-1.1.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\jboss-transaction-api_1.1_spec-1.0.0.Final.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\jj-imaging.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\jj-simplecaptcha.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\jj-textile.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\jj-wikitext.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\joda-time-2.1.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\jregex-1.2_01.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\jsr107cache-1.0.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\junit-4.10.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\log4j-1.2.16.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="http://logging.apache.org/log4j/1.2/apidocs/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/mail-1.4.3.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/memcached-2.6.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/mysql-connector-java-5.1.20.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/netty-3.4.2.Final.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/org.eclipse.jdt.core-3.7.1.v_B76_R37x.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/oval-1.50.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/postgresql-9.0.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/signpost-core-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/slf4j-api-1.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/slf4j-log4j12-1.6.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/snakeyaml-1.7.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/validation-api-1.0.0.GA.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/xmlpull-1.1.3.1.jar"/>
-	<classpathentry kind="lib" path="C:/java/play-1.2.5/framework/lib/xstream-1.4.2.jar"/>
-	<classpathentry kind="lib" path="lib/ojdbc14-10.2.0.3.0.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\mail-1.4.3.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\memcached-2.6.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\mysql-connector-java-5.1.20.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\netty-3.5.11.Final.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\org.eclipse.jdt.core-3.7.1.v_B76_R37x.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\oval-1.50.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\postgresql-9.0.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\signpost-core-1.2.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\slf4j-api-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\slf4j-log4j12-1.6.1.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\snakeyaml-1.7.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\validation-api-1.0.0.GA.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\xmlpull-1.1.3.1.jar"/>
+	<classpathentry kind="lib" path="D:\Progs\play-1.2.5.3\framework\lib\xstream-1.4.2.jar"/>
+	
 	<classpathentry kind="output" path="eclipse/classes"/>
 </classpath>

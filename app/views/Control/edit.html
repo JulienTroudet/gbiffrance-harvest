@@ -40,12 +40,13 @@ jQuery(document).ready(function(){
 	 var $field = $('#fieldIdTab');
 	 $datasetType.on('change', function() {
 	        var val = $(this).val(); // on récupère la valeur du datasetType
+	        var updateRoute = #{jsRoute @Control.listField(':id') /}
 	 
 	        if(val != '') {
 	            $field.empty(); // on vide la liste des field
 	             
 	            $.ajax({
-	                url: '/list/field/' + val,
+	                url: updateRoute.url({id: val}),
 	                dataType: 'json',
 	                success: function(json) {
 	                    $.each(json, function(index, value) {

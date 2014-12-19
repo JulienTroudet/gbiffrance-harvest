@@ -1,15 +1,15 @@
-import org.datanucleus.store.rdbms.sql.method.SpatialPointFromTextMethod;
+import java.io.File;
+
+import models.Dataset;
+
 import org.hibernate.Session;
 import org.hibernate.StatelessSession;
-import org.junit.*;
-
-import java.io.File;
-import java.sql.SQLException;
-import java.util.*;
+import org.junit.Before;
+import org.junit.Test;
 
 import play.db.jpa.JPA;
-import play.test.*;
-import models.*;
+import play.test.Fixtures;
+import play.test.UnitTest;
 
 public class BasicTest extends UnitTest {
   

@@ -80,12 +80,16 @@ public class BoudaryJob extends Job {
 						}
 					}
 				} catch (SecurityException e) {
+					wasError = true;
 					Logger.error(e.toString(), "Boudary");
 				} catch (IllegalArgumentException e) {
+					wasError = true;
 					Logger.error(e.toString(), "Boudary");
 				} catch (NoSuchFieldException e) {
+					wasError = true;
 					Logger.error(e.toString(), "Boudary");
 				} catch (IllegalAccessException e) {
+					wasError = true;
 					Logger.error(e.toString(), "Boudary");
 				}
 				if (nb > 0) {

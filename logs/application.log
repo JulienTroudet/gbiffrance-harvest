@@ -9677,3 +9677,1732 @@ Caused by: java.lang.StackOverflowError
 13:53:54,309 ERROR ~ Unsuccessful: create index idx_scientificName on Occurrence (scientificName)
 13:53:54,309 ERROR ~ ORA-00955: ce nom d'objet existe déjà
 
+[2014-12-18 11:49:38,672 INFO  (Logger.java:289) Starting C:\Users\remy\git\gbiffrance-harvest
+ ][2014-12-18 11:49:38,672 INFO  (Logger.java:289) Module crud is available (D:\Progs\play-1.2.5.3\modules\crud)
+ ][2014-12-18 11:49:38,672 INFO  (Logger.java:289) Module mongo is available (C:\Users\remy\git\gbiffrance-harvest\modules\mongo-1.3)
+ ][2014-12-18 11:49:38,672 INFO  (Logger.java:289) Module paginate is available (D:\Progs\play-1.2.5.3\modules\paginate-head)
+ ][2014-12-18 11:49:38,672 INFO  (Logger.java:289) Module secure is available (D:\Progs\play-1.2.5.3\modules\secure)
+ ][2014-12-18 11:49:39,264 WARN  (Logger.java:344) You're running Play! in DEV mode
+ ][2014-12-18 11:49:39,342 INFO  (Logger.java:289) Listening for HTTP on port 9000 (Waiting a first request to start) ...
+ ][2014-12-18 11:50:07,160 INFO  (Logger.java:289) Connected to jdbc:oracle:thin:@dsiinv.mnhn.fr:1521:EGBT
+ ][2014-12-18 11:50:08,507 INFO  (Logger.java:289) Application 'gbiffrance-harvest' is now started !
+ ][2014-12-18 11:50:16,598 INFO  (Logger.java:289) Debut du controle sur un taxon
+ ][2014-12-18 11:50:17,076 ERROR (Logger.java:399) java.lang.IllegalArgumentException: Parameter value [106807] did not match expected type [java.lang.Long]
+ ][2014-12-18 11:52:31,898 INFO  (Logger.java:289) Debut du controle sur un taxon
+ ][2014-12-18 11:52:32,316 ERROR (JDBCExceptionReporter.java:234) ORA-00942: Table ou vue inexistante
+
+ ][2014-12-18 11:52:32,331 ERROR (Logger.java:570) 
+
+@6kh44gmjn
+Error during job execution (manager.job.TaxonJob)
+
+Execution exception (In /app/manager/job/TaxonJob.java around line 65)
+PersistenceException occured : org.hibernate.exception.SQLGrammarException: could not execute query
+
+ ]play.exceptions.JavaExecutionException: org.hibernate.exception.SQLGrammarException: could not execute query
+	at play.jobs.Job.call(Job.java:155)
+	at play.jobs.Job$1.call(Job.java:66)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not execute query
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1389)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1317)
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:307)
+	at play.db.jpa.JPQL.count(JPQL.java:26)
+	at models.Taxref.count(Taxref.java)
+	at manager.job.TaxonJob.doJob(TaxonJob.java:65)
+	at play.jobs.Job.doJobWithResult(Job.java:50)
+	at play.jobs.Job.call(Job.java:146)
+	... 7 more
+Caused by: org.hibernate.exception.SQLGrammarException: could not execute query
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:92)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+	at org.hibernate.loader.Loader.doList(Loader.java:2545)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2276)
+	at org.hibernate.loader.Loader.list(Loader.java:2271)
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:459)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:365)
+	at org.hibernate.engine.query.HQLQueryPlan.performList(HQLQueryPlan.java:196)
+	at org.hibernate.impl.SessionImpl.list(SessionImpl.java:1268)
+	at org.hibernate.impl.QueryImpl.list(QueryImpl.java:102)
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:274)
+	... 12 more
+Caused by: java.sql.SQLException: ORA-00942: Table ou vue inexistante
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:745)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:216)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:810)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1039)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeMaybeDescribe(T4CPreparedStatement.java:850)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1134)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3339)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3384)
+	at org.hibernate.jdbc.AbstractBatcher.getResultSet(AbstractBatcher.java:208)
+	at org.hibernate.loader.Loader.getResultSet(Loader.java:1953)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:802)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:274)
+	at org.hibernate.loader.Loader.doList(Loader.java:2542)
+	... 20 more
+[2014-12-18 11:55:14,805 INFO  (Logger.java:289) Debut du controle sur un taxon
+ ][2014-12-18 11:55:16,314 INFO  (Logger.java:289) Fin du controle sur un taxon
+ ][2014-12-18 12:03:07,114 INFO  (Logger.java:289) Debut du controle sur une regex
+ ][2014-12-18 12:03:08,494 INFO  (Logger.java:289) Fin du controle sur une regex
+ ][2014-12-18 12:06:37,620 INFO  (Logger.java:289) Debut du controle sur une regex
+ ][2014-12-18 12:06:38,954 INFO  (Logger.java:289) Fin du controle sur une regex
+ ][2014-12-18 12:08:16,834 INFO  (Logger.java:289) Debut du controle sur une regex
+ ][2014-12-18 12:08:18,094 INFO  (Logger.java:289) Fin du controle sur une regex
+ ][2014-12-18 12:16:20,165 INFO  (Logger.java:289) Debut du controle de reference geographique
+ ][2014-12-18 12:16:20,564 ERROR (JDBCExceptionReporter.java:234) ORA-00904: "ADM0_"."CD_ISO3166_2" : identificateur non valide
+
+ ][2014-12-18 12:16:20,564 ERROR (Logger.java:570) 
+
+@6kh44gn2b
+Error during job execution (manager.job.RefGeoAdminJob)
+
+Execution exception (In /app/manager/AdmMG.java around line 20)
+PersistenceException occured : org.hibernate.exception.SQLGrammarException: could not execute query
+
+ ]play.exceptions.JavaExecutionException: org.hibernate.exception.SQLGrammarException: could not execute query
+	at play.jobs.Job.call(Job.java:155)
+	at play.jobs.Job$1.call(Job.java:66)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not execute query
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1389)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1317)
+	at org.hibernate.ejb.QueryImpl.getResultList(QueryImpl.java:255)
+	at manager.AdmMG.getAll(AdmMG.java:20)
+	at manager.job.RefGeoAdminJob.doJob(RefGeoAdminJob.java:58)
+	at play.jobs.Job.doJobWithResult(Job.java:50)
+	at play.jobs.Job.call(Job.java:146)
+	... 7 more
+Caused by: org.hibernate.exception.SQLGrammarException: could not execute query
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:92)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+	at org.hibernate.loader.Loader.doList(Loader.java:2545)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2276)
+	at org.hibernate.loader.Loader.list(Loader.java:2271)
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:459)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:365)
+	at org.hibernate.engine.query.HQLQueryPlan.performList(HQLQueryPlan.java:196)
+	at org.hibernate.impl.SessionImpl.list(SessionImpl.java:1268)
+	at org.hibernate.impl.QueryImpl.list(QueryImpl.java:102)
+	at org.hibernate.ejb.QueryImpl.getResultList(QueryImpl.java:246)
+	... 11 more
+Caused by: java.sql.SQLException: ORA-00904: "ADM0_"."CD_ISO3166_2" : identificateur non valide
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:745)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:216)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:810)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1039)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeMaybeDescribe(T4CPreparedStatement.java:850)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1134)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3339)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3384)
+	at org.hibernate.jdbc.AbstractBatcher.getResultSet(AbstractBatcher.java:208)
+	at org.hibernate.loader.Loader.getResultSet(Loader.java:1953)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:802)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:274)
+	at org.hibernate.loader.Loader.doList(Loader.java:2542)
+	... 19 more
+[2014-12-18 12:20:22,477 INFO  (Logger.java:289) Debut du controle de reference geographique
+ ][2014-12-18 12:20:43,311 INFO  (Logger.java:289) Fin du controle de reference geographique
+ ][2014-12-18 12:50:20,793 INFO  (Logger.java:289) INPN Harvester is started. Dataset = aigle inpn
+ ][2014-12-18 12:50:20,795 ERROR (Logger.java:399) Inport INPN : java.lang.ArrayIndexOutOfBoundsException: 20
+ ][2014-12-18 12:50:20,795 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-18 13:15:46,374 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-18 13:15:59,147 INFO  (Logger.java:289) INPN Harvester is started. Dataset = aigle inpn
+ ][2014-12-18 13:15:59,149 ERROR (Logger.java:399) Inport INPN : java.lang.ArrayIndexOutOfBoundsException: 20
+ ][2014-12-18 13:15:59,149 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-18 13:17:57,820 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-18 13:17:59,942 INFO  (Logger.java:289) INPN Harvester is started. Dataset = aigle inpn
+ ][2014-12-18 13:17:59,944 ERROR (Logger.java:399) Inport INPN : 20
+ ][2014-12-18 13:17:59,944 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-18 13:19:29,916 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-18 13:19:31,749 INFO  (Logger.java:289) INPN Harvester is started. Dataset = aigle inpn
+ ][2014-12-18 13:19:31,750 ERROR (Logger.java:399) Inport INPN : 20
+ ][2014-12-18 13:19:31,751 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-18 13:19:47,723 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-18 13:19:49,327 INFO  (Logger.java:289) INPN Harvester is started. Dataset = aigle inpn
+ ][2014-12-18 13:19:49,329 ERROR (Logger.java:399) Inport INPN : java.lang.ArrayIndexOutOfBoundsException: 20
+ ][2014-12-18 13:19:49,329 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-18 13:20:32,430 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-18 13:20:33,953 INFO  (Logger.java:289) INPN Harvester is started. Dataset = aigle inpn
+ ][2014-12-18 13:20:33,954 ERROR (Logger.java:399) Inport INPN : null
+ ][2014-12-18 13:20:33,955 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-18 13:20:54,069 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-18 13:20:55,995 INFO  (Logger.java:289) INPN Harvester is started. Dataset = aigle inpn
+ ][2014-12-18 13:20:55,996 ERROR (Logger.java:399) Inport INPN : [Ljava.lang.StackTraceElement;@c4cc057
+ ][2014-12-18 13:20:55,996 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-18 13:21:29,834 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-18 13:21:31,435 INFO  (Logger.java:289) INPN Harvester is started. Dataset = aigle inpn
+ ][2014-12-18 13:21:31,436 ERROR (Logger.java:399) Inport INPN : [Ljava.lang.StackTraceElement;@58ea29ad
+ ][2014-12-18 13:21:31,436 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-18 13:21:51,342 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-18 13:21:53,916 INFO  (Logger.java:289) INPN Harvester is started. Dataset = aigle inpn
+ ][2014-12-18 13:21:53,917 ERROR (Logger.java:399) Inport INPN : 20
+ ][2014-12-18 13:21:53,918 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-18 13:23:23,660 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-18 13:23:25,585 INFO  (Logger.java:289) INPN Harvester is started. Dataset = aigle inpn
+ ][2014-12-18 13:23:25,586 ERROR (Logger.java:399) Inport INPN : 20
+ ][2014-12-18 13:23:25,586 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-18 13:24:48,741 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-18 13:25:09,864 INFO  (Logger.java:289) INPN Harvester is started. Dataset = aigle inpn
+ ][2014-12-18 13:25:09,866 ERROR (Logger.java:399) Inport INPN : 20
+ ][2014-12-18 13:25:09,866 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-18 13:25:12,803 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-18 13:25:14,204 INFO  (Logger.java:289) INPN Harvester is started. Dataset = aigle inpn
+ ][2014-12-18 13:25:14,205 ERROR (Logger.java:399) Inport INPN : 20
+ ][2014-12-18 13:25:14,205 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-18 13:29:05,378 INFO  (Logger.java:289) Debut du controle sur un champ requis
+ ][2014-12-18 13:29:06,956 ERROR (Logger.java:570) 
+
+@6kh44gnje
+Error during job execution (manager.job.RequireJob)
+
+Execution exception (In /app/manager/job/RequireJob.java around line 68)
+NullPointerException occured : null
+
+ ]play.exceptions.JavaExecutionException
+	at play.jobs.Job.call(Job.java:155)
+	at play.jobs.Job$1.call(Job.java:66)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at manager.job.RequireJob.doJob(RequireJob.java:68)
+	at play.jobs.Job.doJobWithResult(Job.java:50)
+	at play.jobs.Job.call(Job.java:146)
+	... 7 more
+[2014-12-18 13:32:05,977 INFO  (Logger.java:289) Debut du controle sur un champ requis
+ ][2014-12-18 13:32:07,263 INFO  (Logger.java:289) Fin du controle sur un champ requis
+ ][2014-12-18 13:33:44,105 INFO  (Logger.java:289) Debut du controle sur un champ requis
+ ][2014-12-18 13:33:45,366 INFO  (Logger.java:289) Fin du controle sur un champ requis
+ ][2014-12-18 13:34:06,305 INFO  (Logger.java:289) Debut du controle sur un champ requis
+ ][2014-12-18 13:34:07,673 INFO  (Logger.java:289) Fin du controle sur un champ requis
+ ][2014-12-18 13:36:18,395 INFO  (Logger.java:289) Debut du controle sur un champ requis
+ ][2014-12-18 13:36:19,769 INFO  (Logger.java:289) Fin du controle sur un champ requis
+ ][2014-12-18 13:48:04,931 INFO  (Logger.java:289) Debut du controle de doublon
+ ][2014-12-18 13:48:06,347 ERROR (ErrorCounter.java:56) line 1:54: unexpected token: BYo
+ ][2014-12-18 13:48:06,347 ERROR (ErrorCounter.java:56) line 1:67: unexpected token: ,
+ ][2014-12-18 13:48:06,363 ERROR (Logger.java:399) java.lang.IllegalArgumentException: org.hibernate.hql.ast.QuerySyntaxException: unexpected token: BYo near line 1, column 54 [select count(o) from models.Occurrence o where GROUP BYo.kingdom=?, o.phylum=?, HAVING COUNT(*) > 1]
+ ][2014-12-18 13:48:06,363 ERROR (Logger.java:570) 
+
+@6kh44go23
+Error during job execution (manager.job.DoublonJob)
+
+Execution exception (In /app/manager/job/DoublonJob.java around line 65)
+NullPointerException occured : null
+
+ ]play.exceptions.JavaExecutionException
+	at play.jobs.Job.call(Job.java:155)
+	at play.jobs.Job$1.call(Job.java:66)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at manager.job.DoublonJob.doJob(DoublonJob.java:65)
+	at play.jobs.Job.doJobWithResult(Job.java:50)
+	at play.jobs.Job.call(Job.java:146)
+	... 7 more
+[2014-12-18 13:49:17,766 INFO  (Logger.java:289) Debut du controle de doublon
+ ][2014-12-18 13:49:18,621 ERROR (ErrorCounter.java:56) line 1:48: unexpected token: GROUP
+ ][2014-12-18 13:49:18,621 ERROR (ErrorCounter.java:56) line 1:56: unexpected token: ,
+ ][2014-12-18 13:49:18,622 ERROR (Logger.java:399) java.lang.IllegalArgumentException: org.hibernate.hql.ast.QuerySyntaxException: unexpected token: GROUP near line 1, column 48 [select count(o) from models.Occurrence o where GROUP BY,o.kingdom=? ,o.phylum=? HAVING COUNT(*) > 1]
+ ][2014-12-18 13:49:18,627 ERROR (Logger.java:570) 
+
+@6kh44go3e
+Error during job execution (manager.job.DoublonJob)
+
+Execution exception (In /app/manager/job/DoublonJob.java around line 65)
+NullPointerException occured : null
+
+ ]play.exceptions.JavaExecutionException
+	at play.jobs.Job.call(Job.java:155)
+	at play.jobs.Job$1.call(Job.java:66)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at manager.job.DoublonJob.doJob(DoublonJob.java:65)
+	at play.jobs.Job.doJobWithResult(Job.java:50)
+	at play.jobs.Job.call(Job.java:146)
+	... 7 more
+[2014-12-18 13:51:08,378 INFO  (Logger.java:289) Debut du controle de doublon
+ ][2014-12-18 13:51:08,708 ERROR (ErrorCounter.java:56) line 1:54: unexpected token: BYo
+ ][2014-12-18 13:51:08,708 ERROR (ErrorCounter.java:56) line 1:67: unexpected token: ,
+ ][2014-12-18 13:51:08,708 ERROR (Logger.java:399) java.lang.IllegalArgumentException: org.hibernate.hql.ast.QuerySyntaxException: unexpected token: BYo near line 1, column 54 [select count(o) from models.Occurrence o where GROUP BYo.kingdom=?, o.phylum=? HAVING COUNT(*) > 1]
+ ][2014-12-18 13:51:08,710 ERROR (Logger.java:570) 
+
+@6kh44go47
+Error during job execution (manager.job.DoublonJob)
+
+Execution exception (In /app/manager/job/DoublonJob.java around line 65)
+NullPointerException occured : null
+
+ ]play.exceptions.JavaExecutionException
+	at play.jobs.Job.call(Job.java:155)
+	at play.jobs.Job$1.call(Job.java:66)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at manager.job.DoublonJob.doJob(DoublonJob.java:65)
+	at play.jobs.Job.doJobWithResult(Job.java:50)
+	at play.jobs.Job.call(Job.java:146)
+	... 7 more
+[2014-12-18 13:51:55,473 INFO  (Logger.java:289) Debut du controle de doublon
+ ][2014-12-18 13:51:55,794 ERROR (ErrorCounter.java:56) line 1:48: unexpected token: GROUP
+ ][2014-12-18 13:51:55,794 ERROR (ErrorCounter.java:56) line 1:68: unexpected token: ,
+ ][2014-12-18 13:51:55,795 ERROR (Logger.java:399) java.lang.IllegalArgumentException: org.hibernate.hql.ast.QuerySyntaxException: unexpected token: GROUP near line 1, column 48 [select count(o) from models.Occurrence o where GROUP BY o.kingdom=?, o.phylum=? HAVING COUNT(*) > 1]
+ ][2014-12-18 13:51:55,797 ERROR (Logger.java:570) 
+
+@6kh44go5i
+Error during job execution (manager.job.DoublonJob)
+
+Execution exception (In /app/manager/job/DoublonJob.java around line 65)
+NullPointerException occured : null
+
+ ]play.exceptions.JavaExecutionException
+	at play.jobs.Job.call(Job.java:155)
+	at play.jobs.Job$1.call(Job.java:66)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at manager.job.DoublonJob.doJob(DoublonJob.java:65)
+	at play.jobs.Job.doJobWithResult(Job.java:50)
+	at play.jobs.Job.call(Job.java:146)
+	... 7 more
+[2014-12-18 13:52:56,972 INFO  (Logger.java:289) Debut du controle de doublon
+ ][2014-12-18 13:52:57,326 ERROR (ErrorCounter.java:56) <AST>:1:60: unexpected AST node: =
+ ][2014-12-18 13:52:57,326 ERROR (ErrorCounter.java:56) <AST>:1:72: unexpected AST node: =
+ ][2014-12-18 13:52:57,326 ERROR (Logger.java:399) java.lang.IllegalArgumentException: org.hibernate.hql.ast.QuerySyntaxException: unexpected AST node: = near line 1, column 60 [select count(o) from models.Occurrence o GROUP BY o.kingdom=?, o.phylum=? HAVING COUNT(*) > 1]
+ ][2014-12-18 13:52:57,328 ERROR (Logger.java:570) 
+
+@6kh44go73
+Error during job execution (manager.job.DoublonJob)
+
+Execution exception (In /app/manager/job/DoublonJob.java around line 65)
+NullPointerException occured : null
+
+ ]play.exceptions.JavaExecutionException
+	at play.jobs.Job.call(Job.java:155)
+	at play.jobs.Job$1.call(Job.java:66)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.NullPointerException
+	at manager.job.DoublonJob.doJob(DoublonJob.java:65)
+	at play.jobs.Job.doJobWithResult(Job.java:50)
+	at play.jobs.Job.call(Job.java:146)
+	... 7 more
+[2014-12-18 14:47:20,438 INFO  (Logger.java:289) Debut du controle de doublon
+ ][2014-12-18 14:47:22,690 INFO  (Logger.java:289) Fin du controle de doublon
+ ][2014-12-18 14:48:11,620 INFO  (Logger.java:289) Debut du controle de doublon
+ ][2014-12-18 14:48:14,672 INFO  (Logger.java:289) Fin du controle de doublon
+ ][2014-12-18 15:25:07,477 INFO  (Logger.java:289) Debut du controle sur un champ requis
+ ][2014-12-18 15:25:08,730 INFO  (Logger.java:289) Fin du controle sur un champ requis
+ ][2014-12-18 15:46:23,294 ERROR (Logger.java:399) java.io.IOException: Stream closed
+ ][2014-12-18 16:04:57,156 INFO  (Logger.java:289) Debut du controle sur un taxon
+ ][2014-12-18 16:04:57,554 ERROR (JDBCExceptionReporter.java:234) ORA-01722: Nombre non valide
+
+ ][2014-12-18 16:04:57,562 ERROR (Logger.java:570) 
+
+@6kh44gohn
+Error during job execution (manager.job.TaxonJob)
+
+Execution exception (In /app/manager/job/TaxonJob.java around line 65)
+PersistenceException occured : org.hibernate.exception.SQLGrammarException: could not execute query
+
+ ]play.exceptions.JavaExecutionException: org.hibernate.exception.SQLGrammarException: could not execute query
+	at play.jobs.Job.call(Job.java:155)
+	at play.jobs.Job$1.call(Job.java:66)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not execute query
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1389)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1317)
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:307)
+	at play.db.jpa.JPQL.count(JPQL.java:26)
+	at models.EspecesComplet.count(EspecesComplet.java)
+	at manager.job.TaxonJob.doJob(TaxonJob.java:65)
+	at play.jobs.Job.doJobWithResult(Job.java:50)
+	at play.jobs.Job.call(Job.java:146)
+	... 7 more
+Caused by: org.hibernate.exception.SQLGrammarException: could not execute query
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:92)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+	at org.hibernate.loader.Loader.doList(Loader.java:2545)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2276)
+	at org.hibernate.loader.Loader.list(Loader.java:2271)
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:459)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:365)
+	at org.hibernate.engine.query.HQLQueryPlan.performList(HQLQueryPlan.java:196)
+	at org.hibernate.impl.SessionImpl.list(SessionImpl.java:1268)
+	at org.hibernate.impl.QueryImpl.list(QueryImpl.java:102)
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:274)
+	... 12 more
+Caused by: java.sql.SQLException: ORA-01722: Nombre non valide
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:745)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:216)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:810)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1039)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeMaybeDescribe(T4CPreparedStatement.java:850)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1134)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3339)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3384)
+	at org.hibernate.jdbc.AbstractBatcher.getResultSet(AbstractBatcher.java:208)
+	at org.hibernate.loader.Loader.getResultSet(Loader.java:1953)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:802)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:274)
+	at org.hibernate.loader.Loader.doList(Loader.java:2542)
+	... 20 more
+[2014-12-18 16:27:02,791 ERROR (Logger.java:570) 
+
+@6kh44goho
+Internal Server Error (500) for request GET /list/datapublisher/
+
+Compilation error (In /app/manager/job/BoudaryJob.java around line 99)
+The file /app/manager/job/BoudaryJob.java could not be compiled. Error raised is : flash cannot be resolved
+
+ ]play.exceptions.CompilationException: flash cannot be resolved
+	at play.classloading.ApplicationCompiler$2.acceptResult(ApplicationCompiler.java:246)
+	at org.eclipse.jdt.internal.compiler.Compiler.handleInternalException(Compiler.java:676)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:520)
+	at play.classloading.ApplicationCompiler.compile(ApplicationCompiler.java:282)
+	at play.classloading.ApplicationClasses$ApplicationClass.compile(ApplicationClasses.java:281)
+	at play.classloading.ApplicationClassloader.detectChanges(ApplicationClassloader.java:324)
+	at play.Play.detectChanges(Play.java:625)
+	at play.Invoker$Invocation.init(Invoker.java:198)
+	at Invocation.HTTP Request(Play!)
+[2014-12-18 16:29:24,548 INFO  (Logger.java:289) Debut du controle sur un taxon
+ ][2014-12-18 16:29:24,958 ERROR (JDBCExceptionReporter.java:234) ORA-01722: Nombre non valide
+
+ ][2014-12-18 16:29:24,967 ERROR (Logger.java:570) 
+
+@6kh44gojn
+Error during job execution (manager.job.TaxonJob)
+
+Execution exception (In /app/manager/job/TaxonJob.java around line 65)
+PersistenceException occured : org.hibernate.exception.SQLGrammarException: could not execute query
+
+ ]play.exceptions.JavaExecutionException: org.hibernate.exception.SQLGrammarException: could not execute query
+	at play.jobs.Job.call(Job.java:155)
+	at play.jobs.Job$1.call(Job.java:66)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not execute query
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1389)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1317)
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:307)
+	at play.db.jpa.JPQL.count(JPQL.java:26)
+	at models.EspecesComplet.count(EspecesComplet.java)
+	at manager.job.TaxonJob.doJob(TaxonJob.java:65)
+	at play.jobs.Job.doJobWithResult(Job.java:50)
+	at play.jobs.Job.call(Job.java:146)
+	... 7 more
+Caused by: org.hibernate.exception.SQLGrammarException: could not execute query
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:92)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+	at org.hibernate.loader.Loader.doList(Loader.java:2545)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2276)
+	at org.hibernate.loader.Loader.list(Loader.java:2271)
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:459)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:365)
+	at org.hibernate.engine.query.HQLQueryPlan.performList(HQLQueryPlan.java:196)
+	at org.hibernate.impl.SessionImpl.list(SessionImpl.java:1268)
+	at org.hibernate.impl.QueryImpl.list(QueryImpl.java:102)
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:274)
+	... 12 more
+Caused by: java.sql.SQLException: ORA-01722: Nombre non valide
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:745)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:216)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:810)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1039)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeMaybeDescribe(T4CPreparedStatement.java:850)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1134)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3339)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3384)
+	at org.hibernate.jdbc.AbstractBatcher.getResultSet(AbstractBatcher.java:208)
+	at org.hibernate.loader.Loader.getResultSet(Loader.java:1953)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:802)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:274)
+	at org.hibernate.loader.Loader.doList(Loader.java:2542)
+	... 20 more
+[2014-12-18 16:31:56,634 INFO  (Logger.java:289) Debut du controle sur un taxon
+ ][2014-12-18 16:31:57,057 ERROR (JDBCExceptionReporter.java:234) ORA-01722: Nombre non valide
+
+ ][2014-12-18 16:31:57,073 ERROR (Logger.java:570) 
+
+@6kh44gol5
+Error during job execution (manager.job.TaxonJob)
+
+Execution exception (In /app/manager/job/TaxonJob.java around line 65)
+PersistenceException occured : org.hibernate.exception.SQLGrammarException: could not execute query
+
+ ]play.exceptions.JavaExecutionException: org.hibernate.exception.SQLGrammarException: could not execute query
+	at play.jobs.Job.call(Job.java:155)
+	at play.jobs.Job$1.call(Job.java:66)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:178)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:292)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.SQLGrammarException: could not execute query
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1389)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1317)
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:307)
+	at play.db.jpa.JPQL.count(JPQL.java:26)
+	at models.EspecesComplet.count(EspecesComplet.java)
+	at manager.job.TaxonJob.doJob(TaxonJob.java:65)
+	at play.jobs.Job.doJobWithResult(Job.java:50)
+	at play.jobs.Job.call(Job.java:146)
+	... 7 more
+Caused by: org.hibernate.exception.SQLGrammarException: could not execute query
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:92)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+	at org.hibernate.loader.Loader.doList(Loader.java:2545)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2276)
+	at org.hibernate.loader.Loader.list(Loader.java:2271)
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:459)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:365)
+	at org.hibernate.engine.query.HQLQueryPlan.performList(HQLQueryPlan.java:196)
+	at org.hibernate.impl.SessionImpl.list(SessionImpl.java:1268)
+	at org.hibernate.impl.QueryImpl.list(QueryImpl.java:102)
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:274)
+	... 12 more
+Caused by: java.sql.SQLException: ORA-01722: Nombre non valide
+
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:331)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:288)
+	at oracle.jdbc.driver.T4C8Oall.receive(T4C8Oall.java:745)
+	at oracle.jdbc.driver.T4CPreparedStatement.doOall8(T4CPreparedStatement.java:216)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeForDescribe(T4CPreparedStatement.java:810)
+	at oracle.jdbc.driver.OracleStatement.executeMaybeDescribe(OracleStatement.java:1039)
+	at oracle.jdbc.driver.T4CPreparedStatement.executeMaybeDescribe(T4CPreparedStatement.java:850)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1134)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3339)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeQuery(OraclePreparedStatement.java:3384)
+	at org.hibernate.jdbc.AbstractBatcher.getResultSet(AbstractBatcher.java:208)
+	at org.hibernate.loader.Loader.getResultSet(Loader.java:1953)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:802)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:274)
+	at org.hibernate.loader.Loader.doList(Loader.java:2542)
+	... 20 more
+[2014-12-18 16:33:05,231 INFO  (Logger.java:289) Debut du controle sur un taxon
+ ][2014-12-18 16:33:05,545 ERROR (Logger.java:399) java.lang.IllegalArgumentException: Parameter value [106807] did not match expected type [java.lang.Long]
+ ][2014-12-18 16:33:54,510 INFO  (Logger.java:289) Debut du controle sur un taxon
+ ][2014-12-18 16:33:55,829 INFO  (Logger.java:289) Fin du controle sur un taxon
+ ][2014-12-18 16:50:12,605 INFO  (Logger.java:289) Debut du controle de doublon
+ ][2014-12-18 16:50:15,657 INFO  (Logger.java:289) Fin du controle de doublon
+ ][2014-12-18 16:51:50,224 INFO  (Logger.java:289) INPN Harvester is started. Dataset = aigle inpn
+ ][2014-12-18 16:51:50,226 ERROR (Logger.java:399) Inport INPN : 20
+ ][2014-12-18 16:51:50,226 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-19 10:17:33,500 INFO  (Logger.java:289) Starting C:\Users\remy\git\gbiffrance-harvest
+ ][2014-12-19 10:17:33,500 INFO  (Logger.java:289) Module crud is available (D:\Progs\play-1.2.5.3\modules\crud)
+ ][2014-12-19 10:17:33,500 INFO  (Logger.java:289) Module mongo is available (C:\Users\remy\git\gbiffrance-harvest\modules\mongo-1.3)
+ ][2014-12-19 10:17:33,515 INFO  (Logger.java:289) Module paginate is available (D:\Progs\play-1.2.5.3\modules\paginate-head)
+ ][2014-12-19 10:17:33,515 INFO  (Logger.java:289) Module secure is available (D:\Progs\play-1.2.5.3\modules\secure)
+ ][2014-12-19 10:17:34,654 WARN  (Logger.java:344) You're running Play! in DEV mode
+ ][2014-12-19 10:17:34,795 INFO  (Logger.java:289) Listening for HTTP on port 9000 (Waiting a first request to start) ...
+ ][2014-12-19 10:17:39,539 ERROR (Logger.java:570) 
+
+@6khapend4
+Internal Server Error (500) for request GET /
+
+Compilation error (In /app/models/harvest/ipt/Harvester.java around line 522)
+The file /app/models/harvest/ipt/Harvester.java could not be compiled. Error raised is : Type mismatch: cannot convert from String to BLOB
+
+ ]play.exceptions.CompilationException: Type mismatch: cannot convert from String to BLOB
+	at play.classloading.ApplicationCompiler$2.acceptResult(ApplicationCompiler.java:246)
+	at org.eclipse.jdt.internal.compiler.Compiler.handleInternalException(Compiler.java:676)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:520)
+	at play.classloading.ApplicationCompiler.compile(ApplicationCompiler.java:282)
+	at play.classloading.ApplicationClassloader.getAllClasses(ApplicationClassloader.java:426)
+	at play.classloading.ApplicationClassloader.getAssignableClasses(ApplicationClassloader.java:455)
+	at {module:crud}/app/views/tags/crud/types.tag.(line:3)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.GroovyTemplate$ExecutableTemplate.invokeTag(GroovyTemplate.java:401)
+	at {module:crud}/conf/routes.(line:4)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.Router.parse(Router.java:162)
+	at play.mvc.Router.parse(Router.java:190)
+	at play.mvc.Router.parse(Router.java:164)
+	at play.mvc.Router.load(Router.java:48)
+	at play.mvc.Router.detectChanges(Router.java:219)
+	at Invocation.HTTP Request(Play!)
+[2014-12-19 10:18:20,816 ERROR (Logger.java:570) 
+
+@6khapend5
+Internal Server Error (500) for request GET /
+
+Compilation error (In /app/models/Occurrence.java around line 723)
+The file /app/models/Occurrence.java could not be compiled. Error raised is : Type mismatch: cannot convert from BLOB to String
+
+ ]play.exceptions.CompilationException: Type mismatch: cannot convert from BLOB to String
+	at play.classloading.ApplicationCompiler$2.acceptResult(ApplicationCompiler.java:246)
+	at org.eclipse.jdt.internal.compiler.Compiler.handleInternalException(Compiler.java:676)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:520)
+	at play.classloading.ApplicationCompiler.compile(ApplicationCompiler.java:282)
+	at play.classloading.ApplicationClasses$ApplicationClass.compile(ApplicationClasses.java:281)
+	at play.classloading.ApplicationClassloader.detectChanges(ApplicationClassloader.java:324)
+	at play.Play.detectChanges(Play.java:625)
+	at play.Invoker$Invocation.init(Invoker.java:198)
+	at Invocation.HTTP Request(Play!)
+[2014-12-19 10:18:51,354 INFO  (Logger.java:289) Connected to jdbc:oracle:thin:@dsiinv.mnhn.fr:1521:EGBT
+ ][2014-12-19 10:18:53,321 INFO  (Logger.java:289) Application 'gbiffrance-harvest' is now started !
+ ][2014-12-19 10:19:15,900 ERROR (Logger.java:399) java.io.IOException: Stream closed
+ ][2014-12-19 10:50:22,512 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-19 10:51:15,885 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 10:51:15,930 ERROR (Logger.java:399) java.sql.SQLException: ORA-01400: impossible d'insérer NULL dans ("IPT"."OCCURRENCE"."QUALIFIED")
+
+ ][2014-12-19 10:51:31,911 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-19 10:52:40,216 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 10:52:40,226 ERROR (Logger.java:399) java.sql.SQLException: ORA-01400: impossible d'insérer NULL dans ("IPT"."OCCURRENCE"."QUALIFIED")
+
+ ][2014-12-19 10:54:26,294 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-19 10:54:28,078 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 10:54:28,100 ERROR (Logger.java:399) java.sql.SQLException: Index de colonne non valide
+ ][2014-12-19 10:55:05,871 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-19 10:55:07,662 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:01:08,682 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-19 11:01:10,798 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:02:03,488 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-19 11:02:05,150 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:14:28,069 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-19 11:15:09,272 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:23:55,306 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-19 11:24:32,695 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:25:29,570 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-19 11:25:31,598 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:26:51,761 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-19 11:26:53,614 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:26:53,614 DEBUG (Logger.java:232) Shape : before file
+ ][2014-12-19 11:27:29,502 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-19 11:27:31,790 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:27:31,790 DEBUG (Logger.java:232) Shape : null
+ ][2014-12-19 11:29:59,947 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-19 11:30:30,365 DEBUG (Logger.java:232) Shape : file
+ ][2014-12-19 11:30:30,365 DEBUG (Logger.java:232) Shape : file 2
+ ][2014-12-19 11:30:32,567 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:31:42,029 INFO  (Logger.java:289) No temp directory, do nothing
+ ][2014-12-19 11:32:08,482 DEBUG (Logger.java:232) Shape : file
+ ][2014-12-19 11:32:08,482 DEBUG (Logger.java:232) Shape : file 2
+ ][2014-12-19 11:32:10,962 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:32:10,972 DEBUG (Logger.java:232) Shape : file
+ ][2014-12-19 11:32:10,972 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 11:32:10,975 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 11:32:10,977 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 11:32:10,980 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 11:32:10,985 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 11:32:10,987 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 11:32:10,992 DEBUG (Logger.java:232) Shape : reader
+ ][2014-12-19 11:32:11,672 DEBUG (Logger.java:232) Shape : while
+ ][2014-12-19 11:32:11,672 DEBUG (Logger.java:232) Shape : while
+ ][2014-12-19 11:32:11,677 ERROR (Logger.java:399) Inport INPN : null
+ ][2014-12-19 11:32:11,677 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-19 11:32:58,874 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:32:58,874 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:33:00,569 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:33:00,572 DEBUG (Logger.java:232) Shape : file
+ ][2014-12-19 11:33:00,572 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 11:33:00,572 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 11:33:00,572 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 11:33:00,574 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 11:33:00,574 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 11:33:00,574 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 11:33:00,579 DEBUG (Logger.java:232) Shape : reader
+ ][2014-12-19 11:33:00,584 DEBUG (Logger.java:232) Shape : while
+ ][2014-12-19 11:33:00,584 DEBUG (Logger.java:232) Shape : while
+ ][2014-12-19 11:33:00,592 ERROR (Logger.java:399) Inport INPN : null
+ ][2014-12-19 11:33:00,592 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-19 11:33:04,106 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:33:04,106 DEBUG (Logger.java:232) Shape : file
+ ][2014-12-19 11:33:04,108 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 11:33:04,108 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 11:33:04,108 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 11:33:04,108 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 11:33:04,111 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 11:33:04,113 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 11:33:04,116 DEBUG (Logger.java:232) Shape : reader
+ ][2014-12-19 11:33:04,118 DEBUG (Logger.java:232) Shape : while
+ ][2014-12-19 11:33:04,118 DEBUG (Logger.java:232) Shape : while
+ ][2014-12-19 11:33:04,126 ERROR (Logger.java:399) Inport INPN : null
+ ][2014-12-19 11:33:04,126 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-19 11:35:33,709 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:35:33,709 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:35:39,648 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:35:39,650 DEBUG (Logger.java:232) Shape : file
+ ][2014-12-19 11:35:39,650 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 11:35:39,650 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 11:35:39,653 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 11:35:39,655 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 11:35:39,655 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 11:35:39,658 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 11:35:39,660 DEBUG (Logger.java:232) Shape : reader
+ ][2014-12-19 11:35:39,665 DEBUG (Logger.java:232) Shape : while
+ ][2014-12-19 11:35:39,665 DEBUG (Logger.java:232) Shape : while
+ ][2014-12-19 11:35:39,680 ERROR (Logger.java:399) Inport INPN : null
+ ][2014-12-19 11:35:39,683 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-19 11:37:42,827 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:37:42,827 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:37:45,001 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:37:45,003 DEBUG (Logger.java:232) Shape : file
+ ][2014-12-19 11:37:45,003 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 11:37:45,006 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 11:37:45,008 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 11:37:45,011 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 11:37:45,011 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 11:37:45,011 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 11:37:45,016 DEBUG (Logger.java:232) Shape : reader
+ ][2014-12-19 11:37:45,018 DEBUG (Logger.java:232) Shape : while
+ ][2014-12-19 11:37:45,021 DEBUG (Logger.java:232) Shape : while
+ ][2014-12-19 11:37:45,028 ERROR (Logger.java:399) Inport INPN : java.lang.NullPointerException
+ ][2014-12-19 11:37:45,028 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-19 11:38:48,786 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:38:48,786 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:38:50,671 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:38:50,673 DEBUG (Logger.java:232) Shape : file
+ ][2014-12-19 11:38:50,673 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 11:38:50,676 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 11:38:50,676 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 11:38:50,678 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 11:38:50,678 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 11:38:50,681 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 11:38:50,693 DEBUG (Logger.java:232) Shape : reader
+ ][2014-12-19 11:38:50,698 DEBUG (Logger.java:232) Shape : while
+ ][2014-12-19 11:38:50,698 DEBUG (Logger.java:232) Shape : while
+ ][2014-12-19 11:38:50,706 ERROR (Logger.java:399) Inport INPN : null
+ ][2014-12-19 11:38:50,706 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-19 11:39:23,860 ERROR (Logger.java:570) 
+
+@6khapeoma
+Internal Server Error (500) for request GET /delete/23442/occurrences
+
+Compilation error (In /app/models/harvest/inpn/Inpn.java around line 264)
+The file /app/models/harvest/inpn/Inpn.java could not be compiled. Error raised is : Syntax error, insert ";" to complete BlockStatements
+
+ ]play.exceptions.CompilationException: Syntax error, insert ";" to complete BlockStatements
+	at play.classloading.ApplicationCompiler$2.acceptResult(ApplicationCompiler.java:246)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:478)
+	at play.classloading.ApplicationCompiler.compile(ApplicationCompiler.java:282)
+	at play.classloading.ApplicationClasses$ApplicationClass.compile(ApplicationClasses.java:281)
+	at play.classloading.ApplicationClassloader.detectChanges(ApplicationClassloader.java:324)
+	at play.Play.detectChanges(Play.java:625)
+	at play.Invoker$Invocation.init(Invoker.java:198)
+	at Invocation.HTTP Request(Play!)
+[2014-12-19 11:39:34,744 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:39:34,744 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:39:36,999 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:39:36,999 DEBUG (Logger.java:232) Shape : file
+ ][2014-12-19 11:39:36,999 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 11:39:36,999 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 11:39:37,002 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 11:39:37,002 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 11:39:37,002 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 11:39:37,004 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 11:39:37,012 DEBUG (Logger.java:232) Shape : reader
+ ][2014-12-19 11:39:37,017 DEBUG (Logger.java:232) Shape : while
+ ][2014-12-19 11:39:37,017 DEBUG (Logger.java:232) Shape : while
+ ][2014-12-19 11:39:37,027 ERROR (Logger.java:399) Inport INPN : java.lang.NullPointerException
+ ][2014-12-19 11:39:37,027 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-19 11:41:54,879 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:41:54,879 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:41:56,663 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:41:56,666 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 11:41:56,666 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 11:41:56,668 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 11:41:56,668 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 11:41:56,668 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 11:41:56,671 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 11:41:56,688 DEBUG (Logger.java:232) enp : map
+ ][2014-12-19 11:41:56,688 DEBUG (Logger.java:232) commune : map
+ ][2014-12-19 11:41:56,688 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 11:41:56,688 DEBUG (Logger.java:232) shape : map
+ ][2014-12-19 11:41:56,688 DEBUG (Logger.java:232) shape : insert
+ ][2014-12-19 11:41:56,691 DEBUG (Logger.java:232) enp : map
+ ][2014-12-19 11:41:56,691 ERROR (Logger.java:399) Inport INPN : java.lang.NullPointerException
+ ][2014-12-19 11:41:56,691 INFO  (Logger.java:289) Harvest with error, process to a data cleaning from null
+ ][2014-12-19 11:43:13,696 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:43:13,699 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:43:15,828 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:43:15,830 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 11:43:15,833 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 11:43:15,833 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 11:43:15,835 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 11:43:15,835 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 11:43:15,835 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 11:43:15,855 DEBUG (Logger.java:232) enp : map
+ ][2014-12-19 11:43:15,855 DEBUG (Logger.java:232) commune : map
+ ][2014-12-19 11:43:15,855 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 11:43:15,855 DEBUG (Logger.java:232) shape : map
+ ][2014-12-19 11:43:15,855 DEBUG (Logger.java:232) shape : insert
+ ][2014-12-19 11:43:15,858 DEBUG (Logger.java:232) enp : map
+ ][2014-12-19 11:43:15,858 DEBUG (Logger.java:232) commune : map
+ ][2014-12-19 11:43:15,858 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 11:43:15,858 DEBUG (Logger.java:232) shape : map
+ ][2014-12-19 11:43:15,858 DEBUG (Logger.java:232) shape : insert
+ ][2014-12-19 11:47:33,829 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:47:33,829 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:47:35,667 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:47:35,670 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 11:47:35,670 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 11:47:35,672 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 11:47:35,672 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 11:47:35,675 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 11:47:35,675 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 11:47:35,685 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 11:47:35,690 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 11:48:17,324 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:48:17,324 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:48:20,073 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:48:20,075 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 11:48:20,078 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 11:48:20,078 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 11:48:20,078 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 11:48:20,078 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 11:48:20,080 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 11:48:20,090 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 11:48:20,093 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 11:49:41,247 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:49:41,250 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:49:42,680 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:49:42,682 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 11:49:42,682 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 11:49:42,682 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 11:49:42,685 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 11:49:42,685 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 11:49:42,687 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 11:49:42,710 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 11:49:42,850 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 11:52:13,953 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:52:13,955 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:52:15,390 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:52:15,392 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 11:52:15,392 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 11:52:15,395 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 11:52:15,397 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 11:52:15,397 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 11:52:15,397 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 11:52:15,415 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 11:52:15,420 ERROR (Logger.java:399) Inport INPN shape : POINT (2.0398933189189195 46.29942908108109)
+ ][2014-12-19 11:52:15,422 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 11:52:15,422 ERROR (Logger.java:399) Inport INPN shape : POINT (2.6659103567567572 45.92845602162162)
+ ][2014-12-19 11:55:30,844 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:55:30,844 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:55:33,160 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:55:33,163 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 11:55:33,165 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 11:55:33,165 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 11:55:33,168 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 11:55:33,168 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 11:55:33,168 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 11:55:33,185 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 11:55:33,195 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 11:55:58,403 ERROR (JDBCExceptionReporter.java:234) Fonction non prise en charge
+ ][2014-12-19 11:55:58,433 ERROR (Logger.java:570) 
+
+@6khapep72
+Internal Server Error (500) for request GET /occurrences/list/23442/page/1
+
+Template execution error (In {module:paginate-head}/app/views/tags/paginate/list.html around line 21)
+Execution error occured in template {module:paginate-head}/app/views/tags/paginate/list.html. Exception raised was PersistenceException : org.hibernate.exception.GenericJDBCException: could not execute query.
+
+ ]play.exceptions.TemplateExecutionException: org.hibernate.exception.GenericJDBCException: could not execute query
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.GroovyTemplate$ExecutableTemplate.invokeTag(GroovyTemplate.java:401)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Occurrences.list(Occurrences.java:45)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.GenericJDBCException: could not execute query
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1389)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1317)
+	at org.hibernate.ejb.QueryImpl.getResultList(QueryImpl.java:255)
+	at play.modules.paginate.strategy.JPARecordLocatorStrategy.findByIndex(JPARecordLocatorStrategy.java:102)
+	at play.modules.paginate.strategy.JPARecordLocatorStrategy.fetchPage(JPARecordLocatorStrategy.java:95)
+	at play.modules.paginate.Paginator.fetchPage(Paginator.java:339)
+	at play.modules.paginate.Paginator.getPage(Paginator.java:238)
+	at play.modules.paginate.Paginator.getCurrentPage(Paginator.java:201)
+	at /app/views/Occurrences/list.html.(line:13)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 15 more
+Caused by: org.hibernate.exception.GenericJDBCException: could not execute query
+	at org.hibernate.exception.SQLStateConverter.handledNonSpecificException(SQLStateConverter.java:140)
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:128)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+	at org.hibernate.loader.Loader.doList(Loader.java:2545)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2276)
+	at org.hibernate.loader.Loader.list(Loader.java:2271)
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:459)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:365)
+	at org.hibernate.engine.query.HQLQueryPlan.performList(HQLQueryPlan.java:196)
+	at org.hibernate.impl.SessionImpl.list(SessionImpl.java:1268)
+	at org.hibernate.impl.QueryImpl.list(QueryImpl.java:102)
+	at org.hibernate.ejb.QueryImpl.getResultList(QueryImpl.java:246)
+	at play.modules.paginate.strategy.JPARecordLocatorStrategy.findByIndex(JPARecordLocatorStrategy.java:102)
+	at play.modules.paginate.strategy.JPARecordLocatorStrategy.fetchPage(JPARecordLocatorStrategy.java:95)
+	at play.modules.paginate.Paginator.fetchPage(Paginator.java:339)
+	at play.modules.paginate.Paginator.getPage(Paginator.java:238)
+	at play.modules.paginate.Paginator.getCurrentPage(Paginator.java:201)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at groovy.lang.MetaClassImpl.getProperty(MetaClassImpl.java:1580)
+	at groovy.lang.MetaClassImpl.getProperty(MetaClassImpl.java:3308)
+	at org.codehaus.groovy.runtime.InvokerHelper.getProperty(InvokerHelper.java:161)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaClassGetPropertySite.callGetProperty(PojoMetaClassGetPropertySite.java:41)
+	at Template_1013$_run_closure1_closure2.doCall(list.html:25)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at Template_1013$_run_closure1_closure2.doCall(list.html)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at groovy.lang.Closure.call(Closure.java:406)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:106)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.access$400(GroovyCategorySupport.java:64)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:246)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.use(DefaultGroovyMethods.java:358)
+	at org.codehaus.groovy.runtime.dgm$895.doMethodInvoke(Unknown Source)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:145)
+	at Template_1013$_run_closure1.doCall(list.html:3)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at Template_1013$_run_closure1.doCall(list.html)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at groovy.lang.Closure.call(Closure.java:406)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:106)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.access$400(GroovyCategorySupport.java:64)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:246)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.use(DefaultGroovyMethods.java:358)
+	at org.codehaus.groovy.runtime.dgm$895.doMethodInvoke(Unknown Source)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1047)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:145)
+	at Template_1013.run(list.html:2)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.GroovyTemplate$ExecutableTemplate.invokeTag(GroovyTemplate.java:401)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:361)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:153)
+	at Template_1017$_run_closure1_closure2.doCall(list.html:622)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at Template_1017$_run_closure1_closure2.doCall(list.html)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at groovy.lang.Closure.call(Closure.java:406)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:106)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.access$400(GroovyCategorySupport.java:64)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:246)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.use(DefaultGroovyMethods.java:358)
+	at org.codehaus.groovy.runtime.dgm$895.doMethodInvoke(Unknown Source)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:145)
+	at Template_1017$_run_closure1.doCall(list.html:3)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at Template_1017$_run_closure1.doCall(list.html)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at groovy.lang.Closure.call(Closure.java:406)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:106)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.access$400(GroovyCategorySupport.java:64)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:246)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.use(DefaultGroovyMethods.java:358)
+	at org.codehaus.groovy.runtime.dgm$895.invoke(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoMetaMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:308)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:52)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:145)
+	at Template_1017.run(list.html:2)
+	... 14 more
+Caused by: java.sql.SQLException: Fonction non prise en charge
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:146)
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:208)
+	at oracle.jdbc.driver.DatabaseError.throwUnsupportedFeatureSqlException(DatabaseError.java:499)
+	at oracle.jdbc.driver.ClobAccessor.getBytes(ClobAccessor.java:279)
+	at oracle.jdbc.driver.OracleResultSetImpl.getBytes(OracleResultSetImpl.java:708)
+	at oracle.jdbc.driver.OracleResultSet.getBytes(OracleResultSet.java:1625)
+	at org.hibernate.type.descriptor.sql.VarbinaryTypeDescriptor$2.doExtract(VarbinaryTypeDescriptor.java:61)
+	at org.hibernate.type.descriptor.sql.BasicExtractor.extract(BasicExtractor.java:64)
+	at org.hibernate.type.AbstractStandardBasicType.nullSafeGet(AbstractStandardBasicType.java:254)
+	at org.hibernate.type.AbstractStandardBasicType.nullSafeGet(AbstractStandardBasicType.java:250)
+	at org.hibernate.type.AbstractStandardBasicType.nullSafeGet(AbstractStandardBasicType.java:230)
+	at org.hibernate.type.AbstractStandardBasicType.hydrate(AbstractStandardBasicType.java:331)
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:2283)
+	at org.hibernate.loader.Loader.loadFromResultSet(Loader.java:1527)
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1455)
+	at org.hibernate.loader.Loader.getRow(Loader.java:1355)
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:611)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:829)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:274)
+	at org.hibernate.loader.Loader.doList(Loader.java:2542)
+	... 134 more
+[2014-12-19 11:56:05,751 ERROR (JDBCExceptionReporter.java:234) Fonction non prise en charge
+ ][2014-12-19 11:56:05,758 ERROR (Logger.java:570) 
+
+@6khapep73
+Internal Server Error (500) for request GET /occurrences/list/23442/page/1
+
+Template execution error (In {module:paginate-head}/app/views/tags/paginate/list.html around line 21)
+Execution error occured in template {module:paginate-head}/app/views/tags/paginate/list.html. Exception raised was PersistenceException : org.hibernate.exception.GenericJDBCException: could not execute query.
+
+ ]play.exceptions.TemplateExecutionException: org.hibernate.exception.GenericJDBCException: could not execute query
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.GroovyTemplate$ExecutableTemplate.invokeTag(GroovyTemplate.java:401)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Occurrences.list(Occurrences.java:45)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.GenericJDBCException: could not execute query
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1389)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1317)
+	at org.hibernate.ejb.QueryImpl.getResultList(QueryImpl.java:255)
+	at play.modules.paginate.strategy.JPARecordLocatorStrategy.findByIndex(JPARecordLocatorStrategy.java:102)
+	at play.modules.paginate.strategy.JPARecordLocatorStrategy.fetchPage(JPARecordLocatorStrategy.java:95)
+	at play.modules.paginate.Paginator.fetchPage(Paginator.java:339)
+	at play.modules.paginate.Paginator.getPage(Paginator.java:238)
+	at play.modules.paginate.Paginator.getCurrentPage(Paginator.java:201)
+	at {module:paginate-head}/app/views/tags/paginate/list.html.(line:21)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 15 more
+Caused by: org.hibernate.exception.GenericJDBCException: could not execute query
+	at org.hibernate.exception.SQLStateConverter.handledNonSpecificException(SQLStateConverter.java:140)
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:128)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+	at org.hibernate.loader.Loader.doList(Loader.java:2545)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2276)
+	at org.hibernate.loader.Loader.list(Loader.java:2271)
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:459)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:365)
+	at org.hibernate.engine.query.HQLQueryPlan.performList(HQLQueryPlan.java:196)
+	at org.hibernate.impl.SessionImpl.list(SessionImpl.java:1268)
+	at org.hibernate.impl.QueryImpl.list(QueryImpl.java:102)
+	at org.hibernate.ejb.QueryImpl.getResultList(QueryImpl.java:246)
+	at play.modules.paginate.strategy.JPARecordLocatorStrategy.findByIndex(JPARecordLocatorStrategy.java:102)
+	at play.modules.paginate.strategy.JPARecordLocatorStrategy.fetchPage(JPARecordLocatorStrategy.java:95)
+	at play.modules.paginate.Paginator.fetchPage(Paginator.java:339)
+	at play.modules.paginate.Paginator.getPage(Paginator.java:238)
+	at play.modules.paginate.Paginator.getCurrentPage(Paginator.java:201)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at groovy.lang.MetaClassImpl.getProperty(MetaClassImpl.java:1580)
+	at groovy.lang.MetaClassImpl.getProperty(MetaClassImpl.java:3308)
+	at org.codehaus.groovy.runtime.InvokerHelper.getProperty(InvokerHelper.java:161)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaClassGetPropertySite.getProperty(PojoMetaClassGetPropertySite.java:33)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callGetProperty(AbstractCallSite.java:227)
+	at Template_1014$_run_closure1_closure2.doCall(list.html:25)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:46)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:133)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at Template_1014$_run_closure1_closure2.doCall(list.html)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at groovy.lang.Closure.call(Closure.java:406)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:106)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.access$400(GroovyCategorySupport.java:64)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:246)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.use(DefaultGroovyMethods.java:358)
+	at org.codehaus.groovy.runtime.dgm$895.doMethodInvoke(Unknown Source)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:46)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:133)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:145)
+	at Template_1014$_run_closure1.doCall(list.html:3)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:46)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:133)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at Template_1014$_run_closure1.doCall(list.html)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at groovy.lang.Closure.call(Closure.java:406)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:106)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.access$400(GroovyCategorySupport.java:64)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:246)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.use(DefaultGroovyMethods.java:358)
+	at org.codehaus.groovy.runtime.dgm$895.doMethodInvoke(Unknown Source)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1047)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:46)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:133)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:145)
+	at Template_1014.run(list.html:2)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.GroovyTemplate$ExecutableTemplate.invokeTag(GroovyTemplate.java:401)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:361)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:153)
+	at Template_1017$_run_closure1_closure2.doCall(list.html:622)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at Template_1017$_run_closure1_closure2.doCall(list.html)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at groovy.lang.Closure.call(Closure.java:406)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:106)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.access$400(GroovyCategorySupport.java:64)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:246)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.use(DefaultGroovyMethods.java:358)
+	at org.codehaus.groovy.runtime.dgm$895.doMethodInvoke(Unknown Source)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:145)
+	at Template_1017$_run_closure1.doCall(list.html:3)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at Template_1017$_run_closure1.doCall(list.html)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at groovy.lang.Closure.call(Closure.java:406)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:106)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.access$400(GroovyCategorySupport.java:64)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:246)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.use(DefaultGroovyMethods.java:358)
+	at org.codehaus.groovy.runtime.dgm$895.invoke(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoMetaMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:308)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:52)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:145)
+	at Template_1017.run(list.html:2)
+	... 14 more
+Caused by: java.sql.SQLException: Fonction non prise en charge
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:146)
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:208)
+	at oracle.jdbc.driver.DatabaseError.throwUnsupportedFeatureSqlException(DatabaseError.java:499)
+	at oracle.jdbc.driver.ClobAccessor.getBytes(ClobAccessor.java:279)
+	at oracle.jdbc.driver.OracleResultSetImpl.getBytes(OracleResultSetImpl.java:708)
+	at oracle.jdbc.driver.OracleResultSet.getBytes(OracleResultSet.java:1625)
+	at org.hibernate.type.descriptor.sql.VarbinaryTypeDescriptor$2.doExtract(VarbinaryTypeDescriptor.java:61)
+	at org.hibernate.type.descriptor.sql.BasicExtractor.extract(BasicExtractor.java:64)
+	at org.hibernate.type.AbstractStandardBasicType.nullSafeGet(AbstractStandardBasicType.java:254)
+	at org.hibernate.type.AbstractStandardBasicType.nullSafeGet(AbstractStandardBasicType.java:250)
+	at org.hibernate.type.AbstractStandardBasicType.nullSafeGet(AbstractStandardBasicType.java:230)
+	at org.hibernate.type.AbstractStandardBasicType.hydrate(AbstractStandardBasicType.java:331)
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:2283)
+	at org.hibernate.loader.Loader.loadFromResultSet(Loader.java:1527)
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1455)
+	at org.hibernate.loader.Loader.getRow(Loader.java:1355)
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:611)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:829)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:274)
+	at org.hibernate.loader.Loader.doList(Loader.java:2542)
+	... 143 more
+[2014-12-19 11:56:16,325 ERROR (JDBCExceptionReporter.java:234) Fonction non prise en charge
+ ][2014-12-19 11:56:16,332 ERROR (Logger.java:570) 
+
+@6khapep74
+Internal Server Error (500) for request GET /occurrences/list/20803/page/1
+
+Template execution error (In {module:paginate-head}/app/views/tags/paginate/list.html around line 21)
+Execution error occured in template {module:paginate-head}/app/views/tags/paginate/list.html. Exception raised was PersistenceException : org.hibernate.exception.GenericJDBCException: could not execute query.
+
+ ]play.exceptions.TemplateExecutionException: org.hibernate.exception.GenericJDBCException: could not execute query
+	at play.templates.BaseTemplate.throwException(BaseTemplate.java:86)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:272)
+	at play.templates.GroovyTemplate$ExecutableTemplate.invokeTag(GroovyTemplate.java:401)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.Template.render(Template.java:26)
+	at play.templates.GroovyTemplate.render(GroovyTemplate.java:202)
+	at play.mvc.results.RenderTemplate.<init>(RenderTemplate.java:24)
+	at play.mvc.Controller.renderTemplate(Controller.java:661)
+	at play.mvc.Controller.renderTemplate(Controller.java:641)
+	at play.mvc.Controller.render(Controller.java:696)
+	at controllers.Occurrences.list(Occurrences.java:45)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	at Invocation.HTTP Request(Play!)
+Caused by: javax.persistence.PersistenceException: org.hibernate.exception.GenericJDBCException: could not execute query
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1389)
+	at org.hibernate.ejb.AbstractEntityManagerImpl.convert(AbstractEntityManagerImpl.java:1317)
+	at org.hibernate.ejb.QueryImpl.getResultList(QueryImpl.java:255)
+	at play.modules.paginate.strategy.JPARecordLocatorStrategy.findByIndex(JPARecordLocatorStrategy.java:102)
+	at play.modules.paginate.strategy.JPARecordLocatorStrategy.fetchPage(JPARecordLocatorStrategy.java:95)
+	at play.modules.paginate.Paginator.fetchPage(Paginator.java:339)
+	at play.modules.paginate.Paginator.getPage(Paginator.java:238)
+	at play.modules.paginate.Paginator.getCurrentPage(Paginator.java:201)
+	at {module:paginate-head}/app/views/tags/paginate/list.html.(line:21)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	... 15 more
+Caused by: org.hibernate.exception.GenericJDBCException: could not execute query
+	at org.hibernate.exception.SQLStateConverter.handledNonSpecificException(SQLStateConverter.java:140)
+	at org.hibernate.exception.SQLStateConverter.convert(SQLStateConverter.java:128)
+	at org.hibernate.exception.JDBCExceptionHelper.convert(JDBCExceptionHelper.java:66)
+	at org.hibernate.loader.Loader.doList(Loader.java:2545)
+	at org.hibernate.loader.Loader.listIgnoreQueryCache(Loader.java:2276)
+	at org.hibernate.loader.Loader.list(Loader.java:2271)
+	at org.hibernate.loader.hql.QueryLoader.list(QueryLoader.java:459)
+	at org.hibernate.hql.ast.QueryTranslatorImpl.list(QueryTranslatorImpl.java:365)
+	at org.hibernate.engine.query.HQLQueryPlan.performList(HQLQueryPlan.java:196)
+	at org.hibernate.impl.SessionImpl.list(SessionImpl.java:1268)
+	at org.hibernate.impl.QueryImpl.list(QueryImpl.java:102)
+	at org.hibernate.ejb.QueryImpl.getResultList(QueryImpl.java:246)
+	at play.modules.paginate.strategy.JPARecordLocatorStrategy.findByIndex(JPARecordLocatorStrategy.java:102)
+	at play.modules.paginate.strategy.JPARecordLocatorStrategy.fetchPage(JPARecordLocatorStrategy.java:95)
+	at play.modules.paginate.Paginator.fetchPage(Paginator.java:339)
+	at play.modules.paginate.Paginator.getPage(Paginator.java:238)
+	at play.modules.paginate.Paginator.getCurrentPage(Paginator.java:201)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at groovy.lang.MetaClassImpl.getProperty(MetaClassImpl.java:1580)
+	at groovy.lang.MetaClassImpl.getProperty(MetaClassImpl.java:3308)
+	at org.codehaus.groovy.runtime.InvokerHelper.getProperty(InvokerHelper.java:161)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaClassGetPropertySite.getProperty(PojoMetaClassGetPropertySite.java:33)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callGetProperty(AbstractCallSite.java:227)
+	at Template_1014$_run_closure1_closure2.doCall(list.html:25)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:46)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:133)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at Template_1014$_run_closure1_closure2.doCall(list.html)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at groovy.lang.Closure.call(Closure.java:406)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:106)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.access$400(GroovyCategorySupport.java:64)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:246)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.use(DefaultGroovyMethods.java:358)
+	at org.codehaus.groovy.runtime.dgm$895.doMethodInvoke(Unknown Source)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:46)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:133)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:145)
+	at Template_1014$_run_closure1.doCall(list.html:3)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:46)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:133)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at Template_1014$_run_closure1.doCall(list.html)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at groovy.lang.Closure.call(Closure.java:406)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:106)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.access$400(GroovyCategorySupport.java:64)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:246)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.use(DefaultGroovyMethods.java:358)
+	at org.codehaus.groovy.runtime.dgm$895.doMethodInvoke(Unknown Source)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1047)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:46)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:133)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:145)
+	at Template_1014.run(list.html:2)
+	at play.templates.GroovyTemplate.internalRender(GroovyTemplate.java:247)
+	at play.templates.GroovyTemplate$ExecutableTemplate.invokeTag(GroovyTemplate.java:401)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:361)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:153)
+	at Template_1017$_run_closure1_closure2.doCall(list.html:622)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at Template_1017$_run_closure1_closure2.doCall(list.html)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at groovy.lang.Closure.call(Closure.java:406)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:106)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.access$400(GroovyCategorySupport.java:64)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:246)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.use(DefaultGroovyMethods.java:358)
+	at org.codehaus.groovy.runtime.dgm$895.doMethodInvoke(Unknown Source)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:145)
+	at Template_1017$_run_closure1.doCall(list.html:3)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at Template_1017$_run_closure1.doCall(list.html)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at org.codehaus.groovy.runtime.metaclass.ClosureMetaClass.invokeMethod(ClosureMetaClass.java:272)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:877)
+	at groovy.lang.Closure.call(Closure.java:412)
+	at groovy.lang.Closure.call(Closure.java:406)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.use(GroovyCategorySupport.java:106)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport$ThreadCategoryInfo.access$400(GroovyCategorySupport.java:64)
+	at org.codehaus.groovy.runtime.GroovyCategorySupport.use(GroovyCategorySupport.java:246)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.use(DefaultGroovyMethods.java:358)
+	at org.codehaus.groovy.runtime.dgm$895.invoke(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite$PogoMetaMethodSiteNoUnwrapNoCoerce.invoke(PogoMetaMethodSite.java:308)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaMethodSite.callCurrent(PogoMetaMethodSite.java:52)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:145)
+	at Template_1017.run(list.html:2)
+	... 14 more
+Caused by: java.sql.SQLException: Fonction non prise en charge
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:112)
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:146)
+	at oracle.jdbc.driver.DatabaseError.throwSqlException(DatabaseError.java:208)
+	at oracle.jdbc.driver.DatabaseError.throwUnsupportedFeatureSqlException(DatabaseError.java:499)
+	at oracle.jdbc.driver.ClobAccessor.getBytes(ClobAccessor.java:279)
+	at oracle.jdbc.driver.OracleResultSetImpl.getBytes(OracleResultSetImpl.java:708)
+	at oracle.jdbc.driver.OracleResultSet.getBytes(OracleResultSet.java:1625)
+	at org.hibernate.type.descriptor.sql.VarbinaryTypeDescriptor$2.doExtract(VarbinaryTypeDescriptor.java:61)
+	at org.hibernate.type.descriptor.sql.BasicExtractor.extract(BasicExtractor.java:64)
+	at org.hibernate.type.AbstractStandardBasicType.nullSafeGet(AbstractStandardBasicType.java:254)
+	at org.hibernate.type.AbstractStandardBasicType.nullSafeGet(AbstractStandardBasicType.java:250)
+	at org.hibernate.type.AbstractStandardBasicType.nullSafeGet(AbstractStandardBasicType.java:230)
+	at org.hibernate.type.AbstractStandardBasicType.hydrate(AbstractStandardBasicType.java:331)
+	at org.hibernate.persister.entity.AbstractEntityPersister.hydrate(AbstractEntityPersister.java:2283)
+	at org.hibernate.loader.Loader.loadFromResultSet(Loader.java:1527)
+	at org.hibernate.loader.Loader.instanceNotYetLoaded(Loader.java:1455)
+	at org.hibernate.loader.Loader.getRow(Loader.java:1355)
+	at org.hibernate.loader.Loader.getRowFromResultSet(Loader.java:611)
+	at org.hibernate.loader.Loader.doQuery(Loader.java:829)
+	at org.hibernate.loader.Loader.doQueryAndInitializeNonLazyCollections(Loader.java:274)
+	at org.hibernate.loader.Loader.doList(Loader.java:2542)
+	... 143 more
+[2014-12-19 11:59:44,961 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:59:44,961 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 11:59:46,382 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 11:59:46,385 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 11:59:46,387 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 11:59:46,387 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 11:59:46,390 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 11:59:46,392 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 11:59:46,395 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 11:59:46,407 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 11:59:46,410 DEBUG (Logger.java:232) insert shape
+ ][2014-12-19 11:59:46,410 DEBUG (Logger.java:232) 0
+ ][2014-12-19 11:59:46,412 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 11:59:46,412 DEBUG (Logger.java:232) insert shape
+ ][2014-12-19 11:59:46,412 DEBUG (Logger.java:232) 0
+ ][2014-12-19 12:04:17,463 ERROR (Logger.java:570) 
+
+@6khapep9j
+Internal Server Error (500) for request GET /delete/23442/occurrences
+
+Compilation error (In /app/manager/OccurrenceMG.java around line 209)
+The file /app/manager/OccurrenceMG.java could not be compiled. Error raised is : The method setDouble(int, double) in the type PreparedStatement is not applicable for the arguments (int, null)
+
+ ]play.exceptions.CompilationException: The method setDouble(int, double) in the type PreparedStatement is not applicable for the arguments (int, null)
+	at play.classloading.ApplicationCompiler$2.acceptResult(ApplicationCompiler.java:246)
+	at org.eclipse.jdt.internal.compiler.Compiler.handleInternalException(Compiler.java:676)
+	at org.eclipse.jdt.internal.compiler.Compiler.compile(Compiler.java:520)
+	at play.classloading.ApplicationCompiler.compile(ApplicationCompiler.java:282)
+	at play.classloading.ApplicationClasses$ApplicationClass.compile(ApplicationClasses.java:281)
+	at play.classloading.ApplicationClassloader.detectChanges(ApplicationClassloader.java:324)
+	at play.Play.detectChanges(Play.java:625)
+	at play.Invoker$Invocation.init(Invoker.java:198)
+	at Invocation.HTTP Request(Play!)
+[2014-12-19 12:04:51,607 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 12:04:51,607 INFO  (Logger.java:289) Temp directory deleted
+ ][2014-12-19 12:04:53,965 INFO  (Logger.java:289) INPN Harvester is started. Dataset = shape
+ ][2014-12-19 12:04:53,965 INFO  (Logger.java:289) Extracting directory: StINPN_geom.cpg
+ ][2014-12-19 12:04:53,968 INFO  (Logger.java:289) Extracting directory: StINPN_geom.dbf
+ ][2014-12-19 12:04:53,970 INFO  (Logger.java:289) Extracting directory: StINPN_geom.prj
+ ][2014-12-19 12:04:53,973 INFO  (Logger.java:289) Extracting directory: StINPN_geom.qpj
+ ][2014-12-19 12:04:53,975 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shp
+ ][2014-12-19 12:04:53,975 INFO  (Logger.java:289) Extracting directory: StINPN_geom.shx
+ ][2014-12-19 12:04:53,993 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 12:04:54,005 DEBUG (Logger.java:232) insert shape
+ ][2014-12-19 12:04:54,053 DEBUG (Logger.java:232) maille : map
+ ][2014-12-19 12:04:54,055 DEBUG (Logger.java:232) insert shape
+ ][2014-12-19 12:28:06,814 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 12:28:44,569 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 12:33:06,283 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 12:33:06,311 ERROR (Logger.java:399) TAXREF
+ ][2014-12-19 12:34:05,064 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 12:34:05,092 ERROR (Logger.java:399) TAXREF
+ ][2014-12-19 12:34:57,219 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 12:34:57,224 ERROR (Logger.java:399) TAXREF
+ ][2014-12-19 12:35:20,839 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 12:35:20,846 ERROR (Logger.java:399) TAXREF
+ ][2014-12-19 12:41:17,764 ERROR (Logger.java:570) 
+
+@6khapepjo
+Internal Server Error (500) for request POST /datasets/uploadresult
+
+Execution exception (In /app/controllers/Datasets.java around line 477)
+RuntimeException occured : java.io.FileNotFoundException: D:\dev\mnhn\tmp\taxref-Fri Dec 19 12:41:17 CET 2014 (La syntaxe du nom de fichier, de répertoire ou de volume est incorrecte)
+
+ ]play.exceptions.JavaExecutionException: java.io.FileNotFoundException: D:\dev\mnhn\tmp\taxref-Fri Dec 19 12:41:17 CET 2014 (La syntaxe du nom de fichier, de répertoire ou de volume est incorrecte)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:237)
+	at Invocation.HTTP Request(Play!)
+Caused by: java.lang.RuntimeException: java.io.FileNotFoundException: D:\dev\mnhn\tmp\taxref-Fri Dec 19 12:41:17 CET 2014 (La syntaxe du nom de fichier, de répertoire ou de volume est incorrecte)
+	at play.libs.Files.copy(Files.java:39)
+	at controllers.Datasets.uploadResult(Datasets.java:477)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	... 1 more
+Caused by: java.io.FileNotFoundException: D:\dev\mnhn\tmp\taxref-Fri Dec 19 12:41:17 CET 2014 (La syntaxe du nom de fichier, de répertoire ou de volume est incorrecte)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:221)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:171)
+	at play.libs.Files.copy(Files.java:32)
+	... 7 more
+[2014-12-19 12:41:49,374 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 12:41:49,404 ERROR (Logger.java:399) TAXREF
+ ][2014-12-19 12:43:03,446 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 12:43:03,451 ERROR (Logger.java:399) TAXREF
+ ][2014-12-19 13:17:46,695 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:17:46,703 ERROR (Logger.java:399) TAXREF
+ ][2014-12-19 13:17:46,703 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:17:46,755 ERROR (Logger.java:570) 
+
+@6khapepm1
+Internal Server Error (500) for request POST /datasets/uploadresult
+
+Execution exception (In /app/controllers/Datasets.java around line 501)
+NonUniqueResultException occured : result returns more than one elements
+
+ ]play.exceptions.JavaExecutionException: result returns more than one elements
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:237)
+	at Invocation.HTTP Request(Play!)
+Caused by: javax.persistence.NonUniqueResultException: result returns more than one elements
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:287)
+	at controllers.Datasets.uploadResult(Datasets.java:501)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	... 1 more
+[2014-12-19 13:18:38,352 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:18:38,380 ERROR (Logger.java:399) TAXREF
+ ][2014-12-19 13:18:38,380 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:18:38,440 ERROR (Logger.java:570) 
+
+@6khapepo4
+Internal Server Error (500) for request POST /datasets/uploadresult
+
+Execution exception (In /app/controllers/Datasets.java around line 501)
+NonUniqueResultException occured : result returns more than one elements
+
+ ]play.exceptions.JavaExecutionException: result returns more than one elements
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:237)
+	at Invocation.HTTP Request(Play!)
+Caused by: javax.persistence.NonUniqueResultException: result returns more than one elements
+	at org.hibernate.ejb.QueryImpl.getSingleResult(QueryImpl.java:287)
+	at controllers.Datasets.uploadResult(Datasets.java:501)
+	at play.mvc.ActionInvoker.invokeWithContinuation(ActionInvoker.java:557)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:508)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:484)
+	at play.mvc.ActionInvoker.invokeControllerMethod(ActionInvoker.java:479)
+	at play.mvc.ActionInvoker.invoke(ActionInvoker.java:161)
+	... 1 more
+[2014-12-19 13:20:36,779 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:36,801 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:36,889 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,069 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,084 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,104 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,134 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,146 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,164 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,209 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,219 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,246 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,264 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,279 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,291 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,304 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,321 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,339 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,351 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,361 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,374 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,384 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,401 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,431 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,449 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,466 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,484 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,501 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,514 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,524 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,536 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,554 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,564 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,604 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,624 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,649 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,666 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,686 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,699 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,711 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,721 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,734 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,751 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,764 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,774 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,796 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,809 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,821 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,841 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,851 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,871 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,881 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,894 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,909 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,929 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,939 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,951 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,964 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,974 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,986 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:37,996 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,009 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,019 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,031 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,054 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,071 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,089 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,106 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,144 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,154 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,164 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,179 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,211 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,229 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,246 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,264 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,284 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,296 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,314 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,326 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,339 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,351 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,369 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,381 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,394 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,409 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,419 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,431 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,444 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,474 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,491 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,509 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,526 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,539 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,564 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,576 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,591 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,621 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,641 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,659 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,676 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,689 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,706 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,719 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,736 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,749 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,759 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,771 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,789 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,801 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,811 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,824 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,836 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,851 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,861 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,874 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,886 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,896 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,916 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,929 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,941 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,959 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,971 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:38,981 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:39,001 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:39,014 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:39,024 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:39,044 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:39,054 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:39,086 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:39,104 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:39,126 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:39,144 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:39,156 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:39,166 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:39,191 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:39,209 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:39,224 DEBUG (Logger.java:232) taxref
+ ][2014-12-19 13:20:39,236 DEBUG (Logger.java:232) taxref
+ ]
